@@ -1,0 +1,172 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* @layer utilities {
+
+} */
+
+@layer components {
+  #header {
+    @apply fixed z-[52] top-0 left-0 right-0 py-[1rem] px-[2rem] flex justify-between flex-wrap items-center text-[1.3rem];
+  }
+
+  .Redirect_Exhibitions_Aside {
+    @apply transition-opacity  fade-in fade-out;
+  }
+
+  #Redirect_footer_Exhibitions {
+    @apply flex justify-between min-h-screen bg-[#171717] text-[#ffffff] px-32 pt-[8rem] items-start transition-all duration-500 ease-in text-[1rem];
+
+    @media screen and (max-width: 992px) {
+      flex-direction: column;
+      padding: 1.5rem 5rem;
+      justify-content: space-around;
+    }
+
+
+  }
+
+  /* redirect artists Header */
+  .h1_title {
+    @apply self-start text-6xl font-semibold
+  }
+
+  .redirect_tailwdinCss {
+    @apply mt-[5rem]
+  }
+
+  .wrapper__contents_tailwdin {
+    @apply px-[2rem]
+  }
+
+
+}
+
+
+@layer utilities {
+
+  /* this part is for the Aside of Exhibitions */
+  .fade-in {
+    opacity: 1;
+    position: fixed;
+    z-index: 80000;
+    top: 50%;
+    transition: opacity 1s ease;
+    -webkit-transition: opacity 1s ease;
+    -moz-transition: opacity 1s ease;
+    -ms-transition: opacity 1s ease;
+    -o-transition: opacity 1s ease;
+  }
+
+  .fade-out {
+    opacity: 0;
+    transition: opacity 1s ease;
+    -webkit-transition: opacity 1s ease;
+    -moz-transition: opacity 1s ease;
+    -ms-transition: opacity 1s ease;
+    -o-transition: opacity 1s ease;
+  }
+}
+
+/* this is for the redirect part of nav */
+
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* 
+.firsul_cls{
+  height: 100vh;
+  background-color: brown;
+  position: absolute;
+  right: 0;
+  left: 0;
+} */
+.wrappri {
+  display: flex;
+}
+
+@media only screen and (max-width : 1080px){
+  .wrappri{
+    display: none;
+  }
+}
+
+/* @media only screen and (min-width : 1080px){
+  .wrappri2{
+    display: none;
+  }
+ 
+
+} */
+
+/* wrappriO */
+
+.show_hide{
+
+}
+
+
+@media only screen and (min-width : 1080px){
+  .show_hide{
+    display: none;
+  }
+
+}
+
+@media only screen and (max-width : 1080px){
+  .show_hide{
+    display: flex;
+    cursor: pointer;
+  }
+
+}
+
+
+.firsul_cls{
+  height: 100vh;
+  background-color: brown;
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 0;
+  /* flex-direction: column; */
+  /* align-items: center; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  
+
+}
+
+.secul_cls {
+
+}
+
+.showClose{
+  position: absolute;
+  z-index: 1;
+  right: 30px;
+  top: 30px;
+  font-size: 2.5rem;
+  cursor: pointer;
+}
+
+
+

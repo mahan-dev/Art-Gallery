@@ -1,0 +1,312 @@
+:root {
+    --list-item-color: #000000;
+    --border-bottom: #ffffff;
+    --border-bottom-change : #000000;
+}
+
+#header {
+    /* position: absolute; */
+    /* z-index: 20; */
+    /* position: relative;
+    z-index: 52; */
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem 2rem;
+    /* background-color: chocolate; */
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    font-size: 1.3rem;
+    /* margin: 0 10px; */
+    /* min-height: 10vh; */
+    /* background-color: #ff6347; */
+}
+
+.isHeader{
+    transition: transform 0.5s ease;
+    -webkit-transition: transform 0.5s ease;
+    -moz-transition: transform 0.5s ease;
+    -ms-transition: transform 0.5s ease;
+    -o-transition: transform 0.5s ease;
+}
+.fade-in{
+    transform: translateY(0);
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+}
+
+.fade-out{
+    transform: translateY(-100%);
+    -webkit-transform: translateY(-100%);
+    -moz-transform: translateY(-100%);
+    -ms-transform: translateY(-100%);
+    -o-transform: translateY(-100%);
+}
+
+
+#logo {
+    display: flex;
+    cursor: pointer;
+}
+
+/* #navbar {} */
+
+/* .navbar_list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    list-style: none;
+} */
+
+/* #list__item {
+    margin-left: 10px;
+}
+
+#list__item a {
+    color: var(--list-item-color);
+    text-decoration: none;
+}
+
+#list__item:first-child {
+    margin: 0;
+} */
+
+.Exhibitions__dropper {
+    position: relative;
+}
+
+.item__dropdown__wrapper {
+    
+    position: absolute;
+    top: 0;
+    left: -100%;
+ 
+    padding-top: 20px;
+    padding-bottom: 10px;
+    margin-top: 25px;
+    list-style: none;
+    width: min-content;
+    /*width: 123px;
+    */
+    display: none;
+}
+
+/* .disable__hover:hover {
+    pointer-events: none; 
+    /* You can also add other styles as needed */
+/* cursor: pointer; 
+    cursor: auto;
+
+  } */
+
+/* .disable__dropdown__wrapper:hover, .disable__dropdown__wrapper{
+    display: none;
+    z-index: 0;
+} */
+
+.item__dropdown__wrapper #list__item {
+    margin-left: 0;
+}
+
+
+@keyframes showUp {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+        -webkit-transform: translateY(-10px);
+        -moz-transform: translateY(-10px);
+        -ms-transform: translateY(-10px);
+        -o-transform: translateY(-10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+        -o-transform: translateY(0);
+    }
+}
+
+.animate {
+    animation-name: showUp;
+    /* Name of your animation */
+    animation-duration: 1s;
+    /* Duration of your animation */
+    animation-iteration-count: 10;
+    /* Number of times the animation runs (1 = once) */
+}
+
+
+@keyframes reverseShowUp {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+}
+
+.reverse-animate {
+    animation-name: reverseShowUp;
+    animation-duration: 0.5s;
+}
+
+
+#search_signup {
+    display: flex;
+    align-items: center;
+}
+
+.signup_search {
+    margin-right: 15px;
+    cursor: pointer;
+    color: #ffffff;
+}
+
+.signup_search img {
+    color: #ffffff;
+}
+
+.signup {
+    padding: 0.3rem;
+    cursor: pointer;
+    background-color: var(--list-item-color);
+}
+
+.signup a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.menu_nav {
+    display: none;
+}
+
+
+@media screen and (max-width: 1080px) {
+
+    /* #navbar{
+        display: none;
+        font-size: 1.5rem;
+        line-height: 1.5;
+        /* pointer-events: none; 
+    } */
+    /* #navbar ul li:nth-child(2) a{
+        pointer-events: none;
+        cursor: pointer;
+        /* display: none; 
+        color: #f8e88b;
+    } */
+    /* .exception__a{
+        color: aqua;
+    } */
+    .menu_nav {
+        display: block;
+        cursor: pointer;
+        margin-right: 1.5rem;
+        color: #000000;
+    }
+}
+
+@media screen and (min-width: 1081px) {
+    .navbar_list {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        list-style: none;
+    }
+}
+
+#navbar__closeDropDown {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 30px;
+    cursor: pointer;
+}
+
+.activer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    z-index: 20;
+    background-color: chocolate;
+    display: none;
+    flex-direction: column;
+    list-style: none;
+    align-items: center;
+}
+.list_item {
+    position: relative;
+    border: none;
+    width: fit-content;
+}
+
+.list_item a, .Exhibitions__dropper a  {
+    color: #ffffff;
+}
+
+.Exhibitions__dropper a{
+    display: block;
+    width: fit-content;
+}
+
+
+.list_item a:after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    border-bottom: 2px solid border; 
+    transition: transform 0.5s ease-in-out;
+}
+
+/* .list_item a:hover:after {
+    transform: translateX(100%);
+  } */
+
+.list_item a:hover::after, 
+.Exhibitions__dropper a:hover::after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--border-bottom);
+    left: 0;
+    animation: slide-in 0.5s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+}
+
+.list_item a:not(hover)::after, 
+.Exhibitions__dropper a:not(hover)::after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--border-bottom);
+    left: 0;
+    animation: slide-in 0.5s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    -webkit-animation: slide-in 0.5s ease-in-out;
+}

@@ -1,0 +1,27 @@
+:root{
+    --inputColor : #000000;
+}
+
+input{
+    color: #000000;
+
+}
+input , input::placeholder {
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+.input_email{
+    outline: none;
+    border: none;
+    border-bottom: 2px solid red;
+    border-radius: 0.2rem;
+    padding: 0em 0.3em;
+    color: var(--inputColor);
+    -webkit-border-radius: 0.2rem;
+    -moz-border-radius: 0.2rem;
+    -ms-border-radius: 0.2rem;
+    -o-border-radius: 0.2rem;
+}
+.input_email::placeholder{
+    color:#000000;
+}
