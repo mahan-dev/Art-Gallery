@@ -123,7 +123,7 @@ const Navbar = () => {
  
     return (
         <>
-        {/* dfdf */}
+        
             <header id="header" className={`${NavStyles.isHeader} ${scrollingDown ? NavStyles["fade-out"] : NavStyles["fade-in"]}`} ref={headerRef} >
                 <section style={{ display: "none" }}>
                     <img src={MenuBar} alt="" width={30} />
