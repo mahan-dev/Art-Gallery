@@ -35,3 +35,4 @@ jobs:
           branch: gh-pages
           # Set the directory to deploy
           folder: dist
+          token: ${{ secrets.GITHUB_TOKEN }}
