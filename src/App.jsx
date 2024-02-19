@@ -25,7 +25,7 @@ const App = () => {
   return (
     <>
       <Switch>
-        <Route path="/Web3" component={Redirect_Web3} />
+        <Route path="/Art-Gallery/Web3" component={Redirect_Web3} />
         <Route path="/Store" component={Redirect_Store} />
         <Route path="/Exhibitions" component={Redirect_Exhibitions} />
         <Route path="/Voices" component={Redirect_Voices} />

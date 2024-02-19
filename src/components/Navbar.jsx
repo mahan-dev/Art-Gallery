@@ -164,7 +164,7 @@ const Navbar = () => {
                             </ul>
                         </li>
                         {/* id={NavStyles.list__item} */}
-                        <li className={`${NavStyles.list_item} mx-2`} > <Link to="/Web3">Web3</Link> </li>
+                        <li className={`${NavStyles.list_item} mx-2`} > <Link to="/Art-Gallery/Web3">Web3</Link> </li>
                         <li className={`${NavStyles.list_item} mx-2`} > <Link to="/Voices">Voices</Link> </li>
                         <li className={`${NavStyles.list_item} mx-2`} > <Link to="/Store">Store</Link> </li>
                         <li className={`${NavStyles.list_item} mx-2`} > <Link to="/News">News</Link> </li>
