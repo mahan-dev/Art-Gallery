@@ -15,4 +15,5 @@ export default defineConfig({
     },
     index: '/Art-Gallery/index.html', // Replace with your actual GitHub repository name
   },
+  // sd;lfdsm
 })
