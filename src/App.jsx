@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import Main from './components/Main';
 import Slider_image_Back from "./components/Slider_image_Back";
 import Slider_navigation from "./components/slider_navigation";
-import wrapper from "./Styles/WrapperOfMain.css";
+// import wrapper from "./Styles/WrapperOfMain.css"; this was entrupting codes
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 // import ImageCarousel from './components/ImageCarousel';
