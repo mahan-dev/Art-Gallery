@@ -95,7 +95,7 @@ const Navbar = () => {
     }
 
     const closeHandler = (event) => {
-        let checks = event.target;
+        // let checks = event.target;
         const refed = closeDropDownRef.current;
         if (refed && !refed.current) {
             console.log("is truinisdnfishiokfhs")
@@ -109,8 +109,16 @@ const Navbar = () => {
         setMenuClicked(!isMenuClicked);
     }
 
+    const [isPageLoaded, setIsPageLoaded] = useState(true);
 
     useEffect(() => {
+        const isReloaded = sessionStorage.getItem("isReloaded");
+        if(isReloaded){
+            setIsPageLoaded(true);
+            sessionStorage.removeItem("isReloaded");
+        } else{
+            setIsPageLoaded(false);
+        }
 
         window.addEventListener("scroll", handleScroll);
         return () => {
@@ -124,7 +132,8 @@ const Navbar = () => {
     return (
         <>
         
-            <header id="header" className={`${NavStyles.isHeader} ${scrollingDown ? NavStyles["fade-out"] : NavStyles["fade-in"]}`} ref={headerRef} >
+        <header  id="header" className={` ${NavStyles.isHeader} ${isPageLoaded ?  NavStyles["fade-out"] : scrollingDown ?  NavStyles["fade-out"]: NavStyles["fade-in"]}`} ref={headerRef} >
+            {/* <header  id="header" className={`${NavStyles.isHeader} ${scrollingDown ? NavStyles["fade-out"] : NavStyles["fade-in"]}`} ref={headerRef} > */}
                 <section style={{ display: "none" }}>
                     <img src={MenuBar} alt="" width={30} />
                 </section>
