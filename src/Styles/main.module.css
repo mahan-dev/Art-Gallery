@@ -108,11 +108,15 @@
 
 .grid__right__content__wrapper,
 .grid__right_left__content__wrapper {
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 100%;
+    max-height: 100%;
 
-    min-width: 270px;
+    /* min-width: 270px;
     max-width: 365px;
     min-height: 270px;
-    max-height: 365px;
+    max-height: 365px; */
 }
 
 .grid__right_left__content__wrapper>img,
