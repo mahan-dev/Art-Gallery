@@ -24,10 +24,9 @@ import closeNavbarDropdown from "../assets/navbarDropdownClose/xmark.svg";
 
 // Importing api
 
-
 const Navbar = () => {
     const [showHeader, setShowHeader] = useState(true);
-    const [scrollYS, setScrollY] = useState(0);
+    // const [scrollYS, setScrollY] = useState(0);
     const [isvisiii, setIsVisiiiii] = useState(true);
     //scrollssss
     const [scrollingDown, setScrollingDown] = useState(false);
@@ -50,13 +49,13 @@ const Navbar = () => {
     }
 
 
-    const [isDropdownVisible, setDropdownVisible] = useState(false);
+    // const [isDropdownVisible, setDropdownVisible] = useState(false);
 
     const [showList, SetShowDisplay] = useState(false);
     const [isMenuClicked, setMenuClicked] = useState(false);
     const [burger, burgerSetter] = useState(false);
     const [isMenuOpened, setMenu] = useState(false);
-    const [closeMenu, setCloseMenu] = useState(true);
+    // const [closeMenu, setCloseMenu] = useState(true);
 
     const closeDropDownRef = useRef(null);
 
@@ -94,24 +93,37 @@ const Navbar = () => {
 
     }
 
-    const closeHandler = (event) => {
-        // let checks = event.target;
-        const refed = closeDropDownRef.current;
-        if (refed && !refed.current) {
-            console.log("is truinisdnfishiokfhs")
-        }
-        else {
-            console.log("lksdhfklshdf");
-        }
+    // const closeHandler = (event) => {
+    //     // let checks = event.target;
+    //     const refed = closeDropDownRef.current;
+    //     if (refed && !refed.current.contains(event.target)) {
+    //         console.log("is truinisdnfishiokfhs")
+    //     }
+    //     else {
+    //         console.log("lksdhfklshdf");
+    //     }
 
+    //     const HtmlBodyScrollHidden = document.querySelector("body");
+    //     HtmlBodyScrollHidden.style.overflow = "visible";
+    //     setMenuClicked(!isMenuClicked);
+    // }
+
+    const [isPageLoaded, setIsPageLoaded] = useState(true);
+
+    const close_clickHandler = (event)=>{
+
+        if (closeDropDownRef.current && closeDropDownRef.current.contains(event.target)){
+            
+            console.log("IS CLICKING")
+        }
         const HtmlBodyScrollHidden = document.querySelector("body");
         HtmlBodyScrollHidden.style.overflow = "visible";
         setMenuClicked(!isMenuClicked);
     }
-
-    const [isPageLoaded, setIsPageLoaded] = useState(true);
+    
 
     useEffect(() => {
+
         const isReloaded = sessionStorage.getItem("isReloaded");
         if(isReloaded){
             setIsPageLoaded(true);
@@ -121,8 +133,11 @@ const Navbar = () => {
         }
 
         window.addEventListener("scroll", handleScroll);
+        // window.addEventListener("click", close_clickHandler)
         return () => {
             window.removeEventListener("scroll", handleScroll);
+            // window.removeEventListener("click", close_clickHandler);
+            
         }
 
     }, [previousScrollY]);
@@ -156,7 +171,7 @@ const Navbar = () => {
                 <section className='wrappriO'>
 
                     <img style={{ display: "none" }} onClick={CloseDropDownHandler} id={NavStyles.navbar__closeDropDown} src={closeNavbarDropdown} alt="" />
-                    <span onClick={closeHandler} ref={closeDropDownRef} className={isMenuClicked ? 'showClose' : "hidden"}>close</span>
+                    <span onClick={close_clickHandler} ref={closeDropDownRef} className={isMenuClicked ? 'showClose' : "hidden"}>close</span>
 
                     <ul className={`${isMenuClicked ? "firsul_cls" : "wrappri"}`} >
                         {/* {`${NavStyles.list_item}-${NavStyles.animLink} */}

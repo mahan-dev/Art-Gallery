@@ -272,8 +272,8 @@ const Redirect_Exhibitions = () => {
     const oncliTest = (eventName) => {
         const contentLogo = document.querySelector(`.spanContent`);
         if (contentLogo) {
-            const kosNane = eventName.target.innerText;
-            setContent(kosNane);
+            const inputName = eventName.target.innerText;
+            setContent(inputName);
         }
     }
 
@@ -282,7 +282,7 @@ const Redirect_Exhibitions = () => {
 
     const scrollTOTop = () => {
         // scroll.scrollToTop()
-        window.scrollTo
+        // window.scrollTo
     }
 
     return (
