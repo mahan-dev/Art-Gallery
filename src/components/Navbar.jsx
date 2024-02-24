@@ -120,6 +120,14 @@ const Navbar = () => {
         HtmlBodyScrollHidden.style.overflow = "visible";
         setMenuClicked(!isMenuClicked);
     }
+
+    const [visibility, setVisibility] = useState(false);
+
+    const handleItemOverflow = ()=>{
+
+        setVisibility(true)
+        document.body.style.overflow = "visible";
+    }
     
 
     useEffect(() => {
@@ -173,12 +181,12 @@ const Navbar = () => {
                     <img style={{ display: "none" }} onClick={CloseDropDownHandler} id={NavStyles.navbar__closeDropDown} src={closeNavbarDropdown} alt="" />
                     <span onClick={close_clickHandler} ref={closeDropDownRef} className={isMenuClicked ? 'showClose' : "hidden"}>close</span>
 
-                    <ul className={`${isMenuClicked ? "firsul_cls" : "wrappri"}`} >
+                    <ul style={{overflow: visibility ? "visible" : "hidden"}} className={`${isMenuClicked ? "firsul_cls" : "wrappri"}`} >
                         {/* {`${NavStyles.list_item}-${NavStyles.animLink} */}
-                        <li className={`${NavStyles.list_item} mx-2`} > <Link to="/artists">Artists</Link> </li>
+                        <li className={`${NavStyles.list_item} mx-2`} onClick={handleItemOverflow} > <Link to="/artists">Artists</Link> </li>
                         <li className={`${NavStyles.Exhibitions__dropper} list_item mx-2 `}>
                             {/* exception__a */}
-                            <Link id="exeption" style={{ cursor: "pointer" }} className={`${NavStyles.list_item}`} to="/Exhibitions">Exhibitions</Link> {/*need second class for hovering item link *}
+                            <Link id="exeption" style={{ cursor: "pointer" }} onClick={handleItemOverflow} className={`${NavStyles.list_item}`} to="/Exhibitions">Exhibitions</Link> {/*need second class for hovering item link *}
                             {/* <ul className={`${NavStyles.item__dropdown__wrapper} animate`}> */}
                             <ul className={`${NavStyles.item__dropdown__wrapper}`} >
                                 {/* <ul className={`${NavStyles.Exhibitions__dropper} ${disableHover ? NavStyles.disable__hover : ""}`}> */}
@@ -188,12 +196,12 @@ const Navbar = () => {
                             </ul>
                         </li>
                         {/* id={NavStyles.list__item} */}
-                        <li className={`${NavStyles.list_item} mx-2`} > <Link to="/Art-Gallery/Web3">Web3</Link> </li>
-                        <li className={`${NavStyles.list_item} mx-2`} > <Link to="/Voices">Voices</Link> </li>
-                        <li className={`${NavStyles.list_item} mx-2`} > <Link to="/Store">Store</Link> </li>
-                        <li className={`${NavStyles.list_item} mx-2`} > <Link to="/News">News</Link> </li>
-                        <li className={`${NavStyles.list_item} mx-2`} > <Link to="/About">About</Link> </li>
-                        <li className={`${NavStyles.list_item} mx-2`} > <Link to="/Contact">Contact</Link> </li>
+                        <li className={`${NavStyles.list_item} mx-2`} onClick={handleItemOverflow} > <Link to="/Art-Gallery/Web3">Web3</Link> </li>
+                        <li className={`${NavStyles.list_item} mx-2`} onClick={handleItemOverflow} > <Link to="/Voices">Voices</Link> </li>
+                        <li className={`${NavStyles.list_item} mx-2`} onClick={handleItemOverflow} > <Link to="/Store">Store</Link> </li>
+                        <li className={`${NavStyles.list_item} mx-2`} onClick={handleItemOverflow} > <Link to="/News">News</Link> </li>
+                        <li className={`${NavStyles.list_item} mx-2`} onClick={handleItemOverflow} > <Link to="/About">About</Link> </li>
+                        <li className={`${NavStyles.list_item} mx-2`} onClick={handleItemOverflow} > <Link to="/Contact">Contact</Link> </li>
                     </ul>
 
                 </section>
