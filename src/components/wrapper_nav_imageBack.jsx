@@ -5,6 +5,7 @@ import Navbar from './Navbar';
 import Slider_image_Back from './Slider_image_Back';
 import Footer from './Footer';
 import Main from './Main';
+import "../Styles/WrapperOfMain.css";
 
 
 const wrapper_nav_imageBack = () => {
