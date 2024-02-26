@@ -24,7 +24,7 @@ const App = () => {
 
   return (
 
-    <Router>
+    <Router basename="">
       <Routes>
         <Route path="/Web3" element={<Redirect_Web3 />} />
         <Route path="/Store" element={<Redirect_Store />} />
