@@ -8,7 +8,7 @@ import Main from './Main';
 import "../Styles/WrapperOfMain.css";
 
 
-const wrapper_nav_imageBack = () => {
+const WrapperNavImageBack = () => {
     return (
         <>
             <Navbar />
@@ -22,4 +22,4 @@ const wrapper_nav_imageBack = () => {
     );
 };
 
-export default wrapper_nav_imageBack;
+export default WrapperNavImageBack;

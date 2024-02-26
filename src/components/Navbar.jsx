@@ -21,6 +21,7 @@ import Slider_navigation from './slider_navigation';
 import Navbar_dropdown from "./navbar_dropdown"
 
 import closeNavbarDropdown from "../assets/navbarDropdownClose/xmark.svg";
+// import { usehis, useLocation } from 'react-router-dom';
 
 // Importing api
 
@@ -130,8 +131,17 @@ const Navbar = () => {
     }
     
 
+//     const history = useHistory();
+// const location = useLocation();
+// const navPath = (path) => {
+//     const currentPath = history.location.pathname;
+//     if (path !== currentPath) {
+//         history.push(path);
+//     } 
+// };
     useEffect(() => {
 
+    // navPath(location.pathname);
         const isReloaded = sessionStorage.getItem("isReloaded");
         if(isReloaded){
             setIsPageLoaded(true);
@@ -149,8 +159,6 @@ const Navbar = () => {
         }
 
     }, [previousScrollY]);
-  
-
  
     return (
         <>
@@ -196,7 +204,7 @@ const Navbar = () => {
                             </ul>
                         </li>
                         {/* id={NavStyles.list__item} */}
-                        <li className={`${NavStyles.list_item} mx-2`} onClick={handleItemOverflow} > <Link to="/Art-Gallery/Web3">Web3</Link> </li>
+                        <li className={`${NavStyles.list_item} mx-2`} onClick={handleItemOverflow} > <Link to="/Web3">Web3</Link> </li>
                         <li className={`${NavStyles.list_item} mx-2`} onClick={handleItemOverflow} > <Link to="/Voices">Voices</Link> </li>
                         <li className={`${NavStyles.list_item} mx-2`} onClick={handleItemOverflow} > <Link to="/Store">Store</Link> </li>
                         <li className={`${NavStyles.list_item} mx-2`} onClick={handleItemOverflow} > <Link to="/News">News</Link> </li>
