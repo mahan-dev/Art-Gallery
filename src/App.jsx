@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { HashRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Main from './components/Main';
 import Slider_image_Back from "./components/Slider_image_Back";
 import Slider_navigation from "./components/slider_navigation";
@@ -23,7 +23,8 @@ import Redirect_Contact from './components/Redirects/Redirect_Contact';
 const App = () => {
 
   return (
-    <>
+
+    <Router basename='Art-Gallery'>
       <Routes>
         <Route path="/Web3" element={<Redirect_Web3 />} />
         <Route path="/Store" element={<Redirect_Store />} />
@@ -35,7 +36,8 @@ const App = () => {
         <Route path="/artists" element={<Redirect_Artists />} />
         <Route path="/" element={<WrapperNavImageBack />} />
       </Routes>
-    </>
+    </Router>
+
   );
 };
 
