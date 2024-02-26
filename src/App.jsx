@@ -24,7 +24,7 @@ const App = () => {
 
   return (
 
-    <Router basename='Art-Gallery'>
+    <Router>
       <Routes>
         <Route path="/Web3" element={<Redirect_Web3 />} />
         <Route path="/Store" element={<Redirect_Store />} />
@@ -34,7 +34,7 @@ const App = () => {
         <Route path="/About" element={<Redirect_About />} />
         <Route path="/contact" element={<Redirect_Contact />} />
         <Route path="/artists" element={<Redirect_Artists />} />
-        <Route path="/" element={<WrapperNavImageBack />} />
+        <Route path="/Art-Gallery" element={<WrapperNavImageBack />} />
       </Routes>
     </Router>
 
