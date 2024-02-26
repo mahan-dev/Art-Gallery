@@ -16,9 +16,6 @@ import "aos/dist/aos.css";
 //   // container: 
 // });
 
-
 ReactDOM.createRoot(document.getElementById('root')).render(
-   
-      <App />
-   
+  <App />
 )
