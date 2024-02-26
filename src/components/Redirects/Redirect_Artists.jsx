@@ -11,7 +11,7 @@ import image4 from "../../assets/images/artists_pics/4.jpg";
 import image5 from "../../assets/images/artists_pics/5.jpg";
 import image6 from "../../assets/images/artists_pics/6.jpg";
 //
-const Redirect_Artists = () => {
+const RedirectArtists = () => {
     return (
         <div>
 
@@ -223,4 +223,4 @@ const Redirect_Artists = () => {
     );
 };
 
-export default Redirect_Artists;
+export default RedirectArtists;

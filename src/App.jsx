@@ -13,7 +13,7 @@ import Redirect_Web3 from './components/Redirects/Redirect_Web3';
 
 
 import WrapperNavImageBack from './components/WrapperNavImageBack';
-import Redirect_Artists from './components/Redirects/Redirect_Artists';
+import RedirectArtists from './components/Redirects/Redirect_Artists';
 import Redirect_Store from './components/Redirects/Redirect_Store';
 import Redirect_Exhibitions from './components/Redirects/Redirect_Exhibitions';
 import Redirect_Voices from './components/Redirects/Redirect_Voices';
@@ -33,7 +33,7 @@ const App = () => {
         <Route path="/News" element={<Redirect_News />} />
         <Route path="/About" element={<Redirect_About />} />
         <Route path="/contact" element={<Redirect_Contact />} />
-        <Route path="/artists" element={<Redirect_Artists />} />
+        <Route path="/artists" element={<RedirectArtists />} />
         <Route path="/Art-Gallery" element={<WrapperNavImageBack />} />
       </Routes>
     </Router>
