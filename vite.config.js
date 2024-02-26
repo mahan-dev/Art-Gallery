@@ -13,6 +13,6 @@ export default defineConfig({
     hmr: {
       overlay: false,
     },
-    index: '/index.html', // Replace with your actual GitHub repository name
+    index: '/Art-Gallery/index.html', // Replace with your actual GitHub repository name
   },
 })
