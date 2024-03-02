@@ -26,6 +26,7 @@
 
     @media screen and (max-width: 992px) {
       flex-direction: column;
+
       padding: 1.5rem 5rem;
       justify-content: space-around;
     }
@@ -42,8 +43,8 @@
     @apply mt-[5rem]
   }
 
-  .wrapper__contents_tailwdin {
-    @apply px-[2rem]
+  .wrapper__contents_tailwdind {
+    @apply px-[2rem] relative z-30
   }
 
 

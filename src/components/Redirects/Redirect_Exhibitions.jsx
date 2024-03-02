@@ -286,6 +286,8 @@ const Redirect_Exhibitions = () => {
     }
 
     return (
+        <section>
+
         <section className='flex flex-col min-h-screen'>
             <Navbar />
             <section className={`${styleExhibitions.wrapper_Exhibitions} w-full min-h-screen px-[11rem]`}>
@@ -421,9 +423,10 @@ const Redirect_Exhibitions = () => {
                     click
                 </button>
             </aside>
-            <Redirect_Exhibitions_Footer />
         </section>
+            <Redirect_Exhibitions_Footer />
 
+        </section>
     );
 };
 

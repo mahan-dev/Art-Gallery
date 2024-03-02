@@ -11,11 +11,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 const AuthorsNames = () => {
-    const pictureData = [
-        { id: 1, image: pic1, date: "7 March - 6 April 2023", name: "TYLER HOBBS", title: "Mechanical Hand", description: '', },
-        { id: 1, image: pic2, date: "7 March - 6 April 2023", name: "TYLER HOBBS", title: "Mechanical Hand", description: '', },
-        { id: 1, image: pic3, date: "7 March - 6 April 2023", name: "TYLER HOBBS", title: "Mechanical Hand", description: '', },
-    ]
+    
 
     const [pic, setPic] = useState(pic3);
 
@@ -54,6 +50,7 @@ const AuthorsNames = () => {
             duration: 1000,
             once: false,
             mirror: true,
+            offset: 85,
         })
 
 
