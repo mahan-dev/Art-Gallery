@@ -1,7 +1,9 @@
 .wrapper_Exhibitions{
-    margin-top: 12rem;
+    padding-top: 12rem;
     position: relative;
     z-index: 60;
+    margin-bottom: 100vh;
+    background: #ffffff;
     
 }
 

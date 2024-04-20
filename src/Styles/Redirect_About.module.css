@@ -1,0 +1,27 @@
+.Redirect_About{
+    height: 100vh;
+    background-image: url("../assets/images/image-1.jpg");
+    /* background-size: auto 100%; */
+    background-size: cover;
+    background-repeat: no-repeat;
+
+ 
+}
+.Container_Content{
+ 
+    display: grid;
+    gap:  0 50px ;
+    grid-template-columns: 1fr 1fr;
+}
+
+.About_Container{
+    padding:  5rem 4rem;
+}
+
+.About_Content_Container > section > div {
+    font-size: 1.3em;
+    line-height: 1.7;
+    text-align: justify;
+    word-wrap: break-word;
+
+}

@@ -1,0 +1,82 @@
+.Left_form>input::placeholder,
+.Left_form>section input::placeholder,
+.Left_form>textarea::placeholder {
+    color: #9c9c9c;
+
+}
+
+.Left_form>textarea:hover {
+    outline: none;
+    border: none;
+
+}
+
+.Left_form>section {
+    display: flex;
+    gap: 15px;
+}
+
+.Left_form>input , .Left_form > textarea ,.Left_form>section input {
+    width: 100%;
+    outline: none;
+    border-bottom: 1px solid #9c9c9c;
+    padding: 0.1rem;
+}
+
+.Left_form > textarea:hover{
+    border-bottom: 1px solid #9c9c9c;
+}
+
+.Left_form>input[type="checkbox"] {
+    accent-color: red;
+    border: none;
+    outline: none;
+    offset: none;
+    border: none !important;
+    border-style: none !important;
+    /* border */
+    color: inherit;
+    outline: none !important;
+    offset: none !important;
+    width: fit-content;
+    outline-color: none;
+    outline-offset: none;
+    outline-style: none;
+}
+
+.Left_form_Input{
+    min-width: 100px;
+}
+
+.Left_form> div > input[type="checkbox"]:hover {
+    cursor: pointer;
+
+}
+
+.Left_form>button {
+    border: 1px solid;
+    width: fit-content;
+    padding: 0.2rem;
+
+}
+
+.Left_form>input {
+    margin: 0.4rem 0;
+
+    /* font-size: 3; */
+}
+
+.Contents_Wrapper_Content{
+    font-size: 1.3em;
+    
+}
+
+.Contents_Wrapper_Content > p ,
+.Contents_Wrapper_Content > div > p
+{
+    line-height: 1.8;
+}
+
+.content_Header{
+    font-size: 1.8rem;
+}

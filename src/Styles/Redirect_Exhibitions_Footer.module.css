@@ -13,15 +13,19 @@ input , input::placeholder {
 .input_email{
     outline: none;
     border: none;
-    border-bottom: 2px solid red;
-    border-radius: 0.2rem;
+    border-radius: 20px;
     padding: 0em 0.3em;
     color: var(--inputColor);
-    -webkit-border-radius: 0.2rem;
-    -moz-border-radius: 0.2rem;
-    -ms-border-radius: 0.2rem;
-    -o-border-radius: 0.2rem;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
 }
 .input_email::placeholder{
     color:#000000;
 }
+
+.input_email:focus{
+    outline: none;
+}
+

@@ -56,7 +56,7 @@ const Sweeper = () => {
     <>
       <Swiper
         ref={swiperRef} {...swiperParams}
-  
+        loop={true}
         spaceBetween={20}
         effect={"fade"}
         pagination={{
@@ -65,7 +65,7 @@ const Sweeper = () => {
 
         slidesPerView={1}
         // modules={[Navigation,Pagination, EffectFade]}
-        className="mySwiper"
+        className="mySwiper_Main_Page"
       >
         <SwiperSlide onMouseLeave={handleMouseLeave} onMouseEnter={handleMouseEnter} className='swiper-slide'> <img src={image_1} alt=""  /> </SwiperSlide>
         <SwiperSlide onMouseLeave={handleMouseLeave} onMouseEnter={handleMouseEnter} className='swiper-slide'> <img src={image_2} alt=""  /> </SwiperSlide>

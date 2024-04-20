@@ -1,5 +1,4 @@
 .wrapper{
-    
     width: 100%;
     display: flex;
     justify-content: center;
@@ -15,12 +14,11 @@
     align-items: flex-start;
     word-break: break-all;
     width: 100%;
-    background-color: rgb(126, 225, 121);
+    background-color: #ffffff;
     margin-bottom: 100vh;
 }
 .wrapper_authors{
     width: 100%;
-    
     display: grid;
     grid-template-columns: repeat(3, minmax(0,1fr));
     gap: 0 50px;
@@ -57,6 +55,9 @@
     font-size: 2rem;
 }
 
+.ListViewLists{
+color: red;
+}
 
 
 

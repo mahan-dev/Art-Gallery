@@ -1,12 +1,12 @@
-
-.image_changing{
+.image_changing {
     transition: transform 0.5s ease;
     -webkit-transition: transform 0.5s ease;
     -moz-transition: transform 0.5s ease;
     -ms-transition: transform 0.5s ease;
     -o-transition: transform 0.5s ease;
 }
-.image_changing:hover{
+
+.image_changing:hover {
     transition: transform 0.5s ease;
     transform: rotate(90deg);
     -webkit-transform: rotate(90deg);
@@ -18,3 +18,123 @@
     -ms-transition: transform 0.5s ease;
     -o-transition: transform 0.5s ease;
 }
+
+.wrapper_Featured_content {
+    display: grid;
+    /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); */
+    grid-template-columns: 1fr 1fr;
+    gap: 0 50px;
+}
+
+/* THIS IS THE LEFT PART  */
+
+.left {}
+
+.left_image_container {
+    position: sticky;
+    top: 80px;
+}
+
+.left_image_container>img {
+    width: 100%;
+
+
+}
+
+.header__image {
+    background-image: url("../assets/images/redirectVoices-images/HeaderImageVoices.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* THIS IS THE RIGHT PART */
+
+.right {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 40px;
+
+}
+
+.right_image_container {
+    width: 100%;
+    height: auto;
+
+}
+
+.right_image_container>img {
+    width: 100%;
+}
+
+.wrapper_AboutContent {
+    background-color: cadetblue;
+    margin-top: 2rem;
+    /* display: grid;
+    grid-template-columns: 1fr 1fr; */
+    /* display: flex;
+    justify-content: center; */
+}
+
+.wrapperImagesContent {
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 0;
+}
+
+.wrapperImagesContent>img {
+    width: 100%;
+    padding: 2rem;
+}
+
+/* this is for essays part */
+
+.wrapperEssays_picContent {}
+
+.essays_pic_content {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 50px;
+}
+
+.pic_content_left>img {
+    width: 100%;
+
+}
+
+.pic_content_right {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 30px;
+
+}
+
+.right_rightSide {
+    display: grid;
+}
+
+
+.right_leftSide>section>img,
+.right_rightSide>section>img {
+
+    display: block;
+    width: 100%;
+
+}
+
+
+/* This is for media Queries */
+
+@media screen and (max-width: 1060px) {
+
+    .wrapper_Featured_content, .essays_pic_content{
+        
+    
+        grid-template-columns: auto;
+    }
+    
+}
+
+/* ESSAYS Section */

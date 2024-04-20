@@ -89,33 +89,11 @@ li:nth-child(2){
 `
 
 const Redirect_Exhibitions = () => {
+ 
+
     const buttonRef = useRef(null);
     const buttonRef2 = useRef(null);
-    // const buttonRef = useRef(null);
 
-
-
-    // const handleOutsideClick = (event) => {
-    //     if(  !buttonRef.current.contains(event.target)){
-    //         // setOpen(false);
-    //         console.log("is running ")
-
-    //     }
-    //     else(
-    //         console.log("wrong is running")
-    //     )
-    // };
-    // document.addEventListener("click", handleOutsideClick);
-
-
-
-
-    // return()=>{
-    //     document.removeEventListener("click", handleOutsideClick);
-    // }
-
-    // <Redirect_Exhibitions_Icon_Animation />
-    // document.querySelector("")
     const [icon, setIcon] = useState(true);
     const [icon2, setIcon2] = useState(true);
 
@@ -132,21 +110,21 @@ const Redirect_Exhibitions = () => {
         const currentScroll = window.scrollY;
         if (currentScroll > previousScrollY) {
             setScrollDown(true)
-            console.log(scrollDown);
+            // console.log(scrollDown);
         } else {
             setScrollDown(false)
-            console.log(scrollDown);
+            // console.log(scrollDown);
         }
         setPreviousScrollY(currentScroll);
-        console.log(currentScroll);
+        // console.log(currentScroll);
 
     }
     useEffect(() => {
-
+      
+         
         //  CLEAN CODE 
-        document.addEventListener("scroll", handleScroll);
-
-
+        
+        
         const addOutsideClickListener = (buttonRef, setIcon) => {
             const handleOutsideClick = (event) => {
                 if (buttonRef.current && !buttonRef.current.contains(event.target)) {
@@ -154,9 +132,10 @@ const Redirect_Exhibitions = () => {
                     console.log(icon);
                 }
                 else (console.log(icon))
-
-
+                
+                
             }
+            document.addEventListener("scroll", handleScroll);
             document.addEventListener("click", handleOutsideClick);
             console.log(icon);
             return () => {
@@ -250,9 +229,11 @@ const Redirect_Exhibitions = () => {
         //     console.log("Element not found");
         // }
         // console.log(buttonRef.current)
-
+        
 
     }, [previousScrollY]);
+
+    
 
     const ExhibitionToggle = (setIcon, currentIcon) => {
         setIcon(!currentIcon);
@@ -288,143 +269,134 @@ const Redirect_Exhibitions = () => {
     return (
         <section>
 
-        <section className='flex flex-col min-h-screen'>
+            <section className='flex flex-col min-h-screen'>
             <Navbar />
-            <section className={`${styleExhibitions.wrapper_Exhibitions} w-full min-h-screen px-[11rem]`}>
-                <section className="">
-                    <h1 className='text-[100px] font-bold'>EXHIBITIONS</h1>
-                    {/* <span>hi there</span> */}
-                    <section className="image_contents_container grid gap-8">
+                <section className={`${styleExhibitions.wrapper_Exhibitions} w-full min-h-screen px-[11rem] `}>
+                    <section className="">
+                        <h1 className='text-[100px] font-bold'>EXHIBITIONS</h1>
+                        {/* <span>hi there</span> */}
+                        <section className="image_contents_container grid gap-8">
 
-                        <section className={`${styleExhibitions.wrapperEchibitionTitleHeader} flex justify-between items-center`}>
+                            <section className={`${styleExhibitions.wrapperEchibitionTitleHeader} flex justify-between items-center`}>
 
-                            <p>Current</p>
-                            {/* <IconChanger open={open} onClick={iconEhibitionsHandler} ref={buttonRef} > */}
-                            <button className={styleExhibitions.ascDscButton} onClick={iconEhibitionsHandler} style={{ outline: "none" }} ref={buttonRef}>
-                                <span className={`${styleExhibitions.spanContent}  spanContent`}>{content}</span>
-                                {/* <ul className={`${icon} ? ${styleExhibitions.listDisplay} : ${styleExhibitions.listNone} `} style={{display : icon ? "none" : "block"}}> */}
-                                <ListStyledComponent open={icon}   >
-                                    <li onClick={oncliTest} style={{}}>ascending</li>
-                                    <li onClick={oncliTest} style={{}}>descending</li>
-                                </ListStyledComponent>
+                                <p>Current</p>
+                                {/* <IconChanger open={open} onClick={iconEhibitionsHandler} ref={buttonRef} > */}
+                                <button className={styleExhibitions.ascDscButton} onClick={iconEhibitionsHandler} style={{ outline: "none" }} ref={buttonRef}>
+                                    <span className={`${styleExhibitions.spanContent}  spanContent`}>{content}</span>
+                                    {/* <ul className={`${icon} ? ${styleExhibitions.listDisplay} : ${styleExhibitions.listNone} `} style={{display : icon ? "none" : "block"}}> */}
+                                    <ListStyledComponent open={icon}   >
+                                        <li onClick={oncliTest} style={{}}>ascending</li>
+                                        <li onClick={oncliTest} style={{}}>descending</li>
+                                    </ListStyledComponent>
 
-                                {/* </ul> */}
-                                <img src={arrowDown} alt="" width={50} height={60} onClick={iconEhibitionsHandler} style={{ display: icon ? "block" : 'none' }} />
-                                <img src={minus} alt="" width={50} height={60} onClick={iconEhibitionsHandler} style={{ display: icon ? "none" : 'block' }} />
-                            </button>
-                            {/* </IconChanger > */}
-                        </section>
-
-                        <section className={styleExhibitions.wrapper_content_exhibitions}>
-                            <img src={image1} alt="" width={505} height='' />
-                            <section className="image_content">
-                                {/* <a href="#"> */}
-                                {/* </a> */}
-
-                                <p>4 January - 3 February 2024</p>
-                                <h4 className='text-base'>PRACTICE MAKES PURRFECT</h4>
-                                <p className="text-2xl my-[1.5rem]">
-                                    Exploring the parallels between an athlete’s training and the artistic practice,
-                                    'Practice Makes Purrfect' combines images of tennis with Martinez's trademark dark sense
-                                    of humour to deep dive into ideas of competition and repetition.
-                                </p>
-                                <button className={styleExhibitions.button_explore}>
-                                    Explore now
+                                    {/* </ul> */}
+                                    <img src={arrowDown} alt="" width={50} height={60} onClick={iconEhibitionsHandler} style={{ display: icon ? "block" : 'none' }} />
+                                    <img src={minus} alt="" width={50} height={60} onClick={iconEhibitionsHandler} style={{ display: icon ? "none" : 'block' }} />
                                 </button>
+                                {/* </IconChanger > */}
                             </section>
-                        </section>
+
+                            <section className={styleExhibitions.wrapper_content_exhibitions}>
+                                <img src={image1} alt="" width={505} height='' />
+                                <section className="image_content">
+                                    {/* <a href="#"> */}
+                                    {/* </a> */}
+
+                                    <p>4 January - 3 February 2024</p>
+                                    <h4 className='text-base'>PRACTICE MAKES PURRFECT</h4>
+                                    <p className="text-2xl my-[1.5rem]">
+                                        Exploring the parallels between an athlete’s training and the artistic practice,
+                                        'Practice Makes Purrfect' combines images of tennis with Martinez's trademark dark sense
+                                        of humour to deep dive into ideas of competition and repetition.
+                                    </p>
+                                    <button className={styleExhibitions.button_explore}>
+                                        Explore now
+                                    </button>
+                                </section>
+                            </section>
 
 
-                        <section className={styleExhibitions.wrapper_content_exhibitions}>
-                            <img src={image1} alt="" width={505} height='' />
-                            <section className="image_content">
-                                {/* <a href="#"> */}
-                                {/* </a> */}
+                            <section className={styleExhibitions.wrapper_content_exhibitions}>
+                                <img src={image1} alt="" width={505} height='' />
+                                <section className="image_content">
+                                    {/* <a href="#"> */}
+                                    {/* </a> */}
 
-                                <p>4 January - 3 February 2024</p>
-                                <h4 className='text-base'>PRACTICE MAKES PURRFECT</h4>
-                                <p className="text-2xl my-[1.5rem]">
-                                    Exploring the parallels between an athlete’s training and the artistic practice,
-                                    'Practice Makes Purrfect' combines images of tennis with Martinez's trademark dark sense
-                                    of humour to deep dive into ideas of competition and repetition.
-                                </p>
-                                <button className={styleExhibitions.button_explore}>
-                                    Explore now
+                                    <p>4 January - 3 February 2024</p>
+                                    <h4 className='text-base'>PRACTICE MAKES PURRFECT</h4>
+                                    <p className="text-2xl my-[1.5rem]">
+                                        Exploring the parallels between an athlete’s training and the artistic practice,
+                                        'Practice Makes Purrfect' combines images of tennis with Martinez's trademark dark sense
+                                        of humour to deep dive into ideas of competition and repetition.
+                                    </p>
+                                    <button className={styleExhibitions.button_explore}>
+                                        Explore now
+                                    </button>
+                                </section>
+                            </section>
+                            <section className={`${styleExhibitions.wrapperEchibitionTitleHeader} flex justify-between items-center`}>
+
+                                <p>Forthcoming</p>
+                                {/* <IconChanger open={open} onClick={iconEhibitionsHandler} ref={buttonRef} > */}
+                                <button className={styleExhibitions.ascDscButton} onClick={iconEhibitionsHandler2} style={{ outline: "none" }} ref={buttonRef2}>
+                                    <span className={`${styleExhibitions.spanContent}  spanContent `}>{content}</span>
+                                    {/* <ul className={`${icon} ? ${styleExhibitions.listDisplay} : ${styleExhibitions.listNone} `} style={{display : icon ? "none" : "block"}}> */}
+                                    <ListStyledComponent open={icon2}   >
+                                        <li onClick={oncliTest} style={{}}>ascending</li>
+                                        <li onClick={oncliTest} style={{}}>descending</li>
+                                    </ListStyledComponent>
+                                    <img src={arrowDown} alt="" width={50} height={60} onClick={iconEhibitionsHandler} style={{ display: icon2 ? "block" : 'none' }} />
+                                    <img src={minus} alt="" width={50} height={60} onClick={iconEhibitionsHandler} style={{ display: icon2 ? "none" : 'block' }} />
+
+                                    {/* </ul> */}
                                 </button>
+                                {/* </IconChanger > */}
                             </section>
-                        </section>
-                        <section className={`${styleExhibitions.wrapperEchibitionTitleHeader} flex justify-between items-center`}>
-
-                            <p>Forthcoming</p>
-                            {/* <IconChanger open={open} onClick={iconEhibitionsHandler} ref={buttonRef} > */}
-                            <button className={styleExhibitions.ascDscButton} onClick={iconEhibitionsHandler2} style={{ outline: "none" }} ref={buttonRef2}>
-                                <span className={`${styleExhibitions.spanContent}  spanContent `}>{content}</span>
-                                {/* <ul className={`${icon} ? ${styleExhibitions.listDisplay} : ${styleExhibitions.listNone} `} style={{display : icon ? "none" : "block"}}> */}
-                                <ListStyledComponent open={icon2}   >
-                                    <li onClick={oncliTest} style={{}}>ascending</li>
-                                    <li onClick={oncliTest} style={{}}>descending</li>
-                                </ListStyledComponent>
-                                <img src={arrowDown} alt="" width={50} height={60} onClick={iconEhibitionsHandler} style={{ display: icon2 ? "block" : 'none' }} />
-                                <img src={minus} alt="" width={50} height={60} onClick={iconEhibitionsHandler} style={{ display: icon2 ? "none" : 'block' }} />
-
-                                {/* </ul> */}
-                            </button>
-                            {/* </IconChanger > */}
-                        </section>
-                        <section className={styleExhibitions.wrapper_content_exhibitions}>
+                            <section className={styleExhibitions.wrapper_content_exhibitions}>
 
 
-                            <img src={image1} alt="" width={505} height='' />
-                            <section className="image_content">
-                                {/* <a href="#"> */}
-                                {/* </a> */}
+                                <img src={image1} alt="" width={505} height='' />
+                                <section className="image_content">
+                                    {/* <a href="#"> */}
+                                    {/* </a> */}
 
-                                <p>4 January - 3 February 2024</p>
-                                <h4 className='text-base'>PRACTICE MAKES PURRFECT</h4>
-                                <p className="text-2xl my-[1.5rem]">
-                                    Exploring the parallels between an athlete’s training and the artistic practice,
-                                    'Practice Makes Purrfect' combines images of tennis with Martinez's trademark dark sense
-                                    of humour to deep dive into ideas of competition and repetition.
-                                </p>
-                                <button className={styleExhibitions.button_explore}>
-                                    Explore now
-                                </button>
+                                    <p>4 January - 3 February 2024</p>
+                                    <h4 className='text-base'>PRACTICE MAKES PURRFECT</h4>
+                                    <p className="text-2xl my-[1.5rem]">
+                                        Exploring the parallels between an athlete’s training and the artistic practice,
+                                        'Practice Makes Purrfect' combines images of tennis with Martinez's trademark dark sense
+                                        of humour to deep dive into ideas of competition and repetition.
+                                    </p>
+                                    <button className={styleExhibitions.button_explore}>
+                                        Explore now
+                                    </button>
+                                </section>
                             </section>
+
                         </section>
+
+
 
                     </section>
 
+                    <section className={styleExhibitions.wrapper_Content_Images}>
+
+                    </section>
+                    <section className={styleExhibitions.image_image_related_title}>
+                        <AuthorsNames /> 
+                    </section>
 
 
                 </section>
-
-                <section className={styleExhibitions.wrapper_Content_Images}>
-
-                </section>
-                <section className={styleExhibitions.image_image_related_title}>
-                    <AuthorsNames />
-                </section>
-
+               
+                {/* <aside className={`${scrollDown ? "fixed top-[50%]" : "none"}`}>
+                    
+                </aside> */}
+                           
+            <Redirect_Exhibitions_Footer />
 
             </section>
-            {/* <aside className={`${scrollDown ? "fixed top-[50%]" : "none"}`}> */}
-            <aside className={`Redirect_Exhibitions_Aside ${scrollDown ? "fade-in" : "fade-out"}`}>
-                {/* fadeIn  fadeOut */}
-
-                <section className='flex rotate-90 z-50'>
-                    <a href='#' className='mr-4'>archive </a>
-                    <a href='#'>current</a>
-                </section>
-                <Link to='wrapper_Exhibitions' smooth={true} duration={500}>
-                    scroll
-                </Link>
-                <br />
-                <button onClick={scrollTOTop}>
-                    click
-                </button>
-            </aside>
-        </section>
-            <Redirect_Exhibitions_Footer />
+            <Redirect_Exhibitions_Footer className={"lskdklsd"} />
 
         </section>
     );
@@ -437,3 +409,24 @@ export default Redirect_Exhibitions;
 
 // padding  3  6 rem  for main
 // and remove wrapper padding   just giving   flex  justify center 
+
+
+
+// </section>
+            {/* <aside className={`${scrollDown ? "fixed top-[50%]" : "none"}`}> */}
+            // <aside className={`Redirect_Exhibitions_Aside ${scrollDown ? "fade-in" : "fade-out"}`}>
+               
+
+            //     <section className='flex rotate-90 z-50'>
+            //         <a href='#' className='mr-4'>archive </a>
+            //         <a href='#'>current</a>
+            //     </section>
+            //     <Link to='wrapper_Exhibitions' smooth={true} duration={500}>
+            //         scroll
+            //     </Link>
+            //     <br />
+            //     <button onClick={scrollTOTop}>
+            //         click
+            //     </button>
+            // </aside>
+        // </section>

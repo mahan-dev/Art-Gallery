@@ -1,13 +1,8 @@
-import { useEffect, useState } from "react";
-// import React from 'react';
+
 import Styles_main from "../Styles/main.module.css";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
-// import image_1 from "../assets/images/image-1.jpg";
-// import image_2 from "../assets/images/image-2.jpg";
-// import image_3 from "../assets/images/image-3.jpg";
-
 
 import MainStructure from './MainStructure';
 const Main = () => {

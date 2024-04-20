@@ -1,0 +1,32 @@
+.mySwiper {
+    position: relative;
+    padding: 0 2rem;
+}
+
+.mySwiper .swiper-slide {
+    height: auto;
+    
+    background: none;
+}
+
+.mySwiper .swiper-slide img {
+    position: relative;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+
+    color: #000000;
+}
+
+.swiper-button-next {
+    right: 0;
+}
+
+.swiper-button-prev {
+    left: 0;
+}
+
+.swiper-wrapper{
+    background: #ffffff;
+}

@@ -1,46 +1,15 @@
-import React, {useEffect, useState} from 'react';
+import  { useState} from 'react';
 import Styles_main from "../Styles/main.module.css"
 // Images START
 import image_1 from "../assets/images/image-1.jpg";
 import image_2 from "../assets/images/image-2.jpg";
 import image_3 from "../assets/images/image-3.jpg";
-import SymbolCoinCondition from './SymbolCoinCondition';
-// import SymbolCoinCondition from './SymbolCoinCondition';
-// import image_3 from "../assets/images/image-3.jpg";
-// import image_3 from "../assets/images/image-3.jpg;
-// Images END
 
-// START Import CSS NFTS WRAPPER
-
-// END  Import CSS NFTS WRAPPER
 
 import { getApi } from './ApiCoinPic';
 
 const MainStructure = ({ EXHIBITIONS, VOICES, NEWS, EDITIONS, NFTs }) => {
-    // const SymbolCoinCondition = ({sibling})=>{
-    //     const shouldShow = sibling === "btc";
-    //     return(
-    //         <div>
-    //             {shouldShow && <p>show something for btc</p>}
-    //         </div>
-    //     )
-    
-    // }
 
-
-    const [coinList, setCoinList] = useState([]);
-    // useEffect(() => {
-    //     const fetchDataApi = async () => {
-    //         const data = await getApi()
-    //         setCoinList(data);
-    //         console.log(data)
-    //     }
-    //     fetchDataApi();
-
-    // }, []);
-    // const filterdCoin = coinList.filter((coin) => coin.symbol ==="btc");
-
-    // const filterdCoin = coinList.filter((coin)=> coin.symbol==="btc");
     return (
         <section>
             {/* {section === "NFTs" && (
@@ -50,27 +19,7 @@ const MainStructure = ({ EXHIBITIONS, VOICES, NEWS, EDITIONS, NFTs }) => {
 
                 <div className='NfPtsWrapper'>
                     <section>
-                        
-                        {
-                            // filterdCoin.map((coin) =>(
-                            //     <div key={coin.id}>
-                            //         <img src={coin.image} alt="cr" />
-                            //     </div>
-                            // ))
-                            // filterdCoin.map((coin)=>(
-                            //     <div key={coin.id}>
-                            //         <img src={coin.image} alt="btc" />
-                            //     </div>
-                            // ))
-                            // // coinList.map(coin => <div key={coin.id} >
-                            //     {/* <img src={coin.image} alt="crypto" /> */}
-                            //     // <SymbolCoinCondition sibling={coin.symbol}  />
-                            //     {/* <SymbolCoinCondition sibling={coin.symbol} /> */}
-                            //     {/* {SymbolCoinCondition(coin.symbol)} */}d
-
-                            //     {/* {console.log(coin.symbol)} */}
-                            // // </div>)
-                        }
+                   
                     </section>
 
                     <section id={Styles_main.main_grid}>
@@ -190,7 +139,7 @@ const MainStructure = ({ EXHIBITIONS, VOICES, NEWS, EDITIONS, NFTs }) => {
             )}
 
             {/* Not section */}
-
+            
             {!NFTs && (
                 <section id={Styles_main.main_grid}>
                     {/* Left Side */}
@@ -198,9 +147,8 @@ const MainStructure = ({ EXHIBITIONS, VOICES, NEWS, EDITIONS, NFTs }) => {
                         <section>
                             <img src={image_1} alt="IMAGE" width={"100%"} style={{ display: "block" }} />
                             <p> this is our destiny </p>
-                            <section> this is the grandpa's story
-                            </section>
-                            <span>this is test`</span>
+                            <section> this is the grandpa story</section>
+                            <section>this is test`</section>
                         </section>
                         
 
