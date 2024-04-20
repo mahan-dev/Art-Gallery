@@ -53,7 +53,6 @@ const App = () => {
           </Routes>
         </Router>
         {/* <Product /> */}
-        {/* ;ldfsm */}
       </Redirect_Store_CartContext>
       </Rediret_Store_Product_Context_Provider>
     </>

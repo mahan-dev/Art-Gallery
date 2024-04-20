@@ -111,8 +111,8 @@ const Redirect_Store = ({ children }) => {
             <section className="flex px-3">
                 <section>
                     <section>
-                        <a onClick={sortByOldest} href="/#/Store" className="mr-4">oldest</a>
-                        <a onClick={sortByNewest} href="/#/Store">newest</a>
+                        <a onClick={sortByOldest} style={{ cursor: "pointer"}} className="mr-4">oldest</a>
+                        <a onClick={sortByNewest} style={{ cursor: "pointer"}}>newest</a>
                     </section>
 
 
@@ -143,7 +143,7 @@ const Redirect_Store = ({ children }) => {
                 <aside className=" -order-1 px-4  sticky  store_aside">
                     <section className=" sticky top-4">
                         <input type="text" placeholder="search for an item" onChange={searchProduct} className="outline-none" />
-                        <div>;ldfsjg;</div>
+                        
                     </section>
 
                 </aside>
