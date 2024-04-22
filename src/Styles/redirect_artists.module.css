@@ -60,8 +60,30 @@ color: red;
 }
 
 
+.assssss{
+    background-color: rgb(255, 255, 255);
+    width: 500px;
+}
+.wrapper{
+    position: relative;
+    z-index: 50;
+    width: 100%;
+    background-color: blue;
+}
 
-@media only screen and (max-width : 768px){
+.wrapper__contents{
+    position: relative;
+    z-index: 50;
+     padding: 0 5rem;
+    background-color: #ffffff;
+}
+
+@media screen and (min-width: 768px) and (max-width :1200px) {
+  
+  
+  }
+  
+/* @media only screen and (max-width : 768px){
     .wrapper_authors{
         display: grid;
        grid-template-columns: repeat(2,minmax(0,1fr));
@@ -72,4 +94,10 @@ color: red;
         display: grid;
        grid-template-columns: repeat(1,minmax(0,1fr));
     }
+  } */
+
+  .imageBg{
+    background-image: url("../assets/images/artists_pics/5.jpg");
+    height: 100%;
+    object-fit: cover;
   }

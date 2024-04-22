@@ -111,6 +111,10 @@
 
 }
 
+.pic_content_right > section {
+    font-size: 1.2rem;
+}
+
 .right_rightSide {
     display: grid;
 }
@@ -127,7 +131,7 @@
 
 /* This is for media Queries */
 
-@media screen and (max-width: 1060px) {
+@media screen and (max-width: 1222px) {
 
     .wrapper_Featured_content, .essays_pic_content{
         
@@ -136,5 +140,16 @@
     }
     
 }
+@media screen and (max-width : 768px)  {
+    .h2_title {
+        margin: 0 auto;
+    }
+}
+@media screen and (min-width : 769px)  {
+    .h2_title {
+        margin-left: 10rem;
+    }
+}
+
 
 /* ESSAYS Section */

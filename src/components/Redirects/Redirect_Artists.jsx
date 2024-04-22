@@ -20,19 +20,6 @@ import "aos/dist/aos.css";
 
 
 const RedirectArtists = () => {
-    // const [previousScroll, setPreviousScroll] = useState(null);/
-    // const [scrolldown, setScrollDown] = useState(false);
-    // const controlScroll = () => {
-    //     const currentScroll = window.scrollY;
-    //     if (currentScroll > previousScroll) {
-    //         setScrollDown(true);
-    //     }
-    //     else {
-    //         setScrollDown(false);
-    //     }
-    //     setPreviousScroll(currentScroll);
-    // }
-
     const [scrollDirection, setScrollDirection] = useState('down');
     const [previousScrollY, setPreviousScrollY] = useState(0);
     const [scrollDown, setScrollDown] = useState(false);
@@ -41,7 +28,6 @@ const RedirectArtists = () => {
     // State for Aside
     const [visibleListView, setVisibleListView] = useState(false);
     const [visibleGrid, setVisibleGrid] = useState(false);
-    const [footerVisibile, setFooterVisibile] = useState(false);
     // State for Aside
 
 
@@ -66,20 +52,7 @@ const RedirectArtists = () => {
         } else if (window.scrollY > wrapperContentOffset) {
             setScrollDown(true)
         }
-
-
-        // this is the prevous code for running the handle Scroller!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-        // if (currentScroll > previousScrollY) {
-        //     setScrollDown(true)
-        //     // console.log(scrollDown)sdjfsdjfsdpofsdfd;
-        // } else {
-        //     setScrollDown(false)
-        //     console.log(scrollDown);
-        // }
         setPreviousScrollY(window.scrollY);
-        // console.log(currentScroll); werwerwerewrwer
-
     }
 
     const scrollTOTop = () => {
@@ -103,7 +76,7 @@ const RedirectArtists = () => {
 
     // const [elementEnd, setElementEnd] = 
     const [elementEnd, setElementEnd] = useState(false);
-    
+
     const isElementAtEnd = (element) => {
         // if (!element) return false; // Check if the element exists
         const rect = element.getBoundingClientRect();
@@ -149,7 +122,7 @@ const RedirectArtists = () => {
         }
 
     }
-    
+
     useEffect(() => {
         
         // i should check this code to see !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 
@@ -157,7 +130,7 @@ const RedirectArtists = () => {
         // if(isInFooter === "true"){
         //     setScrollDown(false);
         // }
-        
+
         // if (isElementAtEnd) {
         //     console.log(isElementAtEnd)
         //     setScrollDown(false);
@@ -171,7 +144,7 @@ const RedirectArtists = () => {
             anchorPlacement: 'top-bottom',
             offset: 200,
         })
-    
+
         // End Aos Part
 
         document.addEventListener("scroll", handleScroll);
@@ -189,15 +162,17 @@ const RedirectArtists = () => {
         <div className='relative z-40'>
             <Navbar />
 
-            <section className={`${redirect_artists.wrapper}`}>
+            <section className={`${redirect_artists.wrapper} bg-red-500`}>
+                {/* wrapper__contents_tailwdind for below section */}
                 <section id="listViewContent" className={`${redirect_artists.wrapper__contents} wrapper__contents_tailwdind`}>
+
                     <h1 id="listzz" className="wrapper__contents_h1_title  ">ARTISTS</h1>
                     <section className={`${redirect_artists.wrapper_authors} redirect_tailwdinCss`}>
-                       
+
                         <div><Link to="#">ESTHER JANSSEN</Link></div>
                         <div><Link to="#">MAURO C. MARTINEZ</Link></div>
                         <div><Link to="#">MAURO C. MARTINEZ</Link></div>
-                        <div><Link to="#">MAURO C. MARTINEZ</Link></div>
+                        <div><Link to="#">MAUROwrapper__contents_tailwdind C. MARTINEZ</Link></div>
                         <div><Link to="#">STHENJWA LUTHULI</Link></div>
                         <div><Link to="#">name author</Link></div>
                         <div><Link to="#">JEREMY OLSON</Link></div>
@@ -221,6 +196,7 @@ const RedirectArtists = () => {
                         <div><Link to="#">name author</Link></div>
                         <div><Link to="#">JESS ALLEN</Link></div>
                     </section>
+
 
                     <section id="GridView" className={redirect_artists.artists_wrapper_image}>
                         <div className={`${redirect_artists.image_wrapper} ${scrollDirection === "down" ? "fade-up" : "fade-down"}`} data-aos="fade-up">
@@ -248,10 +224,17 @@ const RedirectArtists = () => {
                             </div>
                         </div>
                         <div className={`${redirect_artists.image_wrapper} ${scrollDirection === "down" ? "fade-up" : "fade-down"}`} data-aos="fade-up" >
+                            {/* there was a pic */}
+                            {/* <section> */}
                             <img src={image5} alt="" />
+                            {/* <section className={`${redirect_artists.imageBg}`}>
+
+</section> */}
                             <div>
                                 <p>name family-name</p>
                             </div>
+                            {/* </section> */}
+
                         </div>
                         <div className={`${redirect_artists.image_wrapper} ${scrollDirection === "down" ? "fade-up" : "fade-down"}`} data-aos="fade-up" >
                             <img src={image6} alt="" />
@@ -390,6 +373,7 @@ const RedirectArtists = () => {
                             </div>
                         </div>
                     </section>
+
                 </section>
                 <aside className={`Redirect_Artists_Aside ${scrollDown ? "fade-in" : "fade-out"}`}>
                     {/* fadeIn  fadeOut */}
@@ -400,7 +384,7 @@ const RedirectArtists = () => {
                     </section>
                     {/* <Link to='wrapper_Exhibitions' smooth={true} duration={500}>
                     scroll
-                    </Link> */}
+                </Link> */}
                 </aside>
                 {/* ListViewLists
                     GridView */}

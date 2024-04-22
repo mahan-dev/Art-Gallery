@@ -13,12 +13,33 @@ import Swiper_Slide_Archive from "../Redirects/Swiper_Slide_Archive";
 
 // import sweeper 
 import Swiper from "./Swiper_redirect_voices_slider";
+import { useEffect, useState } from "react";
 // import Swiper_slide from "";
 
 // import parallex of react scrolling 
-
-
 const Redirect_Voices = () => {
+    
+        const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+        const [newFont, setNewFont] = useState(null);
+      
+        useEffect(() => {
+          const handleResize = () => {
+            const width = window.innerWidth;
+            const newFontGrabber = width / 100;
+            setNewFont(newFontGrabber);
+            setWindowWidth(width)
+          };
+      
+          window.addEventListener('resize', handleResize);
+      
+          return () => {
+            window.removeEventListener('resize', handleResize);
+          };
+        }, []);
+  
+    
+    
+      
     return (
         <section className={`${""} `}>
 
@@ -31,14 +52,14 @@ const Redirect_Voices = () => {
             }}>
 
                 <Navbar />
-                <h2 className="flex items-center ml-40  text-[10rem] text-cyan-50 ">Voices</h2>
+                <h2 style={{  fontSize: windowWidth < 1440 ? `${newFont}rem ` : `16rem` }} className={`${styleVoices.h2_title} flex items-center  text-[18rem] text-cyan-50 `}>Voices</h2>
 
             </section>
             <section className="wrapper_voices_contents px-8">
                 <section className="pt-8 w-full">
                     <section className="relative">
                         <div className="sticky top-[100px]"><p className="text-[4rem]  mr-5 ">Voices</p></div>
-                        <section className="flex mt-[0]  ">
+                        <section className="flex mt-[0] flex-col justify-start  ">
                             <div className="flex m-4 mt-[13rem]">
 
                                 <p className="text-2xl w-[700px] text-wrap">Voices is an ideas-driven digital programme intended to spark critical

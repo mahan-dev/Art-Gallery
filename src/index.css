@@ -31,7 +31,7 @@
 
 
   #Redirect_footer_Exhibitions {
-    @apply flex justify-between min-h-screen bg-[#171717] text-[#ffffff] px-32 pt-[8rem] items-start transition-all duration-500 ease-in text-[1rem];
+    @apply flex justify-between gap-[50px] min-h-screen bg-[#171717] text-[#ffffff] px-32 pt-[8rem] items-start transition-all duration-500 ease-in text-[1rem];
 
     @media screen and (max-width: 992px) {
       flex-direction: column;

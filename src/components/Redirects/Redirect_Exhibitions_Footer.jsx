@@ -102,9 +102,9 @@ const Redirect_Exhibitions_Footer = ({ className }) => {
 
     return (
         <section className={`footer_Wrapper ${className}`}>
-            <section id="Redirect_footer_Exhibitions" >
+            <section id="Redirect_footer_Exhibitions" className='' >
 
-                <section className='mb-4 section-left'>
+                <section className={`${Styles.font_size} mb-4 section-left`}>
                     <h2 className='mb-6'>Unit, Mayfair</h2>
                     <div>
                         <p>3 Hanover Square, Mayfair, W1S 1HD</p>
@@ -133,23 +133,23 @@ const Redirect_Exhibitions_Footer = ({ className }) => {
 
                 </section>
 
-                <section className='mb-4   section-middle'>
-                    <h2 className='mb-6'>Press Enquiries</h2>
+                <section className= {`${Styles.font_size} mb-4   section-middle`}>
+                    <h2 className= "mb-6" >Press Enquiries</h2>
                     <p>For all press enquiries please contact us at;</p>
                     <p>+44 020 7494 2035</p>
                     <a>press@unitlondon.com</a>
                 </section>
 
-                <section className='mb-4 section-right' >
+                <section className={`${Styles.font_size} mb-4 section-right`} >
                     <h2 className='mb-6'>Stay in touch</h2>
 
 
                     <section className={`${Styles.icons_wrapper} flex mb-6 items-center`}>
 
-                        <img src={facebookIcon} alt="" style={{ width: "20px", height: "20px", cursor: "pointer" }} />
-                        <img src={X_TwitterIcon} alt="" style={{ width: "20px", height: "20px", cursor: "pointer" }} className='ml-2' />
-                        <img src={InstagramIcon} alt="" style={{ width: "20px", height: "20px", cursor: "pointer" }} className='ml-2' />
-                        <img src={LinkedinIcon} alt="" style={{ width: "20px", height: "20px", cursor: "pointer" }} className='ml-2' />
+                        <img src={facebookIcon} alt="" style={{ width: "30px", height: "30px", cursor: "pointer" }} />
+                        <img src={X_TwitterIcon} alt="" style={{ width: "30px", height: "30px", cursor: "pointer" }} className='ml-2' />
+                        <img src={InstagramIcon} alt="" style={{ width: "30px", height: "30px", cursor: "pointer" }} className='ml-2' />
+                        <img src={LinkedinIcon} alt="" style={{ width: "30px", height: "30px", cursor: "pointer" }} className='ml-2' />
                     </section>
 
                     <form action="" className='' onSubmit={handleSubmit}>
@@ -169,7 +169,7 @@ const Redirect_Exhibitions_Footer = ({ className }) => {
 
                         </section>
                     </form>
-                    <span ref={emailMessage_Ref} className='w-[200px] inline-block' >{errorMessage}</span>
+                    <span ref={emailMessage_Ref} className='w-[200px] inline-block text-nowrap' >{errorMessage}</span>
 
                 </section>
             </section>
