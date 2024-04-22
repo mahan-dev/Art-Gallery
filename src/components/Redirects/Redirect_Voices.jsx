@@ -19,23 +19,26 @@ import { useEffect, useState } from "react";
 // import parallex of react scrolling 
 const Redirect_Voices = () => {
     
-        const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-        const [newFont, setNewFont] = useState(null);
-      
-        useEffect(() => {
-          const handleResize = () => {
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+    const [newFont, setNewFont] = useState(window.innerHeight / 100);
+
+    useEffect(() => {
+        const handleResize = () => {
             const width = window.innerWidth;
             const newFontGrabber = width / 100;
             setNewFont(newFontGrabber);
-            setWindowWidth(width)
-          };
-      
-          window.addEventListener('resize', handleResize);
-      
-          return () => {
+            setWindowWidth(window);
+        };
+
+        // Initial setup
+        handleResize();
+
+        window.addEventListener('resize', handleResize);
+
+        return () => {
             window.removeEventListener('resize', handleResize);
-          };
-        }, []);
+        };
+    }, []);
   
     
     
@@ -52,7 +55,7 @@ const Redirect_Voices = () => {
             }}>
 
                 <Navbar />
-                <h2 style={{  fontSize: windowWidth < 1440 ? `${newFont}rem ` : `16rem` }} className={`${styleVoices.h2_title} flex items-center  text-[18rem] text-cyan-50 `}>Voices</h2>
+                <h2 style={{  fontSize: windowWidth < 770 ? `${newFont}rem ` : `8rem` }} className={`${styleVoices.h2_title} flex items-center  text-[18rem] text-cyan-50 `}>Voices</h2>
 
             </section>
             <section className="wrapper_voices_contents px-8">
