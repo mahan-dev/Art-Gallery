@@ -128,6 +128,15 @@
 
 }
 
+.lef_content_imageSticky{
+    top: 80px;
+    position: sticky;
+}
+
+.imageStickyImg{
+    min-width: 200px;
+    max-width: 600px;
+}
 
 /* This is for media Queries */
 
@@ -154,6 +163,14 @@
 @media screen and (max-width : 548px)  {
     .right, .pic_content_right{
         grid-template-columns: auto;
+    }
+    .lef_content_imageSticky{
+        position:sticky;
+
+    }
+    .imageStickyImg{
+        min-width: none;
+        max-width: none;
     }
 }
 

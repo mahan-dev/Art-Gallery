@@ -272,8 +272,8 @@ const Redirect_Voices = () => {
 
                         <section className={`${styleVoices.essays_pic_content}`}>
                             <section className={`${styleVoices.pic_content_left} `}>
-                                <section className="sticky top-[80px]">
-                                    <img src={TestImage} alt="" style={{ minWidth: "200px", maxWidth: "600px" }} />
+                                <section className={Redirect_Voices.lef_content_imageSticky}>
+                                    <img src={TestImage} alt="" className={`${Redirect_Voices.imageStickyImg}`} />
                                     <h3 className="text-3xl max-w-[600px]"> Wet Round Time: Phyllida Bluemel on Nettle Grellier	</h3>
                                 </section>
 
