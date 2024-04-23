@@ -151,5 +151,11 @@
     }
 }
 
+@media screen and (max-width : 548px)  {
+    .right, .pic_content_right{
+        grid-template-columns: auto;
+    }
+}
+
 
 /* ESSAYS Section */
