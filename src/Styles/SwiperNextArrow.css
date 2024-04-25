@@ -5,8 +5,7 @@
 
 .mySwiper .swiper-slide {
     height: auto;
-    
-    background: none;
+    /* background: none; */
 }
 
 .mySwiper .swiper-slide img {
@@ -29,4 +28,11 @@
 
 .swiper-wrapper{
     background: #ffffff;
+}
+
+@media screen and (max-width: 530px) {
+    .mySwiper .swiper-slide img {
+        height: 500px;
+        width: 400px;
+    }
 }
