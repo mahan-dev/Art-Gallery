@@ -22,9 +22,12 @@
 
 }
 
-.spanContent{
-    border-bottom: 2px solid #000000;
-    padding-bottom: 1rem;
+.wrapper_content {
+    display: flex;
+    align-items: center;
+
+
+     border-bottom: 2px solid #000000;
 }
 /* section
 {
@@ -84,7 +87,7 @@
  
 }
 
-.ascDscButton > img{
+.wrapper_content > img{
     width: 1rem;
     height: 1rem;
 }

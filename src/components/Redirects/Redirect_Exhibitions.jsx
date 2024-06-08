@@ -75,8 +75,8 @@ const ListStyledComponent = styled.ul`
 
 display: ${props => (props.open ? "none" : "block")};
 position: absolute;
-top: 40px;
-right: 0;
+top: 100%;
+width : 100%;
 animation: ${translateAnimation} 0.5s ease-out ;
 background-color: black;
 li:nth-child(1){
@@ -131,13 +131,13 @@ const Redirect_Exhibitions = () => {
                     setIcon(icon);
                     console.log(icon);
                 }
-                else (console.log(icon))
+                // else (console.log(icon))
                 
                 
             }
             document.addEventListener("scroll", handleScroll);
             document.addEventListener("click", handleOutsideClick);
-            console.log(icon);
+            // console.log(icon);
             return () => {
                 document.removeEventListener("click", handleOutsideClick);
                 document.removeEventListener("scroll", handleScroll);
@@ -282,16 +282,19 @@ const Redirect_Exhibitions = () => {
                                 <p>Current</p>
                                 {/* <IconChanger open={open} onClick={iconEhibitionsHandler} ref={buttonRef} > */}
                                 <button className={styleExhibitions.ascDscButton} onClick={iconEhibitionsHandler} style={{ outline: "none" }} ref={buttonRef}>
+                                    <section className={`${styleExhibitions.wrapper_content}`}>
                                     <span className={`${styleExhibitions.spanContent}  spanContent`}>{content}</span>
                                     {/* <ul className={`${icon} ? ${styleExhibitions.listDisplay} : ${styleExhibitions.listNone} `} style={{display : icon ? "none" : "block"}}> */}
-                                    <ListStyledComponent open={icon}   >
-                                        <li onClick={oncliTest} style={{}}>ascending</li>
-                                        <li onClick={oncliTest} style={{}}>descending</li>
-                                    </ListStyledComponent>
+                                        <ListStyledComponent open={icon}   >
+                                            <li onClick={oncliTest} style={{}}>ascending</li>
+                                            <li onClick={oncliTest} style={{}}>descending</li>
+                                        </ListStyledComponent>
 
-                                    {/* </ul> */}
-                                    <img src={arrowDown} alt="" width={50} height={60} onClick={iconEhibitionsHandler} style={{ display: icon ? "block" : 'none' }} />
-                                    <img src={minus} alt="" width={50} height={60} onClick={iconEhibitionsHandler} style={{ display: icon ? "none" : 'block' }} />
+                                        {/* </ul> */}
+                                        <img src={arrowDown} alt="" width={50} height={60} onClick={iconEhibitionsHandler} style={{ display: icon ? "block" : 'none' }} />
+                                        <img src={minus} alt="" width={50} height={60} onClick={iconEhibitionsHandler} style={{ display: icon ? "none" : 'block' }} />
+                                    </section>
+                                    
                                 </button>
                                 {/* </IconChanger > */}
                             </section>
@@ -339,6 +342,8 @@ const Redirect_Exhibitions = () => {
                                 <p>Forthcoming</p>
                                 {/* <IconChanger open={open} onClick={iconEhibitionsHandler} ref={buttonRef} > */}
                                 <button className={styleExhibitions.ascDscButton} onClick={iconEhibitionsHandler2} style={{ outline: "none" }} ref={buttonRef2}>
+                                    <section className={`${styleExhibitions.wrapper_content}`}>
+
                                     <span className={`${styleExhibitions.spanContent}  spanContent `}>{content}</span>
                                     {/* <ul className={`${icon} ? ${styleExhibitions.listDisplay} : ${styleExhibitions.listNone} `} style={{display : icon ? "none" : "block"}}> */}
                                     <ListStyledComponent open={icon2}   >
@@ -347,6 +352,7 @@ const Redirect_Exhibitions = () => {
                                     </ListStyledComponent>
                                     <img src={arrowDown} alt="" width={50} height={60} onClick={iconEhibitionsHandler} style={{ display: icon2 ? "block" : 'none' }} />
                                     <img src={minus} alt="" width={50} height={60} onClick={iconEhibitionsHandler} style={{ display: icon2 ? "none" : 'block' }} />
+                                    </section>
 
                                     {/* </ul> */}
                                 </button>
@@ -396,7 +402,7 @@ const Redirect_Exhibitions = () => {
             <Redirect_Exhibitions_Footer />
 
             </section>
-            <Redirect_Exhibitions_Footer className={"lskdklsd"} />
+            {/* <Redirect_Exhibitions_Footer className={"lskdklsd"} /> */}
 
         </section>
     );

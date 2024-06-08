@@ -12,6 +12,7 @@ import Redirect_Store_Navbar from "../shared/Redirect_Store_Navbar";
 
 
 import GiphLoading from "../../assets/Giph/redirect_store_gif/giphy_2.gif";
+import searchIcon from "../../assets/images/redirec_store_Image/magnifying-glass.svg";
 
 
 
@@ -24,66 +25,203 @@ export const ImageGalleryStore = createContext();
 const Redirect_Store = ({ children }) => {
     const { state } = useContext(CartContextProvider);
     const products = useContext(ProductContextProvider);
+    console.log(products)
+    // console.log(products)
     const [sortDate, setSortDate] = useState([]);
     const [search, setSearch] = useState("");
     const [isSorted, setIsSorted] = useState(false);
+
+    // This UseState Is for Checked Button !!!
+
+    const [priceFilter, setPriceFilter] = useState({
+        price_100_200: false,
+        price_200_300: false,
+        price_300_400: false,
+        price_400_500: false,
+
+    })
+
+
+
     // const [isSorted, setIsSorted] = useState(false);
     // const StateChanger = state.selectedItems.map(item => {
     //     return item;
     // })
 
+    const [productz, setProductz] = useState([]);
+    const [checkboxE, SetCheckboxE] = useState([]);
+    const [oldNewSort, setOldNewSort] = useState(false);
+
+    const [filterProductsFixing, setFilteredProductsFixing] = useState([])
+    const handlePriceFilter = (e) => {
+        const { name, checked } = e.target;
+        SetCheckboxE(e.target);
+
+        const updatePriceFilter = {};
+
+        for (const key in priceFilter) {
+            updatePriceFilter[key] = false;
+            console.log(updatePriceFilter)
+
+        }
+
+        updatePriceFilter[name] = checked;
+        setPriceFilter(updatePriceFilter);
+
+
+        if (checked) {
+
+            // if (priceFilter.price_100_200) {
+            //     filterProducts = filterProducts.filter(item => item.price >= 100 && item.price <= 200)
+            // } else
+             if (priceFilter.price_200_300) {
+                filterProducts = filterProducts.filter(item => item.price >= 200 && item.price <= 300)
+            } else if (priceFilter.price_300_400) {
+                filterProducts = filterProducts.filter(item => item.price >= 300 && item.price <= 400)
+            } else if (priceFilter.price_400_500) {
+                filterProducts = filterProducts.filter(item => item.price >= 400 && item.price <= 500)
+            }
+            // console.log("wqjnfpqwidhn")
+
+            // const productz = products.filter(item => item.price >= 100 && item.price <= 200)
+            // setProductz(productz)
+            // const ItemsProduct = [...products].map(item => item.price);
+
+            // if(products.price > 100 < 200){
+            //     const prices = [...products].price;
+            //     console.log(prices);
+            // }
+            // console.log(ItemsProduct)
+        } else { console.log(checked, "that's not true man!!!") }
+    }
+
     const searchProduct = (event) => {
-        setSearch(event.target.value);
+        setSearch(event.target.value.toLowerCase());
         setIsSorted(false);
     }
 
+    const sortByNewest = () => {
+        const sorted = [...products].sort((a, b) => new Date(b.date_end) - new Date(a.date_end));
+        setOldNewSort(true);
+        setSortDate(sorted);
+        setIsSorted(true);
+    };
     const sortByOldest = () => {
         const sorted = [...products].sort((a, b) => new Date(a.date_end) - new Date(b.date_end));
+        setOldNewSort(false)
         setSortDate(sorted);
         setIsSorted(true)
     };
 
-    const sortByNewest = () => {
-        const sorted = [...products].sort((a, b) => new Date(b.date_end) - new Date(a.date_end));
-        setSortDate(sorted);
-        setIsSorted(true);
-        
-    };
-    //     const selectedts = products.map(item => item.date_end);
-    // selectedts.sort((a, b) =>new Date(b) - new Date(a));
-    // console.log(selectedts);
+    let filterProducts = products;
 
-    const sector = products.filter(item => {
+    const filterAndSortProducts = () => {
+        // if (item.artist_title && item.artist_title.toLowerCase().includes(search)) {
+        //     conso
 
-
-        // if (!item.artist_title){
         //     return true;
+        // }
+        
+        if (priceFilter.price_100_200) {
+            filterProducts = filterProducts.filter(item => item.price >= 100 && item.price <= 200)
+        } else if (priceFilter.price_200_300) {
+            filterProducts = filterProducts.filter(item => item.price >= 200 && item.price <= 300)
+        } else if (priceFilter.price_300_400) {
+            filterProducts = filterProducts.filter(item => item.price >= 300 && item.price <= 400)
+        } else if (priceFilter.price_400_500) {
+            filterProducts = filterProducts.filter(item => item.price >= 400 && item.price <= 500)
+        }
+
+        // setFilteredProductsFixing(filterProducts)
+
+        if (oldNewSort) {
+            filterProducts = [...filterProducts].sort((a, b) => new Date(b.date_end) - new Date(a.date_end))
+        } else if (!oldNewSort) {
+            filterProducts = [...filterProducts].sort((a, b) => new Date(a.date_end) - new Date(b.date_end))
+        }
+        return filterProducts;
+        // if(isSorted) {
+        //     filterProducts =  [...filterProducts].sort((a,b ) => new Date(a.date_end) - new Date(b.date_end) )
         // }
 
 
 
+    }
+    const UpdateContent = filterAndSortProducts();
 
+    // const hellothere = ()=>{
+    //     if( priceFilter.price_100_200){
+    //         filterProducts = filterProducts.filter(item => item.price  >= 100 && item.price <= 200)
+
+    //         return filterProducts;
+    //     }
+    // }
+
+    const sector = products.filter(item => {
+
+        
 
         // Check if the search query is empty
-        if (search.trim() === "") {
-            // Return all products when the search query is empty
+        if (search.trim() === "" || search.trim() !== "" && item.artist_title !== "" && item.artist_title.toLowerCase().includes(search)) {
+            if (item.price && priceFilter.price_100_200 ) {
+                return item.price >= 100 && item.price <= 200;
+
+            } else if (item.price && priceFilter.price_200_300 ) {
+                return item.price >= 200 && item.price <= 300;
+
+            }
+            else if (item.price && priceFilter.price_300_400 ) {
+                return item.price >= 300 && item.price <= 400;
+
+            }
+            else if (item.price && priceFilter.price_400_500 ) {
+                return item.price >= 400 && item.price <= 500;
+
+            }
+          
             return true;
+           
+            
+            // Return all products when the search query is empty
+            // return true;
         }
+        
 
         // If item has an artist_title and includes the search query, include it
+        let trimming = search.trim();
         if (item.artist_title && item.artist_title.toLowerCase().includes(search)) {
+            console.log("we;kfj")
+            console.log("efew")
+            if (search != search.toLowerCase()) {
+                search.toLowerCase();
+            }
+            console.log("hey man there's nothing to showing to you sorry n!!....")
+
             return true;
-        } else if ( !(item.artist_title && item.artist_title.includes(search))) {
-            console.log("hey man there's nothing to showing to you sorry!!....")
         }
+        // const CondtionInput = 
+
+        if (item.artist_title && item.artist_title.toLowerCase().includes(trimming)) {
+            console.log("lkisdfhfgl")
+
+            // if(search.trim() && item.artist_title.includes(search)){
+            //     console.log("yeah is working")
+            // }
+            // console.log("hey man there's nothing to showing to you sorry!!....")
+            return true;
+        } else {
+            console.log("else running !!")
+        }
+
+        // if(!isSorted && item.artist_title ||){
+        //     if( priceFilter.price_100_200){
+        //         filterProducts = filterProducts.filter(item => item.price  >= 100 && item.price <= 200)
+        //     }
+        //     return filterProducts
+        // } else (console.log("is not "))
 
         // If there is no artist_title and no search query match, exclude the item
         return false;
-
-        // Henri Matisse
-        // Henry Matisse
-
-
 
         // if(item.artist_title && item.artist_title.includes(search)){
         //     return item.artist_title && item.artist_title.includes(search)
@@ -97,13 +235,24 @@ const Redirect_Store = ({ children }) => {
     );
 
 
+
+
     useEffect(() => {
+        filterAndSortProducts();
         setSortDate([...products])
-    }, [products])
+    }, [products, search])
     // const productsToRender = isSorted ? sortDate : sector;
-    const productsToRender = isSorted ? sortDate : sector;
+    const productsToRender = isSorted ? UpdateContent : sector;
+
+
+    // if(isSorted) {
+    //     console.log("sooooooooorted")
+    // }
+    // if(!isSorted) {
+    //     console.log("is noooooooooooooooooooooooooot       sooooooooorted")
+    // }
     return (
-        <section>
+        <section className="text-2xl">
 
             <Redirect_Store_Navbar />
 
@@ -111,39 +260,59 @@ const Redirect_Store = ({ children }) => {
             <section className="flex px-3">
                 <section>
                     <section>
-                        <a onClick={sortByOldest} style={{ cursor: "pointer"}} className="mr-4">oldest</a>
-                        <a onClick={sortByNewest} style={{ cursor: "pointer"}}>newest</a>
+                        <a onClick={sortByOldest} style={{ cursor: "pointer" }} className="mr-4">oldest</a>
+                        <a onClick={sortByNewest} style={{ cursor: "pointer" }}>newest</a>
                     </section>
 
 
                     {products.length === 0 ?
-                    <div><img src={GiphLoading} alt="" style={{border : "none", background: "transparent"}}/></div> :
-                    
-                    products.length === 0 ?
-                    <div>no art works found </div> :
-                    
-                    
-                        <div className=" justify-center  transition-all w-full">
-                            {/* {imageGallery.map((record, index) => <Redirect_Store_Product key={index} data={{ ...record, elementId: index + 1 , StateChanger}} />)} */}
-                            <div className=" w-full flex gap-8 flex-wrap justify-center ">
+                        <div><img src={GiphLoading} alt="" style={{ border: "none", background: "transparent" }} /></div> :
 
-                            {/* {products.map(item => <Redirect_Store_Product key={item.elementId} data={item} />)} */}
-                            {productsToRender.map(item => <Redirect_Store_Product key={item.elementId} data={item} />)}
+                        products.length === 0 ?
+                            <div>no art works found </div> :
+
+                            <div className=" justify-center  transition-all w-full">
+                                <div className=" w-full flex gap-8 flex-wrap justify-center ">
+                                    {productsToRender.map(item => <Redirect_Store_Product key={item.elementId} data={item} />)}
+                                </div>
                             </div>
-                            {/* {products.map(item => <Redirect_Store_ShopCart key={item.elementId} data={item} /> )} */}
-                            {/* {console.log(state.selectedItems)} */}
-                            {/* {productsToRender.map(item => <Redirect_Store_Product key={item.elementId} data={item} />)} */}
-
-                        </div>
-
-                        
-                }
+                    }
                 </section>
 
-                <aside className=" -order-1 px-4  sticky  store_aside">
-                    <section className=" sticky top-4">
-                        <input type="text" placeholder="search for an item" onChange={searchProduct} className="outline-none" />
-                        
+                <aside className=" px-4  store_aside w-[400px]">
+                    <section className="fixed">
+                        <section className=" sticky top-4">
+                            <div className="flex bg-white items-center">
+                                <input type="text" placeholder="search for an item" onChange={searchProduct} className="outline-none relative" />
+                                <img className=" absolute right-0" src={searchIcon} alt="" width={15} />
+
+                            </div>
+
+                        </section>
+
+                        <section>
+                            <div className="flex gap-[0, 2rem]">
+                                <input className="cursor-pointer" name="price_100_200" checked={priceFilter.price_100_200} onChange={handlePriceFilter} type="checkbox" id="" />
+                                <p>price 100 to 200$</p>
+                            </div>
+
+                            <div className="flex gap-[0, 2rem]">
+                                <input className="cursor-pointer" name="price_200_300" checked={priceFilter.price_200_300} onChange={handlePriceFilter} type="checkbox" id="" />
+                                <p>price 200 to 300$</p>
+                            </div>
+
+                            <div className="flex gap-[0, 2rem]">
+                                <input className="cursor-pointer" name="price_300_400" checked={priceFilter.price_300_400} onChange={handlePriceFilter} type="checkbox" id="" />
+                                <p>price 300 to 400$</p>
+                            </div>
+
+                            <div className="flex gap-[0, 2rem]">
+                                <input className="cursor-pointer" name="price_400_500" checked={priceFilter.price_400_500} onChange={handlePriceFilter} type="checkbox" id="" />
+                                <p>price 400 to 500$</p>
+                            </div>
+
+                        </section>
+
                     </section>
 
                 </aside>

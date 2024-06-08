@@ -1,3 +1,16 @@
+.wrapper_web3{
+    display: flex;
+    height: 100vh;
+    font-size: 1.3rem;
+}
+
+.gridPartAdding{
+    width: 100%;
+    /* grid-template-areas: 1 / div 2 ; */
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
 .background_image{
     background-image: url("../assets/images//redirectWeb3mage/BlackImage.avif");
     width: 100%;
@@ -5,18 +18,110 @@
     background-size: cover;
 }
 
-
-@media only screen and (min-width: 1280px){
-    .wrapper_content_web3{
-        padding: 0 10rem;
-    }
-}
 .wrapper_content_web3{
+    font-size: 1.3rem;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    gap: 0 50px;
+}
+
+.picture_contents{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 2rem 0;
+    gap: 50px;
+}
+
+/* this is the right side */
+
+.picture_contents_right {
+    font-size: 1rem;
+}
+.right_button{
+    border: 1px solid #000000;
 }
 
 
-.content_wrapper_left, .content_wrapper_right{
-    padding: 1rem;
+.picture_contents__title{
+    display: flex;
+    border-bottom: 2px solid #e5e7eb;
+    position: relative;
+
+}
+
+.contents_title_link{
+    padding: 1rem 0.5rem;
+    
+    margin-bottom: -2px;
+
+}
+
+
+
+
+.contents_title_link{
+    width: fit-content;
+    position: relative;
+    cursor: pointer;
+}
+
+.contents_title_link{
+    width: fit-content;
+    position: relative;
+    cursor: pointer;
+}
+.contents_title_link a:hover{
+    color: #000000;
+}
+
+
+.contents_title_linkz{
+    margin-bottom: -2px;
+}
+.borderBottom{
+    border: 1px solid black;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    
+}
+
+.Nft_Web3_title{
+    border-bottom: 2px solid #e5e7eb;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+}
+
+
+.container_picture_contents .contents_title_link:not(.activeColor):hover ~ .contents_title_link {
+    color: #989898; /* Blur color */
+
+}
+
+.wrapper_Grid_NFTs_Web3{
+
+    display: grid;
+    gap: 50px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+@media screen and (min-width: 1500px) {
+    .wrapper_Grid_NFTs_Web3 {
+        grid-template-columns: repeat(4, minmax(300px, 1fr));
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .wrapper_Grid_NFTs_Web3 {
+        grid-template-columns: auto;
+    }
+}
+.wrapper_Grid_NFTs_Web3 > div > img{
+    width: 100%;
+}
+
+
+.swiperWeb3 {
+    height: 400px;
 }

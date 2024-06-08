@@ -14,6 +14,9 @@ import Swiper_Slide_Archive from "../Redirects/Swiper_Slide_Archive";
 // import sweeper 
 import Swiper from "./Swiper_redirect_voices_slider";
 import { useEffect, useState } from "react";
+
+
+import Redirect_Exhibitions_Footer from "./Redirect_Exhibitions_Footer";
 // import Swiper_slide from "";
 
 // import parallex of react scrolling 
@@ -65,24 +68,27 @@ const Redirect_Voices = () => {
     
       
     return (
-        <section className={`${""} `}>
+        <section className={`${""} relative z-50 flex flex-col `}>
 
             <section className={styleVoices.header__image} style={{
-                backgroundColor: "grey",
+                backgroundColor: "#ffffff",
                 display: "flex",
                 justifyContent: "start",
                 minHeight: "100vh",
                 scrollBehavior: 'smooth',
+                position: "relative",
+                zIndex : "40"
+            
             }}>
 
-                <Navbar />
-                <h2 style={{  fontSize: windowWidth < 1440 ? `${newFont}rem ` : `${newFont}rem ` }} className={`${styleVoices.h2_title} flex items-center  text-[18rem] text-cyan-50 `}>Voices</h2>
 
+                <h2 style={{  fontSize: windowWidth < 1440 ? `${newFont}rem ` : `${newFont}rem ` }} className={`${styleVoices.h2_title} flex items-center  text-[18rem] text-cyan-50 `}>Voices</h2>
             </section>
-            <section className="wrapper_voices_contents px-8">
+                <Navbar />
+            <section className="wrapper_voices_contents px-8 pb-[3rem] relative z-50 bg-white flex-col justify-center mb-[100vh] w-full ">
                 <section className="pt-8 w-full">
-                    <section className="relative">
-                        <div className="sticky top-[100px]"><p className="text-[4rem]  mr-5 ">Voices</p></div>
+                    <section className="relative ">
+                        <div className="sticky top-[100px]  "><p className="text-[4rem]  mr-5 ">Voices</p></div>
                         <section className="flex mt-[0] flex-col justify-start  ">
                             <div className="flex m-4 mt-[13rem]">
 
@@ -400,6 +406,7 @@ const Redirect_Voices = () => {
 
                 </section>
             </section>
+            <Redirect_Exhibitions_Footer />
 
 
 

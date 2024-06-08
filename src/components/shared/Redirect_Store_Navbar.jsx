@@ -51,7 +51,7 @@
         // }, [state.itemsCounter]);
         return (
             <div>
-                { console.log(state.itemsCounter)}
+                {/* { console.log(state.itemsCounter)} */}
                 
                 <header className={`${""} header flex justify-between items-center py-8 bg-slate-500`} >
                     <section>

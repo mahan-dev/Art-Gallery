@@ -6,7 +6,7 @@ import image_2 from "../assets/images/image-2.jpg";
 import image_3 from "../assets/images/image-3.jpg";
 
 
-import { getApi } from './ApiCoinPic';
+
 
 const MainStructure = ({ EXHIBITIONS, VOICES, NEWS, EDITIONS, NFTs }) => {
 

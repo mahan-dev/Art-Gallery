@@ -1,99 +1,240 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import BackgroundImage from "../../assets/images/redirectWeb3mage/BlackImage.avif";
 import "../../assets/images/redirectWeb3mage/BlackImage.avif";
 import stylesWeb3 from "../../Styles/RediretWeb3.module.css";
 import Navbar from "../Navbar";
-const Redirect_Web3 = () => {
-    // useEffect(() => {
+import "../../Styles/Redirect_swiper_web3_styles.css";
 
-    // });
+
+import SwiperWeb3 from "../Redirects/Swiper_web3";
+// import Swiper_Slide_Archive from "../Redirects/Swiper_Slide_Archive";
+// import Swiper_slide from './Swiper_slide';
+// import Redirect_Exhibitions_Footer from "./Redirect_Exhibitions_Footer";
+
+
+import imgCurrent from "../../assets/images/redirectVoices-images/first_slide.jpg";
+import { FetchApiCoin } from '../../../services/ArtGalleryApi';
+import NftImages from './NftImages';
+import ForthImage from "../../assets/images/redirectVoices-images/HeaderImageVoices.jpg";
+import ThirdImage from "../../assets/images/redirectVoices-images/third_slide.jpg";
+import SecondImage from "../../assets/images/redirectVoices-images/second_slide.jpg";
+import FirstImage from "../../assets/images/redirectVoices-images/first_slide.jpg";
+
+import Redirect_Exhibitions_Footer from "./Redirect_Exhibitions_Footer";
+
+
+
+const Redirect_Web3 = () => {
+
+    // const [ethPrice, setEthPrice] = useState([]);
+    let ethPrice = [];
+    const [current, setCurrent] = useState();
+    const [showPrice, setShowPrice] = useState(null);
+
+    let priceNftLists = [
+        { title : 'Loren Barden' ,image: ForthImage, price: 0.02 },
+        { title : 'Sam Lord' ,image: ThirdImage, price: 0.12 },
+        { title : 'eyban Seu' ,image: SecondImage, price: 0.1 },
+        { title : 'Yasmin James' ,image: FirstImage, price: 0.3 },
+        { title : 'Larim Zeih' ,image: FirstImage, price: 1 },
+        { title : 'Loren Barden' ,image: FirstImage, price: 0.57 },
+        { title : 'Loren Barden' ,image: FirstImage, price: 0.22 },
+        { title : 'Loren Barden' ,image: FirstImage, price: 0.79 },
+        { title : 'Loren Barden' ,image: FirstImage, price: 0.212 },
+        { title : 'Loren Barden' ,image: FirstImage, price: 0.1 },
+        { title : 'Loren Barden' ,image: FirstImage, price: 0.98 },
+        { title : 'Loren Barden' ,image: FirstImage, price: 0.243 },
+    ]
+
+    let finalPrice = priceNftLists.map((item, index) => {
+        return { ...item, price: item.price }
+    });
+    console.log(finalPrice);
+
+    const settingPrice = async () => {
+
+        // fetchData Part
+        const data = await (FetchApiCoin());
+        ethPrice = data;
+        // fetchData Part
+
+        const priceGrabber = ethPrice.filter(item => item.symbol === "eth");
+        const setPrice = priceGrabber.map(item => item.current_price);
+
+        if (setPrice > 0) {
+            localStorage.setItem("ethPrice", JSON.stringify(...setPrice));
+            let grabber = Number(localStorage.getItem("ethPrice"));
+            setShowPrice(grabber)
+            if (setPrice !== localStorage.getItem("ethPrice")) {
+                localStorage.setItem("ethPrice", JSON.stringify(...setPrice));
+            }
+        } else {
+            console.log("is not greather that what you said ...")
+        }
+    }
+    useEffect(() => {
+        settingPrice();
+
+        const initialInterval = setInterval(() => {
+            console.log("wfjpwjjwopifpojwf")
+            settingPrice()
+        }, 60000)
+        setShowPrice(localStorage.getItem("ethPrice"));
+        return () => clearInterval(initialInterval);
+    }, [])
+
+
+    const [hover, setHover] = useState("Current");
+    const [clicked, setClicked] = useState("Current");
+
+
+    const activeLinkHandling = (link) => {
+        setHover(link);
+
+    }
+    useEffect(() => {
+    }, [hover, clicked])
+
     return (
         <section>
+            {console.log(showPrice)}
+            {console.log(ethPrice)}
             <Navbar />
-            <section className='flex h-screen'>
-                <section className={`${stylesWeb3.background_image} fixed top-0 bottom-0 z-1 flex justify-start items-center`}>
+
+            <section className={`${stylesWeb3.wrapper_web3}`}>
+                <section className='bg-red-600'>
+                    {/* <section className='relative z-50 mb-[100v]'>
+
+                </section> */}
+                    <section className={`${stylesWeb3.background_image} fixed top-0 bottom-0 z-1 flex justify-start items-center`}>
+                    </section>
+
+                    <section className=' px-[10%]  flex flex-col justify-center items-start'>
+                        <p style={{ color: "blue" }} className='text-[2rem]  border-b-2 w-full'> welcome to web3  </p>
+
+                        <h2 style={{ color: "white" }} className='text-[2rem]   '> ART WITHOUT LIMITS </h2>
+                        <h5 style={{ color: "white" }} className='text-[2rem]   '> Join the digital art renaissance.
+                        </h5>
+                    </section>
+
+
+                    {/* <section className='z-50 relative' > */}
+
+
+                    <section className='z-40 relative  bg-white px-16 '>
+
+                        <section className={`${stylesWeb3.wrapper_content_web3} `}>
+
+                            <div className={`${stylesWeb3.content_wrapper_left}`}>
+                                <p className='my-4'>Built at the accelerating intersection of art and technology,
+                                    Unit Web3 is a blockchain platform of highly-curated digital art programming dedicated to identifying
+                                    and supporting generation-defining artists working with ascendant technologies.</p>
+                                <p className='my-4'>Unit was founded in 2013 upon the belief that art is for everyone. We seek to drive change in the art world by promoting accessibility and inclusivity – opening doors between new artists and audiences. </p>
+                                <p className='my-4'>In 2021, we led the way for art galleries entering the NFT space in recognising their potential for unparalleled freedom, transparency and access for generations of digital artists who have struggled to build careers in the traditional art ecosystem. We realised that the dynamics of this space appealed to new audiences who felt excluded from the traditional art world; that traditional barriers to access were breaking down, and new rules were forming. </p>
+
+                            </div>
+
+                            <div className={`${stylesWeb3.content_wrapper_right}`}>
+                                <p className='my-4'>Our ambition is to unify artists, collectors and enthusiasts – regardless of the media or practices they choose to adopt – because we believe that art is a universal language that has the power to bring us all together. We are striving to remove the stigma around NFTs, liberating artists who are using the technology from the label of “digital artist” or “NFT artist”, and instead positioning them simply, as artists. In line with this vision for a truly integrated art world, we are proud to prioritise Web3 as a key pillar of our programming.
+
+                                </p>
+                                <p className='my-4'>This leap forward signals our commitment to leading the charge in creating the art world of tomorrow. Our programme will focus on championing the world’s most exciting digital artists, and will comprise both physical and online exhibitions, as well as art fairs and collaborative projects with leading partners from the art, culture and technology sectors.
+
+                                </p>
+                                <p>Ultimately, our mission is to further cross-pollinate the distinct traditional art and NFT collecting audiences, generating ongoing opportunities for education and participation across both communities, and creating a truly integrated, accessible, and forward-thinking art world.  </p>
+                            </div>
+                        </section>
+                        <section>
+                            this is the one
+
+                            {/* <img src={process.env.PUBLIC_URL + '/' + image} alt="" width={200} /> */}
+                        </section>
+
+                        <section className={`${stylesWeb3.gridPartAdding}`}>
+                            <section className={`${stylesWeb3.container_picture_contents}`}>
+                                <section className={`${stylesWeb3.picture_contents__title}`}>
+                                    <div className={`${stylesWeb3.contents_title_link}`} onClick={() => activeLinkHandling("Current")} >
+                                        <a onClick={() => activeLinkHandling("Current")} onMouseOver={() => console.log("is enter")} className={`${hover === "Current" ? "text-black" : "text-gray-500"}`} >Current & Upcoming</a>
+                                        <div className={`${hover === "Current" ? stylesWeb3.borderBottom : console.log("not it is ")}`}></div>
+                                    </div>
+                                    <div className={`${stylesWeb3.contents_title_link} `} onClick={() => activeLinkHandling("Upcoming")} >
+
+                                        <a onClick={() => activeLinkHandling("Upcoming")} className={`${hover === "Upcoming" ? "text-black" : "text-gray-500"}`} >Upcoming</a>
+                                        <div className={`${hover === "Upcoming" ? stylesWeb3.borderBottom : ""}`}></div>
+                                    </div>
+                                    {/* // ${hover === "upcoming" ? "active_Link_Title" : ""}`} onMouseEnter={()=> setHover("upcoming") } onMouseLeave={()=>setHover(null) */}
+                                    <div className={`${stylesWeb3.contents_title_link}`} onClick={() => activeLinkHandling("Archive")}>
+                                        <a onClick={() => activeLinkHandling("Archive")} className={`${hover === "Archive" ? "text-black" : "text-gray-500"}`} >Archive</a>
+                                        <div className={`${hover === "Archive" ? stylesWeb3.borderBottom : ""}`}></div>
+                                    </div>
+                                </section>
+
+                                <section className={`${stylesWeb3.picture_contents}`}>
+                                    <section className='picture_contents_left'>
+                                        <img src={imgCurrent} alt="pic content" />
+                                    </section>
+
+
+                                    <section className={`${stylesWeb3.picture_contents_right} flex flex-col items-center`} >
+                                        <p>11 April - 10 May 2024</p>
+                                        <p className='my-4'>Loren Bendar</p>
+                                        <p className='my-4'>
+                                            Loren Bednar's 'Pressed Pause' marks Unit's
+                                            second release with Art Blocks Engine,
+                                            an interactive collection that speaks to our
+                                            desire to pause and reflect in order to fully embrace our present.
+                                        </p>
+
+                                        <button className={`${stylesWeb3.right_button}`}>Explore Now</button>
+                                    </section>
+
+                                </section>
+                            </section>
+
+                            <section className={`${stylesWeb3.wrapper_Nft_Web3}`}>
+                                <p className={`${stylesWeb3.Nft_Web3_title}`}>All NFTs</p>
+
+                                <section className={`${stylesWeb3.wrapper_Grid_NFTs_Web3}`}>
+                                    {/* <div className='w-fit'><img src={imgCurrent} alt="" width={300} />
+                                    <span>this is the price of Nft</span>
+                                </div> */}
+
+                                    {/* <div className='w-fit'>
+                                    {finalPrice.map((item, index) => (
+                                        <section key={index}>
+                                        <img src={imgCurrent} alt="" width={300} />
+                                        {item.price}
+                                        </section>
+                                        
+                                    ))}
+                                    
+                                </div> */}
+
+
+
+                                    {finalPrice.map((item, index) => (
+                                        <NftImages key={index} data={item} />
+                                    ))}
+                                </section>
+                            </section>
+
+                            {/* <NftImages /> */}
+
+                            <section className='my-4'>
+                                <div className='border-b-2 my-4'>
+                                    <p className='p-2'>
+                                        Related Posts
+                                    </p>
+                                </div>
+
+                                <SwiperWeb3 />
+                            </section>
+                        </section>
+                    </section>
                 </section>
-
-                <section className=' px-[10%] relative z-1 flex flex-col justify-center items-start'>
-                    <p style={{ color: "blue" }} className='text-[2rem]'> this is p </p>
-                    <h2 style={{ color: "white" }} className='text-[2rem]'> this is h2 </h2>
-                    <h5 style={{ color: "white" }} className='text-[2rem]'> this is h5 </h5>
-                </section>
-
-                <section className={`${stylesWeb3.wrapper_content_web3} mt-[100vh] z-40 absolute bg-orange-600 px-16`}>
-                    <div className={`${stylesWeb3.content_wrapper_left}`}>
-                        <p>
-                            Lorem Ipsum
-                            "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
-                            "There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..."
-                            What is Lorem Ipsum?
-
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                            Why do we use it?
-
-                            It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
-
-                            Where does it come from?
-
-                            Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
-
-                            The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.
-                            Where can I get some?
-
-                            There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.
-
-                            paragraphs
-                            words
-                            bytes
-                            lists
-                            Start with 'Lorem
-                            ipsum dolor sit amet...'
-
-
-                            Translations: Can you help translate this site into a foreign language ? Please email us with details if you can help.
-                            There is a set of mock banners available here in three colours and in a range of standard banner sizes:
-                            BannersBannersBanners
-                            Donate: If you use this site regularly and would like to help keep the site on the Internet, please consider donating a small sum to help pay for the hosting and bandwidth bill. There is no minimum donation, any sum is appreciated - click here to donate using PayPal. Thank you for your support.
-                            Donate Bitcoin: 16UQLq1HZ3CNwhvgrarV6pMoA2CDjb4tyF
-                            NodeJS Python Interface GTK Lipsum Rails .NET Groovy
-                            The standard Lorem Ipsum passage, used since the 1500s
-
-                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-                            Section 1.10.32 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC
-                        </p>
-                    </div>
-
-                    <div className={`${stylesWeb3.content_wrapper_left}`}>
-                        <p>
-                            "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
-                            1914 translation by H. Rackham
-
-                            "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?"
-                            Section 1.10.33 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC
-
-                            "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat."
-                            1914 translation by H. Rackham
-
-                            "On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The wise man therefore always holds in these matters to this principle of selection: he rejects pleasures to secure other greater pleasures, or else he endures pains to avoid worse pains."
-
-                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-                            Section 1.10.32 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC
-
-                            "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
-                            1914 translation by H. Rackham
-
-                            "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?"
-                            Section 1.10.33 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC
-
-                            "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat."
-                            1914 translation by H. Rackham
-
-                            "On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The wise man therefore always holds in these matters to this principle of selection: he rejects pleasures to secure other greater pleasures, or else he endures pains to avoid worse pains."</p>
-                    </div>
-                </section>
-
-
+                {/* </section> */}
             </section>
+            {/* <Redirect_Exhibitions_Footer /> */}
         </section>
 
     );

@@ -29,9 +29,9 @@ const Redirect_Exhibitions_Footer = ({ className }) => {
     //States
 
     const [errorMessage, setErrorMessage] = useState("")
+    let newEmail = null;
     const handleEmailValidation = (event) => {
-
-        const newEmail = event.target.value;
+        newEmail = event.target.value
         setEmail(newEmail);
 
         const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
@@ -74,11 +74,13 @@ const Redirect_Exhibitions_Footer = ({ className }) => {
     }
 
     const handleClickOutti = (event) => {
-        if (bool && !email_Input_Ref.current.contains(event.target)) {
+        if (bool && !email_Input_Ref.current.contains(event.target) && email_Input_Ref.current.value === ""   ) {
             setErrorMessage("you must enter something");
+            console.log("this line is working ..... ")
             // console.log("is running this part ")
         }
     }
+    
     useEffect(() => {
 
         const addEventListener = () => {

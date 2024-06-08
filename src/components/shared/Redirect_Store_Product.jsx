@@ -22,7 +22,7 @@ const Redirect_Store_Product = ({ data}) => {
     
     
     
-    console.log(price)
+    // console.log(price)
    
     useEffect(()=>{
         if (data && date_end) {
@@ -34,9 +34,9 @@ const Redirect_Store_Product = ({ data}) => {
         
         setImage(`https://www.artic.edu/iiif/2/${data.image_id}/full/1686,/0/default.jpg`);
     },[data])
-    console.log(sortDate);
+    // console.log(sortDate);
     const { state, dispatch } = useContext(CartContextProvider);
-    console.log(state.selectedItems);
+    // console.log(state.selectedItems);
     
     const [itemsCounter, setItemsCounter] = useState(() => {
         // Initialize items counter with the value from local storage or 0 if it doesn't exist
@@ -103,8 +103,8 @@ const Redirect_Store_Product = ({ data}) => {
         
         return (
             <div>
-            {console.log(image)}
-                {console.log(sortDate) }
+            {/* {console.log(image)} */}
+                {/* {console.log(sortDate) } */}
            
                 
             <section className='' >

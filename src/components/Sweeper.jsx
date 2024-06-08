@@ -31,7 +31,6 @@ const Sweeper = () => {
     const swiper = swiperRef.current.swiper;
     if (swiper && swiper.autoplay) {
       swiper.autoplay.stop();
-      console.log('Swiper autoplay paused');
     }
   };
 
@@ -39,7 +38,6 @@ const Sweeper = () => {
     const swiper = swiperRef.current.swiper;
     if (swiper && swiper.autoplay) {
       swiper.autoplay.start();
-      console.log('Swiper autoplay resumed');
     }
   };
       const swiperParams = {

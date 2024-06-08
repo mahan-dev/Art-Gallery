@@ -1,0 +1,15 @@
+.imageNft{
+    height: 300px;
+
+    width: 100%;
+    object-fit: cover;
+
+}
+
+
+@media screen and (max-width: 576px) {
+    
+    .containerNftImages{
+     width: 200px;   
+    }
+}

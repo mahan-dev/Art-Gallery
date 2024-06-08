@@ -93,7 +93,7 @@
     width: min-content;
     /*width: 123px;
     */
-    display: none;
+    /* display: none; */
 }
 
 /* .disable__hover:hover {
@@ -211,7 +211,7 @@
         color: aqua;
     } */
     .menu_nav {
-        display: block;
+        /* display: none; */
         cursor: pointer;
         margin-right: 1.5rem;
         color: #000000;

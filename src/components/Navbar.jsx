@@ -15,10 +15,9 @@ import SliderNavigation from "../Styles/Slider_Navigation.module.css";
 // END CSS Styles 
 
 // Importing navbar dropdown
-import navbarDropdown from './navbar_dropdown';
+
 // import menuNav from "./Menu_Nav";
 import Slider_navigation from './slider_navigation';
-import Navbar_dropdown from "./navbar_dropdown"
 
 import closeNavbarDropdown from "../assets/navbarDropdownClose/xmark.svg";
 // import { usehis, useLocation } from 'react-router-dom';
@@ -26,6 +25,7 @@ import closeNavbarDropdown from "../assets/navbarDropdownClose/xmark.svg";
 // Importing api
 
 const Navbar = () => {
+    const listLink =useRef(null);
     const [showHeader, setShowHeader] = useState(true);
     // const [scrollYS, setScrollY] = useState(0);
     const [isvisiii, setIsVisiiiii] = useState(true);
@@ -66,7 +66,7 @@ const Navbar = () => {
         HtmlBodyScrollHidden.style.overflow = "hidden";
 
         SetShowDisplay(!showList);
-        setMenuClicked(!isMenuClicked);
+        setMenuClicked(true);
         burgerSetter(!burger);
         setMenu(!isMenuOpened);
         const navJsElement = document.querySelector(`.${SliderNavigation.slider_navigation}`);
@@ -89,7 +89,6 @@ const Navbar = () => {
         HtmlBodyScrollHidden.style.overflow = "visible";
 
         SetShowDisplay(false);
-
         burgerSetter(!burger);
 
     }
@@ -119,7 +118,7 @@ const Navbar = () => {
         }
         const HtmlBodyScrollHidden = document.querySelector("body");
         HtmlBodyScrollHidden.style.overflow = "visible";
-        setMenuClicked(!isMenuClicked);
+        setMenuClicked(false);
     }
 
     const [visibility, setVisibility] = useState(false);
@@ -127,8 +126,27 @@ const Navbar = () => {
     const handleItemOverflow = ()=>{
 
         setVisibility(true)
+        if(visibility){
+            console.log("is treuuuuuuuuuuuuuu")
+        } 
         document.body.style.overflow = "visible";
     }
+
+  
+
+    // if(isMenuClicked) {
+    //     const grabbb = document.querySelector(".hello")
+    //     if(grabbb) {
+    //         console.log("woooo")
+    //         grabbb.style.display = "none";
+    //     } else if(!grabbb){
+    //         console.log("ggggg nnnnnnnnnnn")
+    //     }
+        
+    // } else {
+    //     console.log("is not running")
+    // }
+
     
 
 //     const history = useHistory();
@@ -139,7 +157,59 @@ const Navbar = () => {
 //         history.push(path);
 //     } 
 // };
+
+const mouseii =()=>{
+    const dropdown = document.querySelector(`.${NavStyles.item__dropdown__wrapper}`)
+    if(!isMenuClicked){
+        if (dropdown) {
+            dropdown.style.display = "flex";
+          } 
+    } else if(isMenuClicked){
+        if (dropdown) {
+            dropdown.style.display = "none";
+          } }
+    
+}
+if(isMenuClicked) {
+    const dropdown = document.querySelector(`.${NavStyles.item__dropdown__wrapper}`)
+    if (dropdown) {
+        dropdown.style.display = "none";
+      } 
+}
+
+const mouseleavii = ()=>{
+    const dropdown = document.querySelector(`.${NavStyles.item__dropdown__wrapper}`)
+    if (dropdown) {
+        dropdown.style.display = "none";
+      }
+  
+}
+
+
+
+// if(isMenuClicked && checkVis) {
+//     const selected = document.querySelector(`.${NavStyles.item__dropdown__wrapper}`);
+//     selected.style.display = "none";
+//     selected.style.visibility = "hidden";
+    
+// }
+
+
     useEffect(() => {
+        const dropdown = document.querySelector(`.${NavStyles.item__dropdown__wrapper}`)
+        if (isMenuClicked) {
+            dropdown.style.display = "none"
+        }
+        if(isMenuClicked === false){
+
+            if (dropdown) {
+                dropdown.addEventListener("mouseenter", mouseii)
+                dropdown.addEventListener("mouseleave", mouseleavii)
+                
+        
+                dropdown.style.animation = `${NavStyles.showUp} 0.5s 1`;
+            }
+        }
 
     // navPath(location.pathname);
         const isReloaded = sessionStorage.getItem("isReloaded");
@@ -149,16 +219,27 @@ const Navbar = () => {
         } else{
             setIsPageLoaded(false);
         }
+         
 
         window.addEventListener("scroll", handleScroll);
+        
         // window.addEventListener("click", close_clickHandler)
+
+
+        // This is the mouseenter For prooo
+        // window.addEventListener("mouseenter", mouseii);
+        // window.addEventListener("mouseleave", mouseleavii)
         return () => {
             window.removeEventListener("scroll", handleScroll);
+            
+            
+            // window.removeEventListener("mouseenter", mouseii);
+            // window.removeEventListener("mouseleave", mouseleavii)
             // window.removeEventListener("click", close_clickHandler);
             
         }
 
-    }, [previousScrollY]);
+    }, [previousScrollY, isMenuClicked]);
  
     return (
         <>
@@ -168,7 +249,7 @@ const Navbar = () => {
                 <section style={{ display: "none" }}>
                     <img src={MenuBar} alt="" width={30} />
                 </section>
-                <Navbar_dropdown toggelListItem={!showList} />
+                {/* <Navbar_dropdown toggelListItem={!showList} /> */}
                 {/* <i className="fa-regular fa-magnifying-glass" style={{width: "50px", color: 'black'}} ></i> */}
                 {/* <img src={arrow} alt="arrow" width={15} /> */}
                 <section id={NavStyles.logo}>
@@ -187,16 +268,17 @@ const Navbar = () => {
                 <section className='wrappriO'>
 
                     <img style={{ display: "none" }} onClick={CloseDropDownHandler} id={NavStyles.navbar__closeDropDown} src={closeNavbarDropdown} alt="" />
-                    <span onClick={close_clickHandler} ref={closeDropDownRef} className={isMenuClicked ? 'showClose' : "hidden"}>close</span>
+                    <span onClick={close_clickHandler} ref={closeDropDownRef}  className={isMenuClicked ? 'showClose' : "hidden"}>close</span>
 
-                    <ul style={{overflow: visibility ? "visible" : "hidden"}} className={`${isMenuClicked ? "firsul_cls" : "wrappri"}`} >
+                    {/* style={{ overflow: mouseEnnnn ? "visible" : "hidden"}} */}
+                    <ul      className={`${isMenuClicked ? "firsul_cls" : "wrappri"}`} >
                         {/* {`${NavStyles.list_item}-${NavStyles.animLink} */}
                         <li className={`${NavStyles.list_item} mx-2`} onClick={handleItemOverflow} > <Link to="/artists">Artists</Link> </li>
                         <li className={`${NavStyles.Exhibitions__dropper} list_item mx-2 `}>
                             {/* exception__a */}
-                            <Link id="exeption" style={{ cursor: "pointer" }} onClick={handleItemOverflow} className={`${NavStyles.list_item}`} to="/Exhibitions">Exhibitions</Link> {/*need second class for hovering item link *}
+                            <Link id="exeption" onMouseOver={mouseii} onMouseOut={mouseleavii} ref={listLink} style={{ cursor: "pointer" }} onClick={handleItemOverflow} className={`${NavStyles.list_item}`} to="/Exhibitions">Exhibitions</Link> {/*need second class for hovering item link *}
                             {/* <ul className={`${NavStyles.item__dropdown__wrapper} animate`}> */}
-                            <ul className={`${NavStyles.item__dropdown__wrapper}`} >
+                            <ul style={{display: isMenuClicked ? "none" : "none"}}  className={`${NavStyles.item__dropdown__wrapper} hello `} >
                                 {/* <ul className={`${NavStyles.Exhibitions__dropper} ${disableHover ? NavStyles.disable__hover : ""}`}> */}
                                 <li className={`${NavStyles.list_item} mx-2`} ><Link to="/ExhibitionsCurrent">Current</Link></li>
                                 <li className={`${NavStyles.list_item} mx-2`} ><Link to="/ExhibitionsForthcoming">Forthcoming</Link></li>

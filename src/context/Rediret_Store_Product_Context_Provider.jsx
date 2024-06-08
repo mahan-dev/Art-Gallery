@@ -24,7 +24,6 @@ const Rediret_Store_Product_Context_Provider = ({ children }) => {
     return (
         
         <div>
-            {console.log(imageGallery)}
             <ProductContextProvider.Provider value={imageGallery}>
                 {children}
             </ProductContextProvider.Provider>
