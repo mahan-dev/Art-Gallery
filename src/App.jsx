@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 import Redirect_Web3 from './components/Redirects/Redirect_Web3';
 import WrapperNavImageBack from './components/WrapperNavImageBack';
 import RedirectArtists from './components/Redirects/Redirect_Artists';
