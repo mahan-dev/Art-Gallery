@@ -28,6 +28,19 @@
 
 .swiper-wrapper{
     background: #ffffff;
+    max-width: 250px;
+}
+
+@media screen and (max-width: 576px) {
+    .swiper-wrapper{
+        max-width: 250px;
+    }
+    .second_slide_viewerz{
+        padding-bottom: 10px;
+    }
+    .swiper-scrollbar{
+        margin-bottom: 10px;
+    }
 }
 
 @media screen and (max-width: 530px) {

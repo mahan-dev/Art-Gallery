@@ -213,7 +213,8 @@ const Redirect_Web3 = () => {
 
                             {/* <NftImages /> */}
 
-                            <section className='my-4 grid overflow-hidden'>
+                            <section className='my-4 '>
+                            {/* grid overflow-hidden  for above*/}
                                 <div className='border-b-2 my-4'>
                                     <p className='p-2'>
                                         Related Posts

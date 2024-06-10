@@ -31,20 +31,25 @@ const Swiper_slide = () => {
         className="second_slide_viewerz  mb-7"
         spaceBetween={20}
         scrollbar={{ draggable: true, }}
-        slidesPerView={"auto"}
+        slidesPerView={1}
         breakpoints={
           {
             576: {
               slidesPerView: 1,
               spaceBetween: 10,
             },
-            // 577 : {
-            //   slidesPerView: 3,
-            // },
-            900 :{
-              slidesPerView : 2,
-            }
-            
+            768: {
+              slidesPerView: 2,
+              spaceBetween: 20,
+            },
+            1024: {
+              slidesPerView: 3,
+              spaceBetween: 30,
+            },
+            1440: {
+              slidesPerView: 4,
+              spaceBetween: 40,
+            },
           }
         }
       >

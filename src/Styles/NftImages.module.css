@@ -16,6 +16,5 @@
         display: grid;
         width: 100%;
         grid-template-columns: minmax(200px , 1fr);
-        background: red;
     }
 }
