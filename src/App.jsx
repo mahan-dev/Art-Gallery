@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { HashRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Redirect_Web3 from './components/Redirects/Redirect_Web3';
 import WrapperNavImageBack from './components/WrapperNavImageBack';
 import RedirectArtists from './components/Redirects/Redirect_Artists';
@@ -16,6 +16,7 @@ import Redirect_Store_Product from './components/shared/Redirect_Store_Product';
 import Rediret_Store_Product_Context_Provider from './context/Rediret_Store_Product_Context_Provider';
 
 import ComponentNotFound from './components/ComponentNotFound';
+import PicGrid from './components/Redirects/picGrid';
 
 const App = () => {
   return (
@@ -33,7 +34,9 @@ const App = () => {
               <Route path="/About" element={<Redirect_About />} />
               <Route path="/contact" element={<Redirect_Contact />} />
               <Route path="/artists" element={<RedirectArtists />} />
+              <Route path="/picGrid" element={<PicGrid />} />
               <Route path="/" element={<WrapperNavImageBack />} />
+
               <Route path="*" element={<ComponentNotFound />} />
             </Routes>
           </Router>

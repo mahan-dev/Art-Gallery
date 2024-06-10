@@ -4,14 +4,7 @@ import "../../assets/images/redirectWeb3mage/BlackImage.avif";
 import stylesWeb3 from "../../Styles/RediretWeb3.module.css";
 import Navbar from "../Navbar";
 import "../../Styles/Redirect_swiper_web3_styles.css";
-
-
 import SwiperWeb3 from "../Redirects/Swiper_web3";
-// import Swiper_Slide_Archive from "../Redirects/Swiper_Slide_Archive";
-// import Swiper_slide from './Swiper_slide';
-// import Redirect_Exhibitions_Footer from "./Redirect_Exhibitions_Footer";
-
-
 import imgCurrent from "../../assets/images/redirectVoices-images/first_slide.jpg";
 import { FetchApiCoin } from '../../../services/ArtGalleryApi';
 import NftImages from './NftImages';
@@ -121,7 +114,7 @@ const Redirect_Web3 = () => {
                     {/* <section className='z-50 relative' > */}
 
 
-                    <section className='z-40 relative  bg-white px-16 '>
+                    <section className={`${stylesWeb3.wrapperContents}`}>
 
                         <section className={`${stylesWeb3.wrapper_content_web3} `}>
 
@@ -220,7 +213,7 @@ const Redirect_Web3 = () => {
 
                             {/* <NftImages /> */}
 
-                            <section className='my-4'>
+                            <section className='my-4 grid overflow-hidden'>
                                 <div className='border-b-2 my-4'>
                                     <p className='p-2'>
                                         Related Posts

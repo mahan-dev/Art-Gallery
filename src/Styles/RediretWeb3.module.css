@@ -106,19 +106,40 @@
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 }
 
+.wrapperContents{
+    position: relative;
+    z-index: 40;
+    background: #ffffff;
+    padding: 0 4rem;
+}
+
 @media screen and (min-width: 1500px) {
     .wrapper_Grid_NFTs_Web3 {
         grid-template-columns: repeat(4, minmax(300px, 1fr));
     }
 }
-
 @media screen and (max-width: 576px) {
     .wrapper_Grid_NFTs_Web3 {
+        grid-template-columns: 1fr;
+    }
+    .wrapper_content_web3{
+        grid-template-columns: auto;
+
+    }
+    .picture_contents{
         grid-template-columns: auto;
     }
+    .wrapperContents{
+        padding: 0 2rem;
+
+    }
+    .picture_contents__title{
+        font-size: 0.8em;
+    }
 }
+
 .wrapper_Grid_NFTs_Web3 > div > img{
-    width: 100%;
+    /* width: 100%; */
 }
 
 

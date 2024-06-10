@@ -1,0 +1,11 @@
+
+
+@media screen and (max-width: 576px) {
+    .wrapperGrid{
+        display: grid;
+        grid-template-columns: repeat(1 , minmax(100px , 200px) );
+    }
+}
+.wrapperGrid{
+
+} 

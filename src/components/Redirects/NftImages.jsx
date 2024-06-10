@@ -12,7 +12,7 @@ const NftImages = ({ data }) => {
     console.log(ethLatestPrice)
     return (
         <div className={`${Styles.containerNftImages} `}>
-            <div className=''>
+            <div className={`${Styles.wrapperImageNft}`}>
                 <img className={`${Styles.imageNft}`} src={image} alt="" />
             </div>
             <div className='flex flex-col '>

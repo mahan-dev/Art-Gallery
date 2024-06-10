@@ -10,6 +10,12 @@
 @media screen and (max-width: 576px) {
     
     .containerNftImages{
-     width: 200px;   
+        grid-template-columns: repeat(auto , minmax(200px , 1fr));
+    }
+    .wrapperImageNft{
+        display: grid;
+        width: 100%;
+        grid-template-columns: minmax(200px , 1fr);
+        background: red;
     }
 }

@@ -28,10 +28,25 @@ const Swiper_slide = () => {
     
       <Swiper
         {...swiperParams}
-        className="second_slide_viewerz"
+        className="second_slide_viewerz  mb-7"
         spaceBetween={20}
         scrollbar={{ draggable: true, }}
-        slidesPerView={5}
+        slidesPerView={"auto"}
+        breakpoints={
+          {
+            576: {
+              slidesPerView: 1,
+              spaceBetween: 10,
+            },
+            // 577 : {
+            //   slidesPerView: 3,
+            // },
+            900 :{
+              slidesPerView : 2,
+            }
+            
+          }
+        }
       >
         <SwiperSlide>
           <section className="wrapperImageWeb3">
@@ -57,7 +72,7 @@ const Swiper_slide = () => {
         </SwiperSlide>
 
         <SwiperSlide>
-          <section className="">
+          <section className="wrapperImageWeb3">
           <img src={image_3} alt="" />
           <div>s;dljfjpofwe</div>
 
