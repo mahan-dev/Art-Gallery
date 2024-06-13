@@ -1,10 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Styles from "../../Styles/Redirect_Exhibitions_Footer.module.css"
 
-
-
-
-
 // Importing Icons Footer
 
 import facebookIcon from "../../assets/images/redirectExhibitonsIcons/facebook-f.svg";
@@ -24,7 +20,6 @@ const Redirect_Exhibitions_Footer = ({ className }) => {
 
     //States
     const [email, setEmail] = useState(false);
-    const [emailClick, setEmailClick] = useState(false);
     const [isValidEmail, setIsValidEmail] = useState(false);
     //States
 
@@ -74,13 +69,12 @@ const Redirect_Exhibitions_Footer = ({ className }) => {
     }
 
     const handleClickOutti = (event) => {
-        if (bool && !email_Input_Ref.current.contains(event.target) && email_Input_Ref.current.value === ""   ) {
+        if (bool && !email_Input_Ref.current.contains(event.target) && email_Input_Ref.current.value === "") {
             setErrorMessage("you must enter something");
             console.log("this line is working ..... ")
-            // console.log("is running this part ")
         }
     }
-    
+
     useEffect(() => {
 
         const addEventListener = () => {
@@ -97,16 +91,14 @@ const Redirect_Exhibitions_Footer = ({ className }) => {
             removeEventListener();
         }
 
-    }, [emailClick, email, bool]);
-
-
-
+    }, [email, bool]);
 
     return (
-        <section className={`footer_Wrapper ${className}`}>
+        <section className={` ${Styles.footer_Wrapper_Class} footer_Wrapper ${className}`}>
+            {/* <section className={`footer_Wrapper ${className}`}> */}
             <section id="Redirect_footer_Exhibitions" className='' >
 
-                <section className={`${Styles.font_size} mb-4 section-left`}>
+                <section className={`${Styles.wrapper_contents} mb-4 section-left`}>
                     <h2 className='mb-6'>Unit, Mayfair</h2>
                     <div>
                         <p>3 Hanover Square, Mayfair, W1S 1HD</p>
@@ -119,7 +111,6 @@ const Redirect_Exhibitions_Footer = ({ className }) => {
                             Sunday, 12pm-6pm <br />
                         </p>
                     </div>
-
 
                     <p>No booking required.</p>
                     <div className='mb-4'>
@@ -135,16 +126,15 @@ const Redirect_Exhibitions_Footer = ({ className }) => {
 
                 </section>
 
-                <section className= {`${Styles.font_size} mb-4   section-middle`}>
-                    <h2 className= "mb-6" >Press Enquiries</h2>
+                <section className={`${Styles.wrapper_contents} mb-4   section-middle`}>
+                    <h2 className="mb-6" >Press Enquiries</h2>
                     <p>For all press enquiries please contact us at;</p>
                     <p>+44 020 7494 2035</p>
                     <a>press@unitlondon.com</a>
                 </section>
 
-                <section className={`${Styles.font_size} mb-4 section-right`} >
+                <section className={`${Styles.wrapper_contents} mb-4 section-right`} >
                     <h2 className='mb-6'>Stay in touch</h2>
-
 
                     <section className={`${Styles.icons_wrapper} flex mb-6 items-center`}>
 

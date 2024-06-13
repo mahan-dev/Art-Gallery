@@ -109,7 +109,7 @@
 .wrapperContents{
     position: relative;
     z-index: 40;
-    background: #ffffff;
+    background-color: #ffffff;
     padding: 0 4rem;
 }
 

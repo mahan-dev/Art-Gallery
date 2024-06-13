@@ -29,7 +29,22 @@ input , input::placeholder {
     outline: none;
 }
 
-.font_size {
-    font-size: 1.5rem;
+
+
+@media screen and (max-width : 998px) {
+    .wrapper_contents > h2{
+        font-size: 1.5rem;
+      }
+
+
+    .wrapper_contents {
+        font-size: 1rem;
+    }
+    
 }
 
+@media screen and (max-width: 768px){
+    .footer_Wrapper_Class{
+        position: static;
+    }
+}

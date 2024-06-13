@@ -22,8 +22,20 @@
   }
 
   .footer_Wrapper {
-    @apply fixed z-10 w-full bottom-0 left-0
+    @apply fixed z-10 w-full bottom-0 left-0;
+
+    @media screen and (max-width:768px) {
+      position: static;
+    }
   }
+
+  #fixer {
+    @media screen and (max-width :768px) {
+      margin-bottom: 0;
+    }
+  }
+
+
 
   .footerHome {
     @apply bottom-0
@@ -31,16 +43,18 @@
 
 
   #Redirect_footer_Exhibitions {
-    @apply flex justify-between gap-[50px] min-h-screen bg-[#171717] text-[#ffffff] px-32 pt-[8rem] items-start transition-all duration-500 ease-in text-[1rem];
+    @apply flex justify-between gap-[50px] min-h-screen bg-[#171717] text-[#ffffff] px-12 py-20 items-start text-[1.5rem];
 
     @media screen and (max-width: 992px) {
       flex-direction: column;
 
-      padding: 1.5rem 5rem;
-      justify-content: space-around;
+      padding: 1.5rem 2rem;
     }
 
-
+    @media screen and (max-width: 768px) {
+      position: static;
+      flex-direction: column;
+    }
   }
 
   /* redirect artists Header */
@@ -53,7 +67,7 @@
     @apply mt-[5rem]
   }
 
-  .redirect_tailwdinCss > a {
+  .redirect_tailwdinCss>a {
     @apply text-3xl
   }
 
@@ -65,9 +79,8 @@
   /* This is the styles for the redirect_Exhibitions_Artist Aside-Part!!! */
   .ListViewLists {
     @apply border-b-2 text-red-500
-
   }
-  
+
   /* .GridView {
     @apply border-b-2
   }    */
@@ -76,16 +89,17 @@
 /* this line is for the voices */
 
 
-.wrapper_image_content{
+.wrapper_image_content {
   display: flex;
   gap: 0 0.5rem;
 }
 
-.image_content_voices{
+.image_content_voices {
   display: flex;
   background: #b5abab;
 }
-.mapContainer{
+
+.mapContainer {
   height: 100vh;
 }
 
@@ -94,7 +108,7 @@
   left: 0;
 }
 
-.swiper-pagination-bullet-active{
+.swiper-pagination-bullet-active {
   background: #ffffff;
 }
 
@@ -216,4 +230,3 @@
   font-size: 2.5rem;
   cursor: pointer;
 }
-

@@ -5,15 +5,15 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: "/Art-Gallery",
-  server: {
-    fs: {
-      strict: false,
-    },
-    hmr: {
-      overlay: false,
-    },
-    index: '/Art-Gallery/index.html', // Replace with your actual GitHub repository name
-  },
+  // base: "/Art-Gallery",
+  // server: {
+  //   fs: {
+  //     strict: false,
+  //   },
+  //   hmr: {
+  //     overlay: false,
+  //   },
+  //   index: '/Art-Gallery/index.html', // Replace with your actual GitHub repository name
+  // },
 })
 // npm run dev

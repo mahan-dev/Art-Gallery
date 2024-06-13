@@ -25,18 +25,18 @@ const Redirect_Web3 = () => {
     const [showPrice, setShowPrice] = useState(null);
 
     let priceNftLists = [
-        { title : 'Loren Barden' ,image: ForthImage, price: 0.02 },
-        { title : 'Sam Lord' ,image: ThirdImage, price: 0.12 },
-        { title : 'eyban Seu' ,image: SecondImage, price: 0.1 },
-        { title : 'Yasmin James' ,image: FirstImage, price: 0.3 },
-        { title : 'Larim Zeih' ,image: FirstImage, price: 1 },
-        { title : 'Loren Barden' ,image: FirstImage, price: 0.57 },
-        { title : 'Loren Barden' ,image: FirstImage, price: 0.22 },
-        { title : 'Loren Barden' ,image: FirstImage, price: 0.79 },
-        { title : 'Loren Barden' ,image: FirstImage, price: 0.212 },
-        { title : 'Loren Barden' ,image: FirstImage, price: 0.1 },
-        { title : 'Loren Barden' ,image: FirstImage, price: 0.98 },
-        { title : 'Loren Barden' ,image: FirstImage, price: 0.243 },
+        { title: 'Loren Barden', image: ForthImage, price: 0.02 },
+        { title: 'Sam Lord', image: ThirdImage, price: 0.12 },
+        { title: 'eyban Seu', image: SecondImage, price: 0.1 },
+        { title: 'Yasmin James', image: FirstImage, price: 0.3 },
+        { title: 'Larim Zeih', image: FirstImage, price: 1 },
+        { title: 'Loren Barden', image: FirstImage, price: 0.57 },
+        { title: 'Loren Barden', image: FirstImage, price: 0.22 },
+        { title: 'Loren Barden', image: FirstImage, price: 0.79 },
+        { title: 'Loren Barden', image: FirstImage, price: 0.212 },
+        { title: 'Loren Barden', image: FirstImage, price: 0.1 },
+        { title: 'Loren Barden', image: FirstImage, price: 0.98 },
+        { title: 'Loren Barden', image: FirstImage, price: 0.243 },
     ]
 
     let finalPrice = priceNftLists.map((item, index) => {
@@ -89,60 +89,53 @@ const Redirect_Web3 = () => {
     }, [hover, clicked])
 
     return (
-        <section>
+        <section className={`${stylesWeb3.wrapper_web3} relative flex flex-col`}>
             {console.log(showPrice)}
             {console.log(ethPrice)}
             <Navbar />
 
-            <section className={`${stylesWeb3.wrapper_web3}`}>
-                <section className='bg-red-600'>
-                    {/* <section className='relative z-50 mb-[100v]'>
 
-                </section> */}
-                    <section className={`${stylesWeb3.background_image} fixed top-0 bottom-0 z-1 flex justify-start items-center`}>
+            <section className='relative flex justify-center flex-col '>
+                <section className='h-full z-40 relative'>
+
+                    <section className={`${stylesWeb3.background_image} relative top-0 bottom-0 z-1 flex justify-start items-center`}>
                     </section>
 
-                    <section className=' px-[10%]  flex flex-col justify-center items-start'>
+                    <section className=' px-[10%] mt-[20%] top-6 absolute flex flex-col justify-center items-start'>
                         <p style={{ color: "blue" }} className='text-[2rem]  border-b-2 w-full'> welcome to web3  </p>
 
                         <h2 style={{ color: "white" }} className='text-[2rem]   '> ART WITHOUT LIMITS </h2>
                         <h5 style={{ color: "white" }} className='text-[2rem]   '> Join the digital art renaissance.
                         </h5>
                     </section>
+                </section>
 
 
-                    {/* <section className='z-50 relative' > */}
+                <section className={`${stylesWeb3.wrapperContents} mb-[100vh]`}>
 
+                    <section className={`${stylesWeb3.wrapper_content_web3} `}>
 
-                    <section className={`${stylesWeb3.wrapperContents}`}>
+                        <div className={`${stylesWeb3.content_wrapper_left}`}>
+                            <p className='my-4'>Built at the accelerating intersection of art and technology,
+                                Unit Web3 is a blockchain platform of highly-curated digital art programming dedicated to identifying
+                                and supporting generation-defining artists working with ascendant technologies.</p>
+                            <p className='my-4'>Unit was founded in 2013 upon the belief that art is for everyone. We seek to drive change in the art world by promoting accessibility and inclusivity – opening doors between new artists and audiences. </p>
+                            <p className='my-4'>In 2021, we led the way for art galleries entering the NFT space in recognising their potential for unparalleled freedom, transparency and access for generations of digital artists who have struggled to build careers in the traditional art ecosystem. We realised that the dynamics of this space appealed to new audiences who felt excluded from the traditional art world; that traditional barriers to access were breaking down, and new rules were forming. </p>
 
-                        <section className={`${stylesWeb3.wrapper_content_web3} `}>
+                        </div>
 
-                            <div className={`${stylesWeb3.content_wrapper_left}`}>
-                                <p className='my-4'>Built at the accelerating intersection of art and technology,
-                                    Unit Web3 is a blockchain platform of highly-curated digital art programming dedicated to identifying
-                                    and supporting generation-defining artists working with ascendant technologies.</p>
-                                <p className='my-4'>Unit was founded in 2013 upon the belief that art is for everyone. We seek to drive change in the art world by promoting accessibility and inclusivity – opening doors between new artists and audiences. </p>
-                                <p className='my-4'>In 2021, we led the way for art galleries entering the NFT space in recognising their potential for unparalleled freedom, transparency and access for generations of digital artists who have struggled to build careers in the traditional art ecosystem. We realised that the dynamics of this space appealed to new audiences who felt excluded from the traditional art world; that traditional barriers to access were breaking down, and new rules were forming. </p>
+                        <div className={`${stylesWeb3.content_wrapper_right}`}>
+                            <p className='my-4'>Our ambition is to unify artists, collectors and enthusiasts – regardless of the media or practices they choose to adopt – because we believe that art is a universal language that has the power to bring us all together. We are striving to remove the stigma around NFTs, liberating artists who are using the technology from the label of “digital artist” or “NFT artist”, and instead positioning them simply, as artists. In line with this vision for a truly integrated art world, we are proud to prioritise Web3 as a key pillar of our programming.
 
-                            </div>
+                            </p>
+                            <p className='my-4'>This leap forward signals our commitment to leading the charge in creating the art world of tomorrow. Our programme will focus on championing the world’s most exciting digital artists, and will comprise both physical and online exhibitions, as well as art fairs and collaborative projects with leading partners from the art, culture and technology sectors.
 
-                            <div className={`${stylesWeb3.content_wrapper_right}`}>
-                                <p className='my-4'>Our ambition is to unify artists, collectors and enthusiasts – regardless of the media or practices they choose to adopt – because we believe that art is a universal language that has the power to bring us all together. We are striving to remove the stigma around NFTs, liberating artists who are using the technology from the label of “digital artist” or “NFT artist”, and instead positioning them simply, as artists. In line with this vision for a truly integrated art world, we are proud to prioritise Web3 as a key pillar of our programming.
+                            </p>
+                            <p>Ultimately, our mission is to further cross-pollinate the distinct traditional art and NFT collecting audiences, generating ongoing opportunities for education and participation across both communities, and creating a truly integrated, accessible, and forward-thinking art world.  </p>
+                        </div>
+                    </section>
 
-                                </p>
-                                <p className='my-4'>This leap forward signals our commitment to leading the charge in creating the art world of tomorrow. Our programme will focus on championing the world’s most exciting digital artists, and will comprise both physical and online exhibitions, as well as art fairs and collaborative projects with leading partners from the art, culture and technology sectors.
-
-                                </p>
-                                <p>Ultimately, our mission is to further cross-pollinate the distinct traditional art and NFT collecting audiences, generating ongoing opportunities for education and participation across both communities, and creating a truly integrated, accessible, and forward-thinking art world.  </p>
-                            </div>
-                        </section>
-                        <section>
-                            this is the one
-
-                            {/* <img src={process.env.PUBLIC_URL + '/' + image} alt="" width={200} /> */}
-                        </section>
-
+                    <section className='flex justify-center '>
                         <section className={`${stylesWeb3.gridPartAdding}`}>
                             <section className={`${stylesWeb3.container_picture_contents}`}>
                                 <section className={`${stylesWeb3.picture_contents__title}`}>
@@ -188,20 +181,7 @@ const Redirect_Web3 = () => {
                                 <p className={`${stylesWeb3.Nft_Web3_title}`}>All NFTs</p>
 
                                 <section className={`${stylesWeb3.wrapper_Grid_NFTs_Web3}`}>
-                                    {/* <div className='w-fit'><img src={imgCurrent} alt="" width={300} />
-                                    <span>this is the price of Nft</span>
-                                </div> */}
 
-                                    {/* <div className='w-fit'>
-                                    {finalPrice.map((item, index) => (
-                                        <section key={index}>
-                                        <img src={imgCurrent} alt="" width={300} />
-                                        {item.price}
-                                        </section>
-                                        
-                                    ))}
-                                    
-                                </div> */}
 
 
 
@@ -211,10 +191,10 @@ const Redirect_Web3 = () => {
                                 </section>
                             </section>
 
-                            {/* <NftImages /> */}
+
 
                             <section className='my-4 '>
-                            {/* grid overflow-hidden  for above*/}
+                                {/* grid overflow-hidden  for above*/}
                                 <div className='border-b-2 my-4'>
                                     <p className='p-2'>
                                         Related Posts
@@ -225,10 +205,11 @@ const Redirect_Web3 = () => {
                             </section>
                         </section>
                     </section>
+
                 </section>
-                {/* </section> */}
             </section>
-            {/* <Redirect_Exhibitions_Footer /> */}
+
+            <Redirect_Exhibitions_Footer />
         </section>
 
     );

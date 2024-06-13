@@ -17,6 +17,7 @@
 #background_image_wrapper{
     position: relative;
     z-index: 30;
+    background: white;
 }
 #background_image_wrapper > img{
     /* z-index: 000; */

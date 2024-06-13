@@ -1,4 +1,4 @@
-.wrapper{
+.wrapper {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -6,7 +6,7 @@
     z-index: 50;
 }
 
-.wrapper__contents{
+.wrapper__contents {
     padding-top: 10rem;
     display: flex;
     flex-direction: column;
@@ -17,77 +17,89 @@
     background-color: #ffffff;
     margin-bottom: 100vh;
 }
-.wrapper_authors{
+
+.wrapper_authors {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(3, minmax(0,1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 0 50px;
     margin-bottom: 3rem;
 }
+
 /* npm run dev */
-.wrapper_authors div{
+.wrapper_authors div {
     word-break: break-word;
 }
 
-.wrapper_authors div a{
+.wrapper_authors div a {
     display: inline-block;
     font-size: 2rem;
 }
 
 
-.artists_wrapper_image{
+.artists_wrapper_image {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 40px;
 }
 
-.image_wrapper > img {
+.image_wrapper>img {
     display: block;
     width: 100%;
     /* height: 85%; */
 }
 
-.image_wrapper{
+.image_wrapper {
     margin-bottom: 20px;
 }
 
-.image_wrapper > div > p{
+.image_wrapper>div>p {
     font-size: 2rem;
 }
 
-.ListViewLists{
-color: red;
+.ListViewLists {
+    color: red;
 }
 
 
-.assssss{
+.assssss {
     background-color: rgb(255, 255, 255);
     width: 500px;
 }
-.wrapper{
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
     position: relative;
     z-index: 50;
     width: 100%;
-    background-color: blue;
 }
 
-.wrapper__contents{
+.wrapper__contents {
     position: relative;
     z-index: 50;
-     padding: 0 5rem;
+    padding: 0 5rem;
     background-color: #ffffff;
 }
 
-@media screen and (min-width: 768px) and (max-width :1200px) {
-  
-  
-  }
-  @media screen and (min-width: 1220px) {
-    
-    .artists_wrapper_image{
-        grid-template-columns: repeat(4, minmax(0,1fr));
+@media screen and (min-width: 768px) and (max-width :1200px) {}
+
+@media screen and (min-width: 1220px) {
+
+    .artists_wrapper_image {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
     }
-  }
+}
+
+@media screen and (max-width: 768px) {
+
+    .wrapper__contents{
+        margin-bottom: 0;
+    }
+}
+
+
+
 /* @media only screen and (max-width : 768px){
     .wrapper_authors{
         display: grid;
@@ -101,8 +113,8 @@ color: red;
     }
   } */
 
-  .imageBg{
+.imageBg {
     background-image: url("../assets/images/artists_pics/5.jpg");
     height: 100%;
     object-fit: cover;
-  }
+}

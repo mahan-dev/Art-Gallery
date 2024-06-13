@@ -22,44 +22,34 @@ import Slider_navigation from './slider_navigation';
 import closeNavbarDropdown from "../assets/navbarDropdownClose/xmark.svg";
 // import { usehis, useLocation } from 'react-router-dom';
 
-// Importing api
+
 
 const Navbar = () => {
-    const listLink =useRef(null);
+    const listLink = useRef(null);
     const [showHeader, setShowHeader] = useState(true);
-    // const [scrollYS, setScrollY] = useState(0);
     const [isvisiii, setIsVisiiiii] = useState(true);
-    //scrollssss
     const [scrollingDown, setScrollingDown] = useState(false);
     const [previousScrollY, setpreviousScrollY] = useState(0);
-    //
 
-    //
     const headerRef = useRef(null);
 
     const handleScroll = () => {
         const currentScrollY = window.scrollY;
         if (currentScrollY > previousScrollY) {
             setScrollingDown(true);
-            // console.log(currentScrollY);
         } else {
             setScrollingDown(false);
-            // console.log(currentScrollY);
         }
         setpreviousScrollY(currentScrollY);
     }
 
 
-    // const [isDropdownVisible, setDropdownVisible] = useState(false);
-
     const [showList, SetShowDisplay] = useState(false);
     const [isMenuClicked, setMenuClicked] = useState(false);
     const [burger, burgerSetter] = useState(false);
     const [isMenuOpened, setMenu] = useState(false);
-    // const [closeMenu, setCloseMenu] = useState(true);
 
     const closeDropDownRef = useRef(null);
-
 
     const positionHandler = () => {
         const HtmlBodyScrollHidden = document.querySelector("body");
@@ -80,7 +70,7 @@ const Navbar = () => {
 
 
     }
-    // const linkColor = !isMenuClicked ? "white" : "black";
+
     const CloseDropDownHandler = () => {
         const navbar_list = document.querySelector(`.${NavStyles.navbar_list}`);
         navbar_list.style.display = "none";
@@ -93,27 +83,13 @@ const Navbar = () => {
 
     }
 
-    // const closeHandler = (event) => {
-    //     // let checks = event.target;
-    //     const refed = closeDropDownRef.current;
-    //     if (refed && !refed.current.contains(event.target)) {
-    //         console.log("is truinisdnfishiokfhs")
-    //     }
-    //     else {
-    //         console.log("lksdhfklshdf");
-    //     }
-
-    //     const HtmlBodyScrollHidden = document.querySelector("body");
-    //     HtmlBodyScrollHidden.style.overflow = "visible";
-    //     setMenuClicked(!isMenuClicked);
-    // }
 
     const [isPageLoaded, setIsPageLoaded] = useState(true);
 
-    const close_clickHandler = (event)=>{
+    const close_clickHandler = (event) => {
 
-        if (closeDropDownRef.current && closeDropDownRef.current.contains(event.target)){
-            
+        if (closeDropDownRef.current && closeDropDownRef.current.contains(event.target)) {
+
             console.log("IS CLICKING")
         }
         const HtmlBodyScrollHidden = document.querySelector("body");
@@ -123,76 +99,47 @@ const Navbar = () => {
 
     const [visibility, setVisibility] = useState(false);
 
-    const handleItemOverflow = ()=>{
+    const handleItemOverflow = (path) => {
+        if (location.pathname === path) {
+            console.log("yes it is ")
+            setMenuClicked(false)
+        }
 
         setVisibility(true)
-        if(visibility){
+        if (visibility) {
             console.log("is treuuuuuuuuuuuuuu")
-        } 
+        }
         document.body.style.overflow = "visible";
     }
 
-  
 
-    // if(isMenuClicked) {
-    //     const grabbb = document.querySelector(".hello")
-    //     if(grabbb) {
-    //         console.log("woooo")
-    //         grabbb.style.display = "none";
-    //     } else if(!grabbb){
-    //         console.log("ggggg nnnnnnnnnnn")
-    //     }
-        
-    // } else {
-    //     console.log("is not running")
-    // }
+    const mouseii = () => {
+        const dropdown = document.querySelector(`.${NavStyles.item__dropdown__wrapper}`)
+        if (!isMenuClicked) {
+            if (dropdown) {
+                dropdown.style.display = "flex";
+            }
+        } else if (isMenuClicked) {
+            if (dropdown) {
+                dropdown.style.display = "none";
+            }
+        }
 
-    
-
-//     const history = useHistory();
-// const location = useLocation();
-// const navPath = (path) => {
-//     const currentPath = history.location.pathname;
-//     if (path !== currentPath) {
-//         history.push(path);
-//     } 
-// };
-
-const mouseii =()=>{
-    const dropdown = document.querySelector(`.${NavStyles.item__dropdown__wrapper}`)
-    if(!isMenuClicked){
-        if (dropdown) {
-            dropdown.style.display = "flex";
-          } 
-    } else if(isMenuClicked){
+    }
+    if (isMenuClicked) {
+        const dropdown = document.querySelector(`.${NavStyles.item__dropdown__wrapper}`)
         if (dropdown) {
             dropdown.style.display = "none";
-          } }
-    
-}
-if(isMenuClicked) {
-    const dropdown = document.querySelector(`.${NavStyles.item__dropdown__wrapper}`)
-    if (dropdown) {
-        dropdown.style.display = "none";
-      } 
-}
+        }
+    }
 
-const mouseleavii = ()=>{
-    const dropdown = document.querySelector(`.${NavStyles.item__dropdown__wrapper}`)
-    if (dropdown) {
-        dropdown.style.display = "none";
-      }
-  
-}
+    const mouseleavii = () => {
+        const dropdown = document.querySelector(`.${NavStyles.item__dropdown__wrapper}`)
+        if (dropdown) {
+            dropdown.style.display = "none";
+        }
 
-
-
-// if(isMenuClicked && checkVis) {
-//     const selected = document.querySelector(`.${NavStyles.item__dropdown__wrapper}`);
-//     selected.style.display = "none";
-//     selected.style.visibility = "hidden";
-    
-// }
+    }
 
 
     useEffect(() => {
@@ -200,98 +147,67 @@ const mouseleavii = ()=>{
         if (isMenuClicked) {
             dropdown.style.display = "none"
         }
-        if(isMenuClicked === false){
+        if (isMenuClicked === false) {
 
             if (dropdown) {
                 dropdown.addEventListener("mouseenter", mouseii)
                 dropdown.addEventListener("mouseleave", mouseleavii)
-                
-        
+
+
                 dropdown.style.animation = `${NavStyles.showUp} 0.5s 1`;
             }
         }
 
-    // navPath(location.pathname);
         const isReloaded = sessionStorage.getItem("isReloaded");
-        if(isReloaded){
+        if (isReloaded) {
             setIsPageLoaded(true);
             sessionStorage.removeItem("isReloaded");
-        } else{
+        } else {
             setIsPageLoaded(false);
         }
-         
 
         window.addEventListener("scroll", handleScroll);
-        
-        // window.addEventListener("click", close_clickHandler)
-
-
-        // This is the mouseenter For prooo
-        // window.addEventListener("mouseenter", mouseii);
-        // window.addEventListener("mouseleave", mouseleavii)
         return () => {
             window.removeEventListener("scroll", handleScroll);
-            
-            
-            // window.removeEventListener("mouseenter", mouseii);
-            // window.removeEventListener("mouseleave", mouseleavii)
-            // window.removeEventListener("click", close_clickHandler);
-            
         }
 
     }, [previousScrollY, isMenuClicked]);
- 
+
     return (
         <>
-        
-        <header  id="header" className={` ${NavStyles.isHeader} ${isPageLoaded ?  NavStyles["fade-out"] : scrollingDown ?  NavStyles["fade-out"]: NavStyles["fade-in"]}`} ref={headerRef} >
-            {/* <header  id="header" className={`${NavStyles.isHeader} ${scrollingDown ? NavStyles["fade-out"] : NavStyles["fade-in"]}`} ref={headerRef} > */}
+
+            <header id="header" className={` ${NavStyles.isHeader} ${isPageLoaded ? NavStyles["fade-out"] : scrollingDown ? NavStyles["fade-out"] : NavStyles["fade-in"]}`} ref={headerRef} >
                 <section style={{ display: "none" }}>
                     <img src={MenuBar} alt="" width={30} />
                 </section>
-                {/* <Navbar_dropdown toggelListItem={!showList} /> */}
-                {/* <i className="fa-regular fa-magnifying-glass" style={{width: "50px", color: 'black'}} ></i> */}
-                {/* <img src={arrow} alt="arrow" width={15} /> */}
+
                 <section id={NavStyles.logo}>
                     <Link to="/"><img src={Logo} alt="" width={50} /></Link>
 
                 </section>
-                {/* <section className='@screen custom-md-max:hidden'> */}
-                {/* id={NavStyles.navbar} */}
-                {/* <MenuAction style={{ display: showList ? "flex" : '' }}> */}
-                {/* id={NavStyles.navbar_list}*/}
-                {/* className={NavStyles.activer} */}
-                {/* ${NavStyles.activer} */}
-                {/* <section>
-                        </section> */}
-                {/* <ul className={` flex ${NavStyles.navbar_list} ${isMenuOpened ? NavStyles.activer : ""} `} ></ul> */}
+
                 <section className='wrappriO'>
 
                     <img style={{ display: "none" }} onClick={CloseDropDownHandler} id={NavStyles.navbar__closeDropDown} src={closeNavbarDropdown} alt="" />
-                    <span onClick={close_clickHandler} ref={closeDropDownRef}  className={isMenuClicked ? 'showClose' : "hidden"}>close</span>
-
-                    {/* style={{ overflow: mouseEnnnn ? "visible" : "hidden"}} */}
-                    <ul      className={`${isMenuClicked ? "firsul_cls" : "wrappri"}`} >
-                        {/* {`${NavStyles.list_item}-${NavStyles.animLink} */}
-                        <li className={`${NavStyles.list_item} mx-2`} onClick={handleItemOverflow} > <Link to="/artists">Artists</Link> </li>
+                    <span onClick={close_clickHandler} ref={closeDropDownRef} className={isMenuClicked ? 'showClose' : "hidden"}>close</span>
+                    <ul className={`${isMenuClicked ? "firsul_cls" : "wrappri"}`} >
+                        <li className={`${NavStyles.list_item} mx-2`} onClick={()=>handleItemOverflow("/artists")} > <Link to="/artists">Artists</Link> </li>
                         <li className={`${NavStyles.Exhibitions__dropper} list_item mx-2 `}>
-                            {/* exception__a */}
-                            <Link id="exeption" onMouseOver={mouseii} onMouseOut={mouseleavii} ref={listLink} style={{ cursor: "pointer" }} onClick={handleItemOverflow} className={`${NavStyles.list_item}`} to="/Exhibitions">Exhibitions</Link> {/*need second class for hovering item link *}
-                            {/* <ul className={`${NavStyles.item__dropdown__wrapper} animate`}> */}
-                            <ul style={{display: isMenuClicked ? "none" : "none"}}  className={`${NavStyles.item__dropdown__wrapper} hello `} >
-                                {/* <ul className={`${NavStyles.Exhibitions__dropper} ${disableHover ? NavStyles.disable__hover : ""}`}> */}
+
+                            <Link id="exeption" onMouseOver={mouseii} onMouseOut={mouseleavii} ref={listLink} style={{ cursor: "pointer" }} onClick={()=> handleItemOverflow("/Exhibitions")} className={`${NavStyles.list_item}`} to="/Exhibitions">Exhibitions</Link>
+                            <ul style={{ display: isMenuClicked ? "none" : "none" }} className={`${NavStyles.item__dropdown__wrapper} hello `} >
                                 <li className={`${NavStyles.list_item} mx-2`} ><Link to="/ExhibitionsCurrent">Current</Link></li>
                                 <li className={`${NavStyles.list_item} mx-2`} ><Link to="/ExhibitionsForthcoming">Forthcoming</Link></li>
                                 <li className={`${NavStyles.list_item} mx-2`} ><Link to="/ExhibitionsArchive">Archive</Link></li>
                             </ul>
                         </li>
-                        {/* id={NavStyles.list__item} */}
-                        <li className={`${NavStyles.list_item} mx-2`} onClick={handleItemOverflow} > <Link to="/Web3">Web3</Link> </li>
-                        <li className={`${NavStyles.list_item} mx-2`} onClick={handleItemOverflow} > <Link to="/Voices">Voices</Link> </li>
-                        <li className={`${NavStyles.list_item} mx-2`} onClick={handleItemOverflow} > <Link to="/Store">Store</Link> </li>
-                        <li className={`${NavStyles.list_item} mx-2`} onClick={handleItemOverflow} > <Link to="/News">News</Link> </li>
-                        <li className={`${NavStyles.list_item} mx-2`} onClick={handleItemOverflow} > <Link to="/About">About</Link> </li>
-                        <li className={`${NavStyles.list_item} mx-2`} onClick={handleItemOverflow} > <Link to="/Contact">Contact</Link> </li>
+
+                        <li className={`${NavStyles.list_item} mx-2`} onClick={()=>handleItemOverflow("/Web3")} > <Link to="/Web3">Web3</Link> </li>
+                        <li className={`${NavStyles.list_item} mx-2`} onClick={()=>handleItemOverflow("/Voices")} > <Link to="/Voices">Voices</Link> </li>
+                        <li className={`${NavStyles.list_item} mx-2`} onClick={()=>handleItemOverflow("/Store")} > <Link to="/Store">Store</Link> </li>
+                        <li className={`${NavStyles.list_item} mx-2`} onClick={()=>handleItemOverflow("/News")} > <Link to="/News">News</Link> </li>
+                        <li className={`${NavStyles.list_item} mx-2`} onClick={()=>handleItemOverflow("/About")} > <Link to="/About">About</Link> </li>
+                        <li className={`${NavStyles.list_item} mx-2`} onClick={()=>handleItemOverflow("/Contact")} > <Link to="/Contact">Contact</Link> </li>
                     </ul>
 
                 </section>

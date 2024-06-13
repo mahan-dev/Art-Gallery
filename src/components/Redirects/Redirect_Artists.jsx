@@ -162,9 +162,9 @@ const RedirectArtists = () => {
         <div className='relative z-40'>
             <Navbar />
 
-            <section className={`${redirect_artists.wrapper} bg-red-500`}>
+            <section className={`${redirect_artists.wrapper} `}>
                 {/* wrapper__contents_tailwdind for below section */}
-                <section id="listViewContent" className={`${redirect_artists.wrapper__contents} wrapper__contents_tailwdind`}>
+                <section id="listViewContent" className={`${redirect_artists.wrapper__contents} wrapper__contents_tailwdind fixer`}>
 
                     <h1 id="listzz" className="wrapper__contents_h1_title  ">ARTISTS</h1>
                     <section className={`${redirect_artists.wrapper_authors} redirect_tailwdinCss`}>
@@ -375,7 +375,7 @@ const RedirectArtists = () => {
                     </section>
 
                 </section>
-                <aside className={`Redirect_Artists_Aside ${scrollDown ? "fade-in" : "fade-out"}`}>
+                <aside className={`Redirect_Artists_Aside ${scrollDown ? "fade-in" : ""}`}>
                     {/* fadeIn  fadeOut */}
 
                     <section className='flex rotate-90 z-50'>
