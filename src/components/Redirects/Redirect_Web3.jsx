@@ -156,14 +156,14 @@ const Redirect_Web3 = () => {
                                 </section>
 
                                 <section className={`${stylesWeb3.picture_contents}`}>
-                                    <section className='picture_contents_left'>
+                                    <section className={`${stylesWeb3.picture_contents_left}`}>
                                         <img src={imgCurrent} alt="pic content" />
                                     </section>
 
 
                                     <section className={`${stylesWeb3.picture_contents_right} flex flex-col items-center`} >
                                         <p>11 April - 10 May 2024</p>
-                                        <p className='my-4'>Loren Bendar</p>
+                                        <p className={`${stylesWeb3.right_artistName}`}>Loren Bendar</p>
                                         <p className='my-4'>
                                             Loren Bednar's 'Pressed Pause' marks Unit's
                                             second release with Art Blocks Engine,

@@ -106,9 +106,7 @@ const RedirectArtists = () => {
         const listViewOffset = listViewSection.offsetTop;
         const gridViewOffset = gridViewSection.offsetTop;
         window.addEventListener('scroll', handleScrollzzz);
-
-
-
+        
         if (window.scrollY >= listViewOffset && window.scrollY < gridViewOffset) {
             setVisibleListView(true);
             setVisibleGrid(false);

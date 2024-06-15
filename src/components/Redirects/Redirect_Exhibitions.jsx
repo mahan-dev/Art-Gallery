@@ -271,11 +271,11 @@ const Redirect_Exhibitions = () => {
 
             <section className='flex flex-col min-h-screen'>
             <Navbar />
-                <section className={`${styleExhibitions.wrapper_Exhibitions} w-full min-h-screen px-[11rem] `}>
+                <section className={`${styleExhibitions.wrapper_Exhibitions} w-full min-h-screen `}>
                     <section className="">
-                        <h1 className='text-[100px] font-bold'>EXHIBITIONS</h1>
+                        <h1 className={`${styleExhibitions.wrapper_Exhibitions_title}`}>EXHIBITIONS</h1>
                         {/* <span>hi there</span> */}
-                        <section className="image_contents_container grid gap-8">
+                        <section className={`${styleExhibitions.title_contents_container}`}>
 
                             <section className={`${styleExhibitions.wrapperEchibitionTitleHeader} flex justify-between items-center`}>
 
@@ -300,7 +300,7 @@ const Redirect_Exhibitions = () => {
                             </section>
 
                             <section className={styleExhibitions.wrapper_content_exhibitions}>
-                                <img src={image1} alt="" width={505} height='' />
+                                <img src={image1} alt="" width={""} height='' />
                                 <section className="image_content">
                                     {/* <a href="#"> */}
                                     {/* </a> */}
@@ -361,7 +361,7 @@ const Redirect_Exhibitions = () => {
                             <section className={styleExhibitions.wrapper_content_exhibitions}>
 
 
-                                <img src={image1} alt="" width={505} height='' />
+                                <img src={image1} alt="" width="" height='' />
                                 <section className="image_content">
                                     {/* <a href="#"> */}
                                     {/* </a> */}

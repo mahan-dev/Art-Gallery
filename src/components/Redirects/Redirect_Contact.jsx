@@ -70,7 +70,7 @@ const Redirect_Contact = () => {
 
     }, [mailTracker, emailMessage, email])
     return (
-        <section className="flex">
+        <section className={`${Styles.wrapperContact} flex`}>
             <section className={`${Styles.Wrapper} w-[50%] bg-white flex flex-col  pt-40 pb-28 pl-[6rem] pr-[4rem]`}>
                 <section className={`${Styles.Wrapper_Left} flex-col flex`}>
                     <h1 className="text-[1.8rem]">We want to hear from you </h1>
@@ -147,7 +147,7 @@ const Redirect_Contact = () => {
                 </section>
 
             </section>
-            <section className="w-[50%]  fixed right-0 min-h-screen">
+            <section className={`${Styles.wrapperMap}`}>
 
                 <MapGoogleApi lat={Location_Lat} lng={Location_Lng} />
             </section>
