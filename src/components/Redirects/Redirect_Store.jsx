@@ -14,6 +14,11 @@ import Redirect_Store_Navbar from "../shared/Redirect_Store_Navbar";
 import GiphLoading from "../../assets/Giph/redirect_store_gif/giphy_2.gif";
 import searchIcon from "../../assets/images/redirec_store_Image/magnifying-glass.svg";
 
+// import react skeleton 
+import Skeleton from "react-loading-skeleton";
+import 'react-loading-skeleton/dist/skeleton.css';
+
+import image6 from "../../assets/images/artists_pics/6.jpg";
 
 
 import cartIcon from "../../assets/images/icon_store/cart-shopping.svg";
@@ -266,7 +271,9 @@ const Redirect_Store = ({ children }) => {
 
 
                     {products.length === 0 ?
-                        <div><img src={GiphLoading} alt="" style={{ border: "none", background: "transparent" }} /></div> :
+                        // <div><img src={GiphLoading} alt="" style={{ border: "none", background: "transparent" }} /></div> :
+                        <Skeleton />
+                        :
 
                         products.length === 0 ?
                             <div>no art works found </div> :
@@ -279,45 +286,64 @@ const Redirect_Store = ({ children }) => {
                     }
                 </section>
 
-                <aside className=" px-4  store_aside w-[400px]">
-                    <section className="fixed">
-                        <section className=" sticky top-4">
-                            <div className="flex bg-white items-center">
-                                <input type="text" placeholder="search for an item" onChange={searchProduct} className="outline-none relative" />
-                                <img className=" absolute right-0" src={searchIcon} alt="" width={15} />
-
-                            </div>
-
-                        </section>
-
-                        <section>
-                            <div className="flex gap-[0, 2rem]">
-                                <input className="cursor-pointer" name="price_100_200" checked={priceFilter.price_100_200} onChange={handlePriceFilter} type="checkbox" id="" />
-                                <p>price 100 to 200$</p>
-                            </div>
-
-                            <div className="flex gap-[0, 2rem]">
-                                <input className="cursor-pointer" name="price_200_300" checked={priceFilter.price_200_300} onChange={handlePriceFilter} type="checkbox" id="" />
-                                <p>price 200 to 300$</p>
-                            </div>
-
-                            <div className="flex gap-[0, 2rem]">
-                                <input className="cursor-pointer" name="price_300_400" checked={priceFilter.price_300_400} onChange={handlePriceFilter} type="checkbox" id="" />
-                                <p>price 300 to 400$</p>
-                            </div>
-
-                            <div className="flex gap-[0, 2rem]">
-                                <input className="cursor-pointer" name="price_400_500" checked={priceFilter.price_400_500} onChange={handlePriceFilter} type="checkbox" id="" />
-                                <p>price 400 to 500$</p>
-                            </div>
-
-                        </section>
-
+                <aside className="w-full md:w-1/4 p-4 bg-gray-100">
+                    <section className="mb-4">
+                        <div className="flex items-center bg-white p-2 rounded">
+                            <input
+                                type="text"
+                                placeholder="Search for an item"
+                                onChange={searchProduct}
+                                className="flex-grow outline-none"
+                            />
+                            <img src={searchIcon} alt="Search" width={15} className="ml-2" />
+                        </div>
                     </section>
-
+                    <section>
+                        <div className="mb-2">
+                            <input
+                                className="cursor-pointer mr-2"
+                                name="price_100_200"
+                                checked={priceFilter.price_100_200}
+                                onChange={handlePriceFilter}
+                                type="checkbox"
+                            />
+                            <label>Price 100 to 200$</label>
+                        </div>
+                        <div className="mb-2">
+                            <input
+                                className="cursor-pointer mr-2"
+                                name="price_200_300"
+                                checked={priceFilter.price_200_300}
+                                onChange={handlePriceFilter}
+                                type="checkbox"
+                            />
+                            <label>Price 200 to 300$</label>
+                        </div>
+                        <div className="mb-2">
+                            <input
+                                className="cursor-pointer mr-2"
+                                name="price_300_400"
+                                checked={priceFilter.price_300_400}
+                                onChange={handlePriceFilter}
+                                type="checkbox"
+                            />
+                            <label>Price 300 to 400$</label>
+                        </div>
+                        <div className="mb-2">
+                            <input
+                                className="cursor-pointer mr-2"
+                                name="price_400_500"
+                                checked={priceFilter.price_400_500}
+                                onChange={handlePriceFilter}
+                                type="checkbox"
+                            />
+                            <label>Price 400 to 500$</label>
+                        </div>
+                    </section>
                 </aside>
             </section>
 
+            
         </section>
     );
 };

@@ -10,6 +10,8 @@ import Redirect_Store_ShopCart from './Redirect_Store_ShopCart';
 // importing trash icon
 
 import TrashIcon from "../../assets/images/redirec_store_Image/trash.svg";
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 
 const Redirect_Store_Product = ({ data}) => {
     
