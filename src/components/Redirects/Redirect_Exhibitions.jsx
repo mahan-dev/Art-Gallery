@@ -271,7 +271,7 @@ const Redirect_Exhibitions = () => {
 
             <section className='flex flex-col min-h-screen'>
             <Navbar />
-                <section className={`${styleExhibitions.wrapper_Exhibitions} w-full min-h-screen `}>
+                <section className={`${styleExhibitions.wrapper_Exhibitions} w-full min-h-screen `} id={`${styleExhibitions.wrapper_Exhibitions}`}>
                     <section className="">
                         <h1 className={`${styleExhibitions.wrapper_Exhibitions_title}`}>EXHIBITIONS</h1>
                         {/* <span>hi there</span> */}

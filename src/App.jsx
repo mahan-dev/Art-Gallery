@@ -36,7 +36,6 @@ const App = () => {
               <Route path="/artists" element={<RedirectArtists />} />
               <Route path="/picGrid" element={<PicGrid />} />
               <Route path="/" element={<WrapperNavImageBack />} />
-
               <Route path="*" element={<ComponentNotFound />} />
             </Routes>
           </Router>

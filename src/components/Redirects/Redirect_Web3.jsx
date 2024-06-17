@@ -111,7 +111,7 @@ const Redirect_Web3 = () => {
                 </section>
 
 
-                <section className={`${stylesWeb3.wrapperContents} mb-[100vh]`}>
+                <section id='fixer' className={`${stylesWeb3.wrapperContents} mb-[100vh]`}>
 
                     <section className={`${stylesWeb3.wrapper_content_web3} `}>
 

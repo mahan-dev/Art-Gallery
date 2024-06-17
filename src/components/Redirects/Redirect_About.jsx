@@ -6,12 +6,12 @@ import Footer from "./Redirect_Exhibitions_Footer";
 
 const Redirect_About = () => {
     return (
-        <section className="flex mb-[100vh]" >
+        <section className="flex flex-col mb-[100vh]"  >
                 <Navbar />
             <section className="" > 
                 <section className={`${Styles.Redirect_About} relative z-50 `} >
                 </section>
-                <section className={`${Styles.About_Container} relative bg-slate-200 z-40 mb-[100vh] `}>
+                <section className={`${Styles.About_Container} relative bg-slate-200 z-40 mb-[100vh] `} id="fixer">
                     <h4>About Us</h4>
                     <section className={`${Styles.Container_Content} relative z-50  `}>
                         <section>
