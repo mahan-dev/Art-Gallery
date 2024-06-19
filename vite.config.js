@@ -5,8 +5,8 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: "/Art-Gallery",
-  // base: "https://mahan-dev.github.io/Art-Gallery",
+  // base: "/Art-Gallery",
+  base: "https://mahan-dev.github.io/Art-Gallery",
   // server: {
   //   fs: {
   //     strict: false,
