@@ -60,10 +60,7 @@
   }
 
   /* redirect artists Header */
-  .wrapper__contents_h1_title {
-    font-size: 7rem;
-    @apply self-start font-semibold
-  }
+
 
   .redirect_tailwdinCss {
     @apply mt-[5rem]
@@ -74,9 +71,9 @@
   }
 
   .wrapper__contents_tailwdind {
-    @apply px-[2rem] relative z-30
+    @apply px-[2rem] relative z-30 pt-20
   }
-
+  
 
   /* This is the styles for the redirect_Exhibitions_Artist Aside-Part!!! */
   .ListViewLists {

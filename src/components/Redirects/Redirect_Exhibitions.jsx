@@ -120,37 +120,24 @@ const Redirect_Exhibitions = () => {
 
     }
     useEffect(() => {
-      
-         
         //  CLEAN CODE 
-        
-        
         const addOutsideClickListener = (buttonRef, setIcon) => {
             const handleOutsideClick = (event) => {
+                console.log(event.target)
                 if (buttonRef.current && !buttonRef.current.contains(event.target)) {
                     setIcon(icon);
                     console.log(icon);
                 }
-                // else (console.log(icon))
-                
-                
             }
             document.addEventListener("scroll", handleScroll);
             document.addEventListener("click", handleOutsideClick);
-            // console.log(icon);
             return () => {
                 document.removeEventListener("click", handleOutsideClick);
                 document.removeEventListener("scroll", handleScroll);
             }
-
-
-
         }
-
         // this part is for the aside part of project ----------------------------------------------------------------
-
         // const asidePanel = 
-
 
         const CleanUp1 = addOutsideClickListener(buttonRef, setIcon);
         const CleanUp2 = addOutsideClickListener(buttonRef2, setIcon2);
@@ -249,7 +236,6 @@ const Redirect_Exhibitions = () => {
         // setIcon2(!icon2);
     };
 
-
     const oncliTest = (eventName) => {
         const contentLogo = document.querySelector(`.spanContent`);
         if (contentLogo) {
@@ -257,9 +243,6 @@ const Redirect_Exhibitions = () => {
             setContent(inputName);
         }
     }
-
-
-
 
     const scrollTOTop = () => {
         // scroll.scrollToTop()
@@ -274,7 +257,6 @@ const Redirect_Exhibitions = () => {
                 <section className={`${styleExhibitions.wrapper_Exhibitions} w-full min-h-screen `} id={`${styleExhibitions.wrapper_Exhibitions}`}>
                     <section className="">
                         <h1 className={`${styleExhibitions.wrapper_Exhibitions_title}`}>EXHIBITIONS</h1>
-                        {/* <span>hi there</span> */}
                         <section className={`${styleExhibitions.title_contents_container}`}>
 
                             <section className={`${styleExhibitions.wrapperEchibitionTitleHeader} flex justify-between items-center`}>

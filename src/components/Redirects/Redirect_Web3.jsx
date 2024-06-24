@@ -68,12 +68,12 @@ const Redirect_Web3 = () => {
     useEffect(() => {
         settingPrice();
 
-        const initialInterval = setInterval(() => {
-            console.log("wfjpwjjwopifpojwf")
-            settingPrice()
-        }, 60000)
-        setShowPrice(localStorage.getItem("ethPrice"));
-        return () => clearInterval(initialInterval);
+        // const initialInterval = setInterval(() => {
+        //     console.log("wfjpwjjwopifpojwf")
+        //     settingPrice()
+        // }, 60000)
+        // setShowPrice(localStorage.getItem("ethPrice"));
+        // return () => clearInterval(initialInterval);
     }, [])
 
 
@@ -96,13 +96,13 @@ const Redirect_Web3 = () => {
 
 
             <section className='relative flex justify-center flex-col '>
-                <section className='h-full z-40 relative'>
+                <section className='h-full z-40 relative bg-white'>
 
                     <section className={`${stylesWeb3.background_image} relative top-0 bottom-0 z-1 flex justify-start items-center`}>
                     </section>
 
                     <section className=' px-[10%] mt-[20%] top-6 absolute flex flex-col justify-center items-start'>
-                        <p style={{ color: "blue" }} className='text-[2rem]  border-b-2 w-full'> welcome to web3  </p>
+                        <p className='text-[2rem] text-white  border-b-2 w-full'> welcome to web3  </p>
 
                         <h2 style={{ color: "white" }} className='text-[2rem]   '> ART WITHOUT LIMITS </h2>
                         <h5 style={{ color: "white" }} className='text-[2rem]   '> Join the digital art renaissance.

@@ -164,7 +164,7 @@ const RedirectArtists = () => {
                 {/* wrapper__contents_tailwdind for below section */}
                 <section id="listViewContent" className={`${redirect_artists.wrapper__contents} wrapper__contents_tailwdind fixer`}>
 
-                    <h1 id="listzz" className="wrapper__contents_h1_title  ">ARTISTS</h1>
+                    <h1 id="listzz" className={`${redirect_artists.wrapper__contents_h1_title}`}>ARTISTS</h1>
                     <section className={`${redirect_artists.wrapper_authors} redirect_tailwdinCss`}>
 
                         <div><Link to="#">ESTHER JANSSEN</Link></div>
@@ -196,9 +196,12 @@ const RedirectArtists = () => {
                     </section>
 
 
-                    <section id="GridView" className={redirect_artists.artists_wrapper_image}>
+                    <section id="GridView" className={`${redirect_artists.artists_wrapper_image} py-20`}>
                         <div className={`${redirect_artists.image_wrapper} ${scrollDirection === "down" ? "fade-up" : "fade-down"}`} data-aos="fade-up">
-                            <img src={image1} alt="" />
+                            {/* <img src={image1} alt="" /> */}
+                            <section className={`${redirect_artists.bgImg}`}>
+                                {/* <img src={image1} alt="" /> */}
+                            </section>
                             <div>
                                 <p>name family-name</p>
                             </div>
