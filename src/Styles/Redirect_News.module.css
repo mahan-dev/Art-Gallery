@@ -33,7 +33,7 @@
 
 @media screen and (max-width: 576px) {
     .wrapper_news {
-        padding: 0 4rem;
+        padding: 0 2rem;
     }
     .gridMine{
         grid-template-columns: repeat(1, minmax(0,1fr));
