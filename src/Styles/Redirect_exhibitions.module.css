@@ -189,11 +189,10 @@
     -o-transform:translateX(0);
 }
 
-
+/* 
 @media screen and (max-width: 998px) {
     .wrapper_Exhibitions{
-        /* display: grid;
-        grid-template-columns: repeat(1, minmax(200px , 1fr)) ; */
+        
 
     }
     .wrapper_content_exhibitions {
@@ -201,7 +200,7 @@
         grid-template-columns: repeat(1, minmax(200px, 1fr));
         gap: 0 5rem;
     }
-}
+} */
 @media screen and (max-width: 768px) {
     .wrapper_Exhibitions{
         padding: 11rem 3rem 0rem;

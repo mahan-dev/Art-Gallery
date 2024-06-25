@@ -30,8 +30,14 @@ input , input::placeholder {
 }
 
 
+@media screen and (max-width: 1200px) {
+    .wrapper_contents{
+        /* padding: ; */
+    }
+}
 
-@media screen and (max-width : 998px) {
+
+/* @media screen and (max-width : 998px) {
     .wrapper_contents > h2{
         font-size: 1.5rem;
       }
@@ -41,7 +47,7 @@ input , input::placeholder {
         font-size: 1rem;
     }
     
-}
+} */
 
 @media screen and (max-width: 768px){
     .footer_Wrapper_Class{
