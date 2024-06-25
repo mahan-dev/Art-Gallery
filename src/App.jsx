@@ -9,7 +9,6 @@ import Redirect_Voices from './components/Redirects/Redirect_Voices';
 import Redirect_News from './components/Redirects/Redirect_News';
 import Redirect_About from './components/Redirects/Redirect_About';
 import Redirect_Contact from './components/Redirects/Redirect_Contact';
-
 import Redirect_Store_CartContext from "./context/Redirect_Store_CartContext";
 import Redirect_Store_ShopCart from './components/shared/Redirect_Store_ShopCart';
 import Redirect_Store_Product from './components/shared/Redirect_Store_Product';
