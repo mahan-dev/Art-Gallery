@@ -259,9 +259,9 @@ const Redirect_Exhibitions = () => {
                         <h1 className={`${styleExhibitions.wrapper_Exhibitions_title}`}>EXHIBITIONS</h1>
                         <section className={`${styleExhibitions.title_contents_container}`}>
 
-                            <section className={`${styleExhibitions.wrapperEchibitionTitleHeader} flex justify-between items-center`}>
+                            <section className={`${styleExhibitions.wrapperExhibitionTitleHeader} flex justify-between items-center`}>
 
-                                <p>Current</p>
+                                <p className ={`${styleExhibitions.wrapperExhibition_title_page}`}>Current</p>
                                 {/* <IconChanger open={open} onClick={iconEhibitionsHandler} ref={buttonRef} > */}
                                 <button className={styleExhibitions.ascDscButton} onClick={iconEhibitionsHandler} style={{ outline: "none" }} ref={buttonRef}>
                                     <section className={`${styleExhibitions.wrapper_content}`}>
@@ -283,16 +283,14 @@ const Redirect_Exhibitions = () => {
 
                             <section className={styleExhibitions.wrapper_content_exhibitions}>
                                 <img src={image1} alt="" width={""} height='' />
-                                <section className="image_content">
+                                <section className={`${styleExhibitions.image_content}`}>
                                     {/* <a href="#"> */}
                                     {/* </a> */}
 
                                     <p>4 January - 3 February 2024</p>
                                     <h4 className='text-base'>PRACTICE MAKES PURRFECT</h4>
                                     <p className="text-2xl my-[1.5rem]">
-                                        Exploring the parallels between an athlete’s training and the artistic practice,
-                                        'Practice Makes Purrfect' combines images of tennis with Martinez's trademark dark sense
-                                        of humour to deep dive into ideas of competition and repetition.
+                                    During the 60th Venice Biennale, Unit presents In Praise of Black Errantry, a group exhibition that celebrates the radical Black imagination. Curated by Indie A. Choudhury (The Courtauld Institute of Art), the exhibition brings together works by 19 modern and contemporary Afro-diasporic artists.
                                     </p>
                                     <button className={styleExhibitions.button_explore}>
                                         Explore now
@@ -303,23 +301,21 @@ const Redirect_Exhibitions = () => {
 
                             <section className={styleExhibitions.wrapper_content_exhibitions}>
                                 <img src={image1} alt="" width={505} height='' />
-                                <section className="image_content">
+                                <section className={`${styleExhibitions.image_content}`}>
                                     {/* <a href="#"> */}
                                     {/* </a> */}
 
                                     <p>4 January - 3 February 2024</p>
                                     <h4 className='text-base'>PRACTICE MAKES PURRFECT</h4>
                                     <p className="text-2xl my-[1.5rem]">
-                                        Exploring the parallels between an athlete’s training and the artistic practice,
-                                        'Practice Makes Purrfect' combines images of tennis with Martinez's trademark dark sense
-                                        of humour to deep dive into ideas of competition and repetition.
+                                    During the 60th Venice Biennale, Unit presents In Praise of Black Errantry, a group exhibition that celebrates the radical Black imagination. Curated by Indie A. Choudhury (The Courtauld Institute of Art), the exhibition brings together works by 19 modern and contemporary Afro-diasporic artists.
                                     </p>
                                     <button className={styleExhibitions.button_explore}>
                                         Explore now
                                     </button>
                                 </section>
                             </section>
-                            <section className={`${styleExhibitions.wrapperEchibitionTitleHeader} flex justify-between items-center`}>
+                            <section className={`${styleExhibitions.wrapperExhibitionTitleHeader} flex justify-between items-center`}>
 
                                 <p>Forthcoming</p>
                                 {/* <IconChanger open={open} onClick={iconEhibitionsHandler} ref={buttonRef} > */}
@@ -351,9 +347,7 @@ const Redirect_Exhibitions = () => {
                                     <p>4 January - 3 February 2024</p>
                                     <h4 className='text-base'>PRACTICE MAKES PURRFECT</h4>
                                     <p className="text-2xl my-[1.5rem]">
-                                        Exploring the parallels between an athlete’s training and the artistic practice,
-                                        'Practice Makes Purrfect' combines images of tennis with Martinez's trademark dark sense
-                                        of humour to deep dive into ideas of competition and repetition.
+                                    During the 60th Venice Biennale, Unit presents In Praise of Black Errantry, a group exhibition that celebrates the radical Black imagination. Curated by Indie A. Choudhury (The Courtauld Institute of Art), the exhibition brings together works by 19 modern and contemporary Afro-diasporic artists.
                                     </p>
                                     <button className={styleExhibitions.button_explore}>
                                         Explore now

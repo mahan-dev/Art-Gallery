@@ -145,7 +145,7 @@ const Redirect_Exhibitions_Footer = ({ className }) => {
                     </section>
 
                     <form action="" className='' onSubmit={handleSubmit}>
-                        <section className='max-w-max gap-2 flex items-center '>
+                        <section className={`${Styles.wrapper_form_detail} max-w-max gap-2 flex items-center`}>
                             <input className={`${Styles.input_email}  items-center justify-center`}
                                 ref={email_Input_Ref}
                                 onChange={handleEmailValidation}

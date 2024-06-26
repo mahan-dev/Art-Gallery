@@ -14,6 +14,7 @@ input , input::placeholder {
     outline: none;
     border: none;
     border-radius: 20px;
+    width: 100%;
     padding: 0em 0.3em;
     color: var(--inputColor);
     -webkit-border-radius: 20px;
@@ -27,6 +28,10 @@ input , input::placeholder {
 
 .input_email:focus{
     outline: none;
+}
+
+.wrapper_form_detail{
+    width: fit-content;
 }
 
 
@@ -48,9 +53,19 @@ input , input::placeholder {
     }
     
 } */
+@media screen and (max-width: 992px){
+    .footer_Wrapper_Class{
+        position: static;
+    }
+
+    
+}
 
 @media screen and (max-width: 768px){
     .footer_Wrapper_Class{
         position: static;
     }
+
+    
 }
+

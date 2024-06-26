@@ -170,7 +170,7 @@ const RedirectArtists = () => {
                         <div><Link to="#">ESTHER JANSSEN</Link></div>
                         <div><Link to="#">MAURO C. MARTINEZ</Link></div>
                         <div><Link to="#">MAURO C. MARTINEZ</Link></div>
-                        <div><Link to="#">MAUROwrapper__contents_tailwdind C. MARTINEZ</Link></div>
+                        <div><Link to="#">MAURO C. MARTINEZ</Link></div>
                         <div><Link to="#">STHENJWA LUTHULI</Link></div>
                         <div><Link to="#">name author</Link></div>
                         <div><Link to="#">JEREMY OLSON</Link></div>
@@ -198,10 +198,8 @@ const RedirectArtists = () => {
 
                     <section id="GridView" className={`${redirect_artists.artists_wrapper_image} py-20`}>
                         <div className={`${redirect_artists.image_wrapper} ${scrollDirection === "down" ? "fade-up" : "fade-down"}`} data-aos="fade-up">
-                            {/* <img src={image1} alt="" /> */}
-                            <section className={`${redirect_artists.bgImg}`}>
-                                {/* <img src={image1} alt="" /> */}
-                            </section>
+                            <img src={image1} alt="" />
+                            
                             <div>
                                 <p>name family-name</p>
                             </div>
