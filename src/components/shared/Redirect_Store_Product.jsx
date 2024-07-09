@@ -111,8 +111,12 @@ const Redirect_Store_Product = ({ data}) => {
                 
             <section className='' >
                 
-                <div>{artist_title}</div>
-                <img src={image} className='h-[100%] object-cover' width={"200px"} alt="product_image" />
+                <div>{artist_title ? artist_title : "no title"}</div>
+                {/* <div className='max-w-[200px]' >{artist_title}</div> */}
+                <div id='wrapper_product_image' style={{ minHeight: '200px' }}>
+
+                <img src={image} className='h-[100%] object-cover' id='store_product_image'  alt="product_image" />
+                </div>
                 {<div>{price}$</div>}
                 {/* {quantity > 1 && <button onClick={handleDecrease}>-</button>}
                 {

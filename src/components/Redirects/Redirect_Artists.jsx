@@ -166,8 +166,8 @@ const RedirectArtists = () => {
 
                     <h1 id="listzz" className={`${redirect_artists.wrapper__contents_h1_title}`}>ARTISTS</h1>
                     <section className={`${redirect_artists.wrapper_authors} redirect_tailwdinCss`}>
-
-                        <div><Link to="#">ESTHER JANSSEN</Link></div>
+                        <section className=''></section>
+                        <div className=''><Link to="#">ESTHER JANSSEN</Link></div>
                         <div><Link to="#">MAURO C. MARTINEZ</Link></div>
                         <div><Link to="#">MAURO C. MARTINEZ</Link></div>
                         <div><Link to="#">MAURO C. MARTINEZ</Link></div>
@@ -287,13 +287,13 @@ const RedirectArtists = () => {
                         </div>
                         <div className={`${redirect_artists.image_wrapper} ${scrollDirection === "up" ? "fade-up" : "fade-down"}`} data-aos="fade-up">
                             <img src={image2} alt="" />
-                            <div>
+                            <div >
                                 <p>name family-name</p>
                             </div>
                         </div>
                         <div className={`${redirect_artists.image_wrapper} ${scrollDirection === "up" ? "fade-up" : "fade-down"}`} data-aos="fade-up">
                             <img src={image3} alt="" />
-                            <div>
+                            <div className=''>
                                 <p>name family-name</p>
                             </div>
                         </div>
@@ -305,7 +305,7 @@ const RedirectArtists = () => {
                         </div>
                         <div className={`${redirect_artists.image_wrapper} ${scrollDirection === "up" ? "fade-up" : "fade-down"}`} data-aos="fade-up">
                             <img src={image5} alt="" />
-                            <div>
+                            <div className='tex'>
                                 <p>name family-name</p>
                             </div>
                         </div>
@@ -377,8 +377,8 @@ const RedirectArtists = () => {
                 <aside className={`Redirect_Artists_Aside ${scrollDown ? "fade-in" : ""}`}>
                     {/* fadeIn  fadeOut */}
 
-                    <section className='flex rotate-90 z-50'>
-                        <a href='/' id='listView' onClick={handleListView} className={`${visibleListView ? "ListViewLists" : ""}`}>List View </a>
+                    <section className='flex  z-50'>
+                        <a href='/' id='listView' onClick={handleListView} className={`${visibleListView ? "ListViewLists" : ""} `}>List View </a>
                         <a href='/' id='GridView' onClick={handleGridView} className={visibleGrid ? "GridView" : ""}>Grid View</a>
                     </section>
                     {/* <Link to='wrapper_Exhibitions' smooth={true} duration={500}>
@@ -387,7 +387,7 @@ const RedirectArtists = () => {
                 </aside>
                 {/* ListViewLists
                     GridView */}
-                <footer>
+                <footer className='te'>
 
                     <Redirect_Exhibitions_Footer className="footerArtists" />
                 </footer>

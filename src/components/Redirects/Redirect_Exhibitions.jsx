@@ -101,6 +101,41 @@ const Redirect_Exhibitions = () => {
     const [content, setContent] = useState("ascending");
     const [previousScrollY, setPreviousScrollY] = useState(0);
     const [scrollDown, setScrollDown] = useState(false);
+
+
+    const [sortDate , setSortDate] = useState("ascending");
+    
+    const [sortedDateLists, setSortedDateLists] = useState([]);
+
+    // !EXHIBITIONS PIC DATES
+    const dateLists = [
+
+        {
+            key: 'date1',
+            dateStart: new Date('2024-01-05')
+        },
+        {
+
+            key: 'date2',
+            dateStart: new Date('2024-01-20')
+        }
+
+    ];
+    
+    // Convert the object to an array for sorting
+    // const dateArray = Object.entries(dateLists).map(([key, value]) => {
+    //     return { key, ...value };
+    // });
+    
+    // Sort the array based on the dateStart values
+    const filtered = dateLists.sort((a, b) => b.dateStart - a.dateStart);
+    // console.log(filtered)
+    // const sortedDateLists = dateArray.reduce((acc, { key, dateStart, dateEnd }) => {
+    //     acc[key] = { dateStart, dateEnd };
+    //     return acc;
+    // }, {});
+    
+    // console.log(sortedDateLists);
     // console.log(icon);
     // setTimeout(() => {
     //     console.log(icon);
@@ -120,13 +155,26 @@ const Redirect_Exhibitions = () => {
 
     }
     useEffect(() => {
+
+
+        const sortingDate = [...dateLists].sort((a,b) =>{
+            if (sortDate === "ascending"){
+                return a.dateStart - b.dateStart;
+            } else {
+                return b.dateStart - a.dateStart;
+            }
+        })
+
+        setSortedDateLists(sortingDate);
+
+
+
         //  CLEAN CODE 
         const addOutsideClickListener = (buttonRef, setIcon) => {
             const handleOutsideClick = (event) => {
                 console.log(event.target)
                 if (buttonRef.current && !buttonRef.current.contains(event.target)) {
                     setIcon(icon);
-                    console.log(icon);
                 }
             }
             document.addEventListener("scroll", handleScroll);
@@ -236,7 +284,23 @@ const Redirect_Exhibitions = () => {
         // setIcon2(!icon2);
     };
 
+    const toggleOrder = (order) =>{
+        setSortDate(order)
+    }
+
     const oncliTest = (eventName) => {
+        const selectedOrder = eventName.target.innerText.toLowerCase();
+        toggleOrder(selectedOrder);
+
+
+
+        const sortByNewest = () => {
+            const sorted = [...products].sort((a, b) => new Date(b.date_end) - new Date(a.date_end));
+        };
+
+
+        const filter = 1;
+
         const contentLogo = document.querySelector(`.spanContent`);
         if (contentLogo) {
             const inputName = eventName.target.innerText;
@@ -264,7 +328,8 @@ const Redirect_Exhibitions = () => {
                                 <p className ={`${styleExhibitions.wrapperExhibition_title_page}`}>Current</p>
                                 {/* <IconChanger open={open} onClick={iconEhibitionsHandler} ref={buttonRef} > */}
                                 <button className={styleExhibitions.ascDscButton} onClick={iconEhibitionsHandler} style={{ outline: "none" }} ref={buttonRef}>
-                                    <section className={`${styleExhibitions.wrapper_content}`}>
+                                    {/* <section className={`${styleExhibitions.wrapper_content}`}> */}
+                                    <section className={styleExhibitions.wrapper_content  }>
                                     <span className={`${styleExhibitions.spanContent}  spanContent`}>{content}</span>
                                     {/* <ul className={`${icon} ? ${styleExhibitions.listDisplay} : ${styleExhibitions.listNone} `} style={{display : icon ? "none" : "block"}}> */}
                                         <ListStyledComponent open={icon}   >
@@ -276,45 +341,55 @@ const Redirect_Exhibitions = () => {
                                         <img src={arrowDown} alt="" width={50} height={60} onClick={iconEhibitionsHandler} style={{ display: icon ? "block" : 'none' }} />
                                         <img src={minus} alt="" width={50} height={60} onClick={iconEhibitionsHandler} style={{ display: icon ? "none" : 'block' }} />
                                     </section>
+                                <div className={`${styleExhibitions.borderBottom}`}></div>
                                     
                                 </button>
                                 {/* </IconChanger > */}
                             </section>
 
-                            <section className={styleExhibitions.wrapper_content_exhibitions}>
-                                <img src={image1} alt="" width={""} height='' />
-                                <section className={`${styleExhibitions.image_content}`}>
-                                    {/* <a href="#"> */}
-                                    {/* </a> */}
-
-                                    <p>4 January - 3 February 2024</p>
-                                    <h4 className='text-base'>PRACTICE MAKES PURRFECT</h4>
-                                    <p className="text-2xl my-[1.5rem]">
-                                    During the 60th Venice Biennale, Unit presents In Praise of Black Errantry, a group exhibition that celebrates the radical Black imagination. Curated by Indie A. Choudhury (The Courtauld Institute of Art), the exhibition brings together works by 19 modern and contemporary Afro-diasporic artists.
-                                    </p>
-                                    <button className={styleExhibitions.button_explore}>
-                                        Explore now
-                                    </button>
-                                </section>
-                            </section>
 
 
-                            <section className={styleExhibitions.wrapper_content_exhibitions}>
-                                <img src={image1} alt="" width={505} height='' />
-                                <section className={`${styleExhibitions.image_content}`}>
-                                    {/* <a href="#"> */}
-                                    {/* </a> */}
+                            {
+                                sortedDateLists.map(({ key, dateStart }) => (
+                                    <section key={key}>
+                                        <section className={styleExhibitions.wrapper_content_exhibitions}>
 
-                                    <p>4 January - 3 February 2024</p>
-                                    <h4 className='text-base'>PRACTICE MAKES PURRFECT</h4>
-                                    <p className="text-2xl my-[1.5rem]">
-                                    During the 60th Venice Biennale, Unit presents In Praise of Black Errantry, a group exhibition that celebrates the radical Black imagination. Curated by Indie A. Choudhury (The Courtauld Institute of Art), the exhibition brings together works by 19 modern and contemporary Afro-diasporic artists.
-                                    </p>
-                                    <button className={styleExhibitions.button_explore}>
-                                        Explore now
-                                    </button>
-                                </section>
-                            </section>
+                                            <img src={image1} alt="" width={""} height='' />
+                                            <section className={`${styleExhibitions.image_content}`}>
+
+
+                                                <p>5 January - 10 February 2024</p>
+                                                <h4 className='text-base'>PRACTICE MAKES PURRFECT</h4>
+                                                <p className="text-2xl my-[1.5rem]">
+                                                    During the 60th Venice Biennale, Unit presents In Praise of Black Errantry, a group exhibition that celebrates the radical Black imagination. Curated by Indie A. Choudhury (The Courtauld Institute of Art), the exhibition brings together works by 19 modern and contemporary Afro-diasporic artists.
+                                                </p>
+                                                <button className={styleExhibitions.button_explore}>
+                                                    Explore now
+                                                </button>
+                                            </section>
+                                        </section>
+
+                                        <section className={styleExhibitions.wrapper_content_exhibitions}>
+                                            <img src={image1} alt="" width={505} height='' />
+                                            <section className={`${styleExhibitions.image_content}`}>
+                                                <p>20 January - 22 February 2024</p>
+                                                <h4 className='text-base'>PRACTICE MAKES PURRFECT</h4>
+                                                <p className="text-2xl my-[1.5rem]">
+                                                    During the 60th Venice Biennale, Unit presents In Praise of Black Errantry, a group exhibition that celebrates the radical Black imagination. Curated by Indie A. Choudhury (The Courtauld Institute of Art), the exhibition brings together works by 19 modern and contemporary Afro-diasporic artists.
+                                                </p>
+                                                <button className={styleExhibitions.button_explore}>
+                                                    Explore now
+                                                </button>
+                                            </section>
+                                        </section>
+                                    </section>
+
+
+                                ))
+                            }
+
+                            
+                            
                             <section className={`${styleExhibitions.wrapperExhibitionTitleHeader} flex justify-between items-center`}>
 
                                 <p>Forthcoming</p>

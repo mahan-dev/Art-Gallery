@@ -141,7 +141,7 @@ const Redirect_News = () => {
 
                         <img src={image3} alt="img" width={350} />
 
-                        <div>
+                        <div className="">
                             <p>this is just a test </p>
                         </div>
                         </section>
@@ -171,7 +171,7 @@ const Redirect_News = () => {
 
                         <img src={image6} alt="img" width={350} />
 
-                        <div>
+                        <div className="mt">
                             <p>this is just a test </p>
                         </div>
                         </section>
@@ -191,7 +191,7 @@ const Redirect_News = () => {
 
                         <img src={image2} alt="img" width={350} />
 
-                        <div>
+                        <div className="tex">
                             <p>this is just a test </p>
                         </div>
                         </section>
@@ -207,7 +207,7 @@ const Redirect_News = () => {
                         </section>
                     </div>
                 </section>
-
+                <p className="te"></p>
             </section>
         </section>
 

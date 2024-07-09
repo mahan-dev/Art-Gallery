@@ -13,7 +13,9 @@ import Redirect_Contact from './components/Redirects/Redirect_Contact';
 import Redirect_Store_CartContext from "./context/Redirect_Store_CartContext";
 import Redirect_Store_ShopCart from './components/shared/Redirect_Store_ShopCart';
 import Redirect_Store_Product from './components/shared/Redirect_Store_Product';
+import Redirect_Store_Navbar from './components/shared/Redirect_Store_Navbar';
 import Rediret_Store_Product_Context_Provider from './context/Rediret_Store_Product_Context_Provider';
+import Redirect_Store_Context from './context/Redirect_Store_Context';
 
 import ComponentNotFound from './components/ComponentNotFound';
 import PicGrid from './components/Redirects/picGrid';
@@ -21,9 +23,13 @@ import PicGrid from './components/Redirects/picGrid';
 const App = () => {
   return (
     <>
+          <Router>
       <Rediret_Store_Product_Context_Provider>
         <Redirect_Store_CartContext>
-          <Router>
+        <Redirect_Store_Context>
+
+        {/* <Redirect_Store_Navbar> */}
+
             <Routes>
               <Route path="/Cart" element={<Redirect_Store_ShopCart />} />
               <Route path="/Web3" element={<Redirect_Web3 />} />
@@ -38,9 +44,11 @@ const App = () => {
               <Route path="/" element={<WrapperNavImageBack />} />
               <Route path="*" element={<ComponentNotFound />} />
             </Routes>
-          </Router>
+        {/* </Redirect_Store_Navbar> */}
+        </Redirect_Store_Context>
         </Redirect_Store_CartContext>
       </Rediret_Store_Product_Context_Provider>
+          </Router>
     </>
   );
 };

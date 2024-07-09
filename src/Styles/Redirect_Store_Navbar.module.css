@@ -1,0 +1,37 @@
+.header_title{
+    margin-left: auto;
+}
+
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 0;
+    align-items: center;
+    background-color: dimgray;
+}
+
+.header_search_wrapper{
+    margin-left: auto;
+    position: relative;
+
+}
+
+
+
+@media screen and (max-width:768px) {
+    .header{
+        /* display: grid;
+        grid-template-columns: 1fr 1fr; */
+
+    }
+    .header_title{
+        margin-left: 0;
+    }
+    .header_search_wrapper{
+        /* order: 1; */
+    
+    }
+
+
+}

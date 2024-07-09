@@ -21,6 +21,16 @@
     @apply transition-opacity fade-in fade-out;
   }
 
+  .Redirect_Artists_Aside {
+    transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    transform-origin: top left;
+    margin-left: 2rem;
+  }
+
   .footer_Wrapper {
     @apply fixed z-10 w-full bottom-0 left-0;
 
@@ -43,17 +53,65 @@
     @apply bottom-0
   }
 
+  #wrapper_product_image {
+    @apply w-full;
+  }
+
+  #redirect_store {
+    @apply grid gap-[30px] mx-8;
+    
+
+    grid-template-columns: repeat(3, minmax(100px, 1fr));
+
+    @media screen and(max-width: 1400px) {
+      grid-template-columns: repeat(3, minmax(100px, 1fr));
+    }
+    
+    @media screen and (max-width: 1200px) {
+      
+      grid-template-columns: repeat(2, minmax(100px, 1fr));
+    }
+    
+    @media screen and (max-width: 992px) {
+      
+      grid-template-columns: repeat(1, minmax(100px, 1fr));
+    }
+    
+    @media screen and (min-width: 1401px) {
+      grid-template-columns: repeat(3, minmax(100px, 1fr));
+    }
+    
+    
+  }
+
+  #store_product_image {
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+
+  
+      width: 100%;
+      height: 300px;
+      min-height: 100px;
+      max-height: 300px;
+
+
+
+}
+
 
   #Redirect_footer_Exhibitions {
     @apply grid justify-between gap-[50px] min-h-screen bg-[#171717] text-[#ffffff] px-12 py-20 items-start text-[1.4rem];
-    
+
 
     /* @media screen and (min-width: 1401px) {
       padding: 8rem 6rem;
     } */
-    @media screen and (max-width: 1400px ){
+    @media screen and (max-width: 1400px) {
       /* padding: 8rem 6rem; */
-      grid-template-columns: repeat(3, minmax(0,1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
     @media screen and (max-width: 1200px) {
@@ -62,7 +120,7 @@
     }
 
     @media screen and (max-width: 992px) {
-      
+
       padding: 5rem 2rem;
       font-size: 1.3rem;
     }
@@ -70,14 +128,15 @@
     @media screen and (max-width: 768px) {
       position: static;
       flex-direction: column;
-      grid-template-columns: repeat(1, minmax(0,1fr));
+      grid-template-columns: repeat(1, minmax(0, 1fr));
     }
 
-    @media screen and (min-width: 1400px ){
+    @media screen and (min-width: 1400px) {
       padding: 8rem 6rem;
-      grid-template-columns: repeat(3, minmax(0,1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
   }
+
   /* redirect artists Header */
 
 
@@ -92,7 +151,7 @@
   .wrapper__contents_tailwdind {
     @apply px-[2rem] relative z-30 pt-20
   }
-  
+
 
   /* This is the styles for the redirect_Exhibitions_Artist Aside-Part!!! */
   .ListViewLists {
@@ -156,6 +215,19 @@
     -o-transition: opacity 1s ease;
   }
 }
+
+/* ? redirect store Navbar */
+
+#showSearch {
+  @apply absolute top-[100%] w-[100px] flex ;
+}
+
+#hideSearch {
+  display: none;
+}
+
+/*  * redirect Store */
+
 
 
 

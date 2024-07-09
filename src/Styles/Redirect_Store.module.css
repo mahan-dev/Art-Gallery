@@ -1,0 +1,33 @@
+.store_aside{
+    width: 300px;
+}
+
+.aside_filterIcon , .aside_wrapper_filterIcon{
+    display: none;
+}
+
+
+@media screen and (max-width:768px) {
+    .store_aside{
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: blueviolet;
+        display: flex;
+        justify-content: center;
+        
+    }
+    .aside_wrapper_input , .aside_wrapper_priceInput{
+        display: none;
+    }
+    .aside_filterIcon{
+        display: block;
+    }
+    .aside_wrapper_filterIcon{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+}

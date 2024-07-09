@@ -147,6 +147,8 @@ const Redirect_Web3 = () => {
 
                                         <a onClick={() => activeLinkHandling("Upcoming")} className={`${hover === "Upcoming" ? "text-black" : "text-gray-500"}`} >Upcoming</a>
                                         <div className={`${hover === "Upcoming" ? stylesWeb3.borderBottom : ""}`}></div>
+
+                                        <section className='tex'></section>
                                     </div>
                                     {/* // ${hover === "upcoming" ? "active_Link_Title" : ""}`} onMouseEnter={()=> setHover("upcoming") } onMouseLeave={()=>setHover(null) */}
                                     <div className={`${stylesWeb3.contents_title_link}`} onClick={() => activeLinkHandling("Archive")}>
