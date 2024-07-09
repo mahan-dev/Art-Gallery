@@ -138,7 +138,7 @@ const Redirect_Store = () => {
                     }
                 </section>
 
-                <aside className={`${Styles.store_aside}  right-0 p-4 h-fit`}>
+                <aside className={`${Styles.store_aside}  right-0 h-fit`}>
                     <section className={`${Styles.aside_wrapper_input} mb-4`}>
                         <div className="flex items-center w-[250px] bg-white relative p-2 rounded" >
                             <input
@@ -195,8 +195,8 @@ const Redirect_Store = () => {
                     </section>
                     
                     <div className={`${Styles.aside_wrapper_filterIcon}`}>
-                        <img className={Styles.aside_filterIcon} src={filterIcon} alt="filter" width={25} />
-                        <span>filter</span>
+                        <img className={Styles.aside_filterIcon} src={filterIcon} alt="filter" width={20} />
+                        <p className={`${Styles.aside_filterIcon_description}`}>filter</p>
                     </div>
 
                 </aside>
