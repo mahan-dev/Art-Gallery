@@ -23,32 +23,30 @@ import PicGrid from './components/Redirects/picGrid';
 const App = () => {
   return (
     <>
-          <Router>
-      <Rediret_Store_Product_Context_Provider>
-        <Redirect_Store_CartContext>
-        <Redirect_Store_Context>
-
-        {/* <Redirect_Store_Navbar> */}
-
-            <Routes>
-              <Route path="/Cart" element={<Redirect_Store_ShopCart />} />
-              <Route path="/Web3" element={<Redirect_Web3 />} />
-              <Route path="/Store" element={<Redirect_Store />} />
-              <Route path="/Exhibitions" element={<Redirect_Exhibitions />} />
-              <Route path="/Voices" element={<Redirect_Voices />} />
-              <Route path="/News" element={<Redirect_News />} />
-              <Route path="/About" element={<Redirect_About />} />
-              <Route path="/contact" element={<Redirect_Contact />} />
-              <Route path="/artists" element={<RedirectArtists />} />
-              <Route path="/picGrid" element={<PicGrid />} />
-              <Route path="/" element={<WrapperNavImageBack />} />
-              <Route path="*" element={<ComponentNotFound />} />
-            </Routes>
-        {/* </Redirect_Store_Navbar> */}
-        </Redirect_Store_Context>
-        </Redirect_Store_CartContext>
-      </Rediret_Store_Product_Context_Provider>
-          </Router>
+      <Router>
+        <Rediret_Store_Product_Context_Provider>
+          <Redirect_Store_CartContext>
+            <Redirect_Store_Context>
+              {/* <Redirect_Store_Navbar> */}
+              <Routes>
+                <Route path="/Cart" element={<Redirect_Store_ShopCart />} />
+                <Route path="/Web3" element={<Redirect_Web3 />} />
+                <Route path="/Store" element={<Redirect_Store />} />
+                <Route path="/Exhibitions" element={<Redirect_Exhibitions />} />
+                <Route path="/Voices" element={<Redirect_Voices />} />
+                <Route path="/News" element={<Redirect_News />} />
+                <Route path="/About" element={<Redirect_About />} />
+                <Route path="/contact" element={<Redirect_Contact />} />
+                <Route path="/artists" element={<RedirectArtists />} />
+                <Route path="/picGrid" element={<PicGrid />} />
+                <Route path="/" element={<WrapperNavImageBack />} />
+                <Route path="*" element={<ComponentNotFound />} />
+              </Routes>
+              {/* </Redirect_Store_Navbar> */}
+            </Redirect_Store_Context>
+          </Redirect_Store_CartContext>
+        </Rediret_Store_Product_Context_Provider>
+      </Router>
     </>
   );
 };
