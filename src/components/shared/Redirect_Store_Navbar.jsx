@@ -121,13 +121,13 @@ const Redirect_Store_Navbar = ({ children }) => {
             <>
             {/* { console.log(state.itemsCounter)} */}
 
-            <header className={`${Style.header}   `} >
+            <header className={`${Style.header}`} >
                 {/* <section>
                     Home
                 </section> */}
 
                 <section className={`${Style.header_title} `}>
-                    <a href="$$$">EDITIONS</a>
+                    <Link to="/">EDITIONS</Link>
                 </section>
 
                 {/* <section className='flex'> */}

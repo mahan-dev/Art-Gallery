@@ -1,5 +1,7 @@
 // import the api of artGallery
-import { useEffect, useState, createContext, useContext } from "react";
+import { useEffect, useState, createContext, useContext, useRef } from "react";
+import { Link } from "react-router-dom";
+
 import { FetchApi } from "../../../services/ArtGalleryApi";
 import 'react-loading-skeleton/dist/skeleton.css';
 import Redirect_Store_Product from "../shared/Redirect_Store_Product";
@@ -9,6 +11,7 @@ import searchIcon from "../../assets/images/redirec_store_Image/magnifying-glass
 import Skeleton from "react-loading-skeleton";
 import 'react-loading-skeleton/dist/skeleton.css';
 import Styles from "../../Styles/Redirect_Store.module.css";
+import CloseIcon from "../../assets/images/Redirect_Store/xmark.svg";
 
 
 // import cartIcon from "../../assets/images/icon_store/cart-shopping.svg";
@@ -17,16 +20,20 @@ import { ProductContextProvider } from "../../context/Rediret_Store_Product_Cont
 // import { searchContextProvider } from "../shared/Redirect_Store_Navbar";
 // import Redirect_Store_ShopCart from "../shared/Redirect_Store_ShopCart";
 import filterIcon from "../../assets/images/Redirect_Store/sliders.svg";
+import homeIcon from "../../assets/images/Redirect_Store/house.svg";
 import { Redirect_Store_Context_ } from "../../context/Redirect_Store_Context";
 
 export const ImageGalleryStore = createContext();
 const Redirect_Store = () => {
     const { searchValue } = useContext(Redirect_Store_Context_);
     const products = useContext(ProductContextProvider);
+    const asideStore = useRef();
 
     const [sortDate, setSortDate] = useState([]);
     const [search, setSearch] = useState("");
     const [isSorted, setIsSorted] = useState(false);
+    const [filterClicked, setFilterClicked] = useState(false);
+    const [closeIcon, setCloseIcon] = useState(false);
 
     const [priceFilter, setPriceFilter] = useState({
         price_100_200: false,
@@ -102,11 +109,27 @@ const Redirect_Store = () => {
 
     }
 
+    const filterMenu = () => {
+        setFilterClicked(true);
+
+
+        document.querySelector("body").style.overflowY = "hidden";
+
+
+    }
+
+    const closeIconAside = () => {
+        setFilterClicked(false);
+        document.querySelector("body").style.overflowY = "auto";
+    }
+
+
+
 
     useEffect(() => {
 
         setSortDate([...products])
-    }, [products, search])
+    }, [products, search, filterClicked])
 
     let productToRender = filterProducts();
 
@@ -117,10 +140,6 @@ const Redirect_Store = () => {
 
             <section className=" flex justify-between gap-[50px] px-3">
                 <section className="w-full">
-                    <section className="">
-                        <a onClick={sortByOldest} style={{ cursor: "pointer" }} className="mr-4">oldest</a>
-                        <a onClick={sortByNewest} style={{ cursor: "pointer" }}>newest</a>
-                    </section>
 
 
                     {products.length === 0 ?
@@ -131,6 +150,10 @@ const Redirect_Store = () => {
                             <div>no art works found </div> :
 
                             <div className=" justify-center  transition-all">
+                                <section className="">
+                                    <a onClick={sortByOldest} style={{ cursor: "pointer" }} className="mr-4">oldest</a>
+                                    <a onClick={sortByNewest} style={{ cursor: "pointer" }}>newest</a>
+                                </section>
                                 <div id="redirect_store" className="">
                                     {productToRender.map(item => <Redirect_Store_Product key={item.elementId} data={item} />)}
                                 </div>
@@ -138,7 +161,8 @@ const Redirect_Store = () => {
                     }
                 </section>
 
-                <aside className={`${Styles.store_aside}  right-0 h-fit`}>
+                <aside className={`${filterClicked ? Styles.filter : Styles.store_aside}  asideSS  right-0 `} ref={asideStore}>
+                    {/* <aside className={`${Styles.store_aside}  right-0 h-fit`} ref={asideStore}> */}
                     <section className={`${Styles.aside_wrapper_input} mb-4`}>
                         <div className="flex items-center w-[250px] bg-white relative p-2 rounded" >
                             <input
@@ -150,7 +174,8 @@ const Redirect_Store = () => {
                             <img src={searchIcon} alt="Search" width={15} className="ml-2  absolute right-[5%]" />
                         </div>
                     </section>
-                    <section className={`${Styles.aside_wrapper_priceInput}`}>
+                    <section className={`${filterClicked ? Styles.priceInput_responsive : Styles.aside_wrapper_priceInput}`}>
+                        {/* <section className={`${Styles.aside_wrapper_priceInput}`}> */}
                         <div className="mb-2">
                             <input
                                 className="cursor-pointer mr-2"
@@ -193,11 +218,23 @@ const Redirect_Store = () => {
 
                         </div>
                     </section>
-                    
-                    <div className={`${Styles.aside_wrapper_filterIcon}`}>
-                        <img className={Styles.aside_filterIcon} src={filterIcon} alt="filter" width={20} />
-                        <p className={`${Styles.aside_filterIcon_description}`}>filter</p>
+
+                    <div onClick={closeIconAside} className={`${filterClicked ? "flex cursor-pointer absolute right-4 top-3" : "hidden"}`}>
+                        <img src={CloseIcon} alt="" width={25} />
                     </div>
+
+                    <section className={`${filterClicked ? "hidden" : "flex justify-evenly w-full"} `}>
+                        {/* <section className="flex justify-evenly  w-full"> */}
+                        <div className={`${Styles.aside_wrapper_icons}`}>
+                            <img src={homeIcon} alt="" width={20} />
+                            <Link to="/" className={`${Styles.aside_icon_description}`}>home</Link>
+
+                        </div>
+                        <div className={`${Styles.aside_wrapper_icons}`}>
+                            <img className={Styles.aside_filterIcon} onClick={filterMenu} src={filterIcon} alt="filter" width={20} style={{ height: "20px" }} />
+                            <p className={`${Styles.aside_icon_description}`}>filter</p>
+                        </div>
+                    </section>
 
                 </aside>
             </section>

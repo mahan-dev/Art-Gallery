@@ -3,7 +3,7 @@
     padding: 1rem;
 }
 
-.aside_filterIcon , .aside_wrapper_filterIcon{
+.aside_filterIcon , .aside_wrapper_icons{
     display: none;
 }
 
@@ -17,8 +17,20 @@
         background: #dadada;
         display: flex;
         justify-content: center;
-        padding: 0.3rem;
+        padding: 5px 0;
         
+    }
+    .filter {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: #ab3434;
+        display: flex;
+        justify-content: center;
+        padding: 5px 0;
+        
+        height: 100%;
     }
     .aside_wrapper_input , .aside_wrapper_priceInput{
         display: none;
@@ -26,13 +38,26 @@
     .aside_filterIcon{
         display: block;
     }
-    .aside_wrapper_filterIcon{
+    .aside_wrapper_icons{
         display: flex;
         flex-direction: column;
         align-items: center;
     }
+    .aside_wrapper_icons > img{
+        height: 20px;
+    }
 
-    .aside_filterIcon_description{
+    .showIt{
+
+    }
+    .hideIt{
+
+    }
+    .priceInput_responsive{
+        margin-top: 4rem;
+    }
+   
+    .aside_icon_description{
         font-size: 1rem;
         height: 21px;
     }

@@ -6,7 +6,7 @@
 .header{
     display: flex;
     justify-content: space-between;
-    padding: 2rem 0;
+    padding: 2rem 1rem;
     align-items: center;
     background-color: dimgray;
 }
@@ -21,6 +21,7 @@
 
 @media screen and (max-width:768px) {
     .header{
+        padding: 2rem 1rem;
         /* display: grid;
         grid-template-columns: 1fr 1fr; */
 

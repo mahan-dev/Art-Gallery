@@ -58,7 +58,7 @@
   }
 
   #redirect_store {
-    @apply grid gap-[30px] mx-8;
+    @apply grid gap-[30px] mx-8 mb-20;
     
 
     grid-template-columns: repeat(3, minmax(100px, 1fr));
