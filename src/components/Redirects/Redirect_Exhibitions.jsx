@@ -16,41 +16,7 @@ import Redirect_Exhibitions_Footer from './Redirect_Exhibitions_Footer';
 import styled, { keyframes } from "styled-components";
 import AuthorsNames from './AuthorsNames';
 import { Link, animateScroll as scroll } from "react-scroll";
-/*
-const IconChanger = styled.section`
-display: flex;
-// width: 3rem;
-// height: 3rem;
-flex-direction: column;
-justify-content: center;
-z-index : 20;
-// background-color: purple;
-// border-radius: .4rem;
-// -webkit-border-radius: .4rem;
-// -moz-border-radius: .4rem;
-// -ms-border-radius: .4rem;
-// -o-border-radius: .4rem;
-button{
-    transform-origin: 1px;
-    transition : all 0.4s linear;
-    display : flex;
-    padding-bottom : 1rem;
-    border-bottom : 4px solid black;
-}
 
-
-button:nth-child(1) {
-    // transform:${props => props.open ? "rotate(45deg)" : "rotate(0)"};
-}
-
-button:nth-child(2) {
-    
-}
-
-
-// {parameter}
-`
-*/
 const translateAnimation = keyframes`
 0% {
     opacity: 0;
@@ -128,7 +94,6 @@ const Redirect_Exhibitions = () => {
     // });
     
     // Sort the array based on the dateStart values
-    const filtered = dateLists.sort((a, b) => b.dateStart - a.dateStart);
     // console.log(filtered)
     // const sortedDateLists = dateArray.reduce((acc, { key, dateStart, dateEnd }) => {
     //     acc[key] = { dateStart, dateEnd };
@@ -154,22 +119,23 @@ const Redirect_Exhibitions = () => {
         // console.log(currentScroll);
 
     }
-    useEffect(() => {
 
+    const updatingListByOrder = () =>{
 
         const sortingDate = [...dateLists].sort((a,b) =>{
-            if (sortDate === "ascending"){
+            if(sortDate === "ascending"){
                 return a.dateStart - b.dateStart;
             } else {
                 return b.dateStart - a.dateStart;
             }
+    
         })
+        setSortedDateLists(sortingDate)
+    }
 
-        setSortedDateLists(sortingDate);
+    useEffect(() => {
+        updatingListByOrder()
 
-
-
-        //  CLEAN CODE 
         const addOutsideClickListener = (buttonRef, setIcon) => {
             const handleOutsideClick = (event) => {
                 console.log(event.target)
@@ -184,6 +150,7 @@ const Redirect_Exhibitions = () => {
                 document.removeEventListener("scroll", handleScroll);
             }
         }
+        //  CLEAN CODE 
         // this part is for the aside part of project ----------------------------------------------------------------
         // const asidePanel = 
 
@@ -266,7 +233,7 @@ const Redirect_Exhibitions = () => {
         // console.log(buttonRef.current)
         
 
-    }, [previousScrollY]);
+    }, [previousScrollY, sortDate]);
 
     
 
@@ -286,20 +253,24 @@ const Redirect_Exhibitions = () => {
 
     const toggleOrder = (order) =>{
         setSortDate(order)
+        // setSortDate(order)
     }
 
     const oncliTest = (eventName) => {
-        const selectedOrder = eventName.target.innerText.toLowerCase();
-        toggleOrder(selectedOrder);
+
+        const selectOrder = eventName.target.innerText.toLowerCase();
+        toggleOrder(selectOrder);
+        
+
+        // const selectedOrder = eventName.target.innerText.toLowerCase();
+        // toggleOrder(selectedOrder);
 
 
 
-        const sortByNewest = () => {
-            const sorted = [...products].sort((a, b) => new Date(b.date_end) - new Date(a.date_end));
-        };
+ 
 
 
-        const filter = 1;
+        
 
         const contentLogo = document.querySelector(`.spanContent`);
         if (contentLogo) {
@@ -315,7 +286,7 @@ const Redirect_Exhibitions = () => {
 
     return (
         <section>
-
+            {console.log(sortedDateLists)}
             <section className='flex flex-col min-h-screen'>
             <Navbar />
                 <section className={`${styleExhibitions.wrapper_Exhibitions} w-full min-h-screen `} id={`${styleExhibitions.wrapper_Exhibitions}`}>
@@ -354,11 +325,12 @@ const Redirect_Exhibitions = () => {
                                     <section key={key}>
                                         <section className={styleExhibitions.wrapper_content_exhibitions}>
 
+                                            {}
                                             <img src={image1} alt="" width={""} height='' />
                                             <section className={`${styleExhibitions.image_content}`}>
 
 
-                                                <p>5 January - 10 February 2024</p>
+                                                <p> {dateStart.toDateString()} </p>
                                                 <h4 className='text-base'>PRACTICE MAKES PURRFECT</h4>
                                                 <p className="text-2xl my-[1.5rem]">
                                                     During the 60th Venice Biennale, Unit presents In Praise of Black Errantry, a group exhibition that celebrates the radical Black imagination. Curated by Indie A. Choudhury (The Courtauld Institute of Art), the exhibition brings together works by 19 modern and contemporary Afro-diasporic artists.
@@ -369,10 +341,10 @@ const Redirect_Exhibitions = () => {
                                             </section>
                                         </section>
 
-                                        <section className={styleExhibitions.wrapper_content_exhibitions}>
+                                        {/* <section className={styleExhibitions.wrapper_content_exhibitions}>
                                             <img src={image1} alt="" width={505} height='' />
                                             <section className={`${styleExhibitions.image_content}`}>
-                                                <p>20 January - 22 February 2024</p>
+                                                <p>{dateStart.toDateString()}</p>
                                                 <h4 className='text-base'>PRACTICE MAKES PURRFECT</h4>
                                                 <p className="text-2xl my-[1.5rem]">
                                                     During the 60th Venice Biennale, Unit presents In Praise of Black Errantry, a group exhibition that celebrates the radical Black imagination. Curated by Indie A. Choudhury (The Courtauld Institute of Art), the exhibition brings together works by 19 modern and contemporary Afro-diasporic artists.
@@ -381,7 +353,7 @@ const Redirect_Exhibitions = () => {
                                                     Explore now
                                                 </button>
                                             </section>
-                                        </section>
+                                        </section> */}
                                     </section>
 
 

@@ -195,7 +195,7 @@ const Navbar = () => {
                         <li className={`${NavStyles.Exhibitions__dropper} list_item mx-2 `}>
 
                             <Link id="exeption" onMouseOver={mouseii} onMouseOut={mouseleavii} ref={listLink} style={{ cursor: "pointer" }} onClick={()=> handleItemOverflow("/Exhibitions")} className={`${NavStyles.list_item}`} to="/Exhibitions">Exhibitions</Link>
-                            <ul style={{ display: isMenuClicked ? "none" : "none" }} className={`${NavStyles.item__dropdown__wrapper} hello `} >
+                            <ul style={{ display: isMenuClicked ? "none" : "none" }} className={`${NavStyles.item__dropdown__wrapper}`} >
                                 <li className={`${NavStyles.list_item} mx-2`} ><Link to="/ExhibitionsCurrent">Current</Link></li>
                                 <li className={`${NavStyles.list_item} mx-2`} ><Link to="/ExhibitionsForthcoming">Forthcoming</Link></li>
                                 <li className={`${NavStyles.list_item} mx-2`} ><Link to="/ExhibitionsArchive">Archive</Link></li>

@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { CartContextProvider } from '../../context/Redirect_Store_CartContext';
+import { Link } from 'react-router-dom';
 import Redirect_Store_CartContext, {sumItems, initialState} from '../../context/Redirect_Store_CartContext';
 import { quantityCounter } from '../../helper/functions';
 
@@ -10,67 +11,42 @@ import Redirect_Store_ShopCart from './Redirect_Store_ShopCart';
 // importing trash icon
 
 import TrashIcon from "../../assets/images/redirec_store_Image/trash.svg";
-import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 
-const Redirect_Store_Product = ({ data}) => {
+const Redirect_Store_Product = ({ data }) => {
+
+    const products = useContext(ProductContextProvider);
+    
+    console.log(products)
+
+
     
     
     const [image, setImage] = useState([])
     const [sortDate, setSortDate] = useState ([]);
     const {artist_title, date_end, price} = data;
+
+
     
-    
-    
-    
-    
-    // console.log(price)
    
     useEffect(()=>{
-        if (data && date_end) {
-            const dates = date_end;
-            setSortDate(prev => [...prev, dates]);
-            
-        } 
-        
         
         setImage(`https://www.artic.edu/iiif/2/${data.image_id}/full/1686,/0/default.jpg`);
     },[data])
     // console.log(sortDate);
     const { state, dispatch } = useContext(CartContextProvider);
-    // console.log(state.selectedItems);
-    
+
     const [itemsCounter, setItemsCounter] = useState(() => {
         // Initialize items counter with the value from local storage or 0 if it doesn't exist
         const localCounter = parseInt(localStorage.getItem('itemsCounter'));
         return localCounter || state.itemsCounter  || 0;
     });
     
-    // const quantityCatcher = state.selectedItems.map(item => {
-        //     // Perform any transformation or logic you need here
-        //     return item; // For example, just returning the item itself
-        // });
-        
-        // // Check if the first item exists and has a quantity property before accessing it
-        // const firstItem = quantityCatcher[0];
-        // const quantity = firstItem?.quantity || 0;
-        
-        // console.log(quantity);
-        
-        
-        // Now quantityCatcher array contains the mapped result
-        
-        // You can access and use the quantityCatcher array however you like
-        // console.log(quantityCatcher);
-        
-        
-        useEffect(() => {
-            // Update local storage whenever the items counter changes
-            localStorage.setItem('itemsCounter', state.itemsCounter.toString());
-        }, [state.itemsCounter]);
+
         
         useEffect(() => {
             // Update items counter state whenever state.itemsCounter changes
+            localStorage.setItem('itemsCounter', state.itemsCounter.toString());
             setItemsCounter(state.itemsCounter);
         }, [state.itemsCounter]);
         
@@ -115,7 +91,20 @@ const Redirect_Store_Product = ({ data}) => {
                 {/* <div className='max-w-[200px]' >{artist_title}</div> */}
                 <div id='wrapper_product_image' style={{ minHeight: '200px' }}>
 
+                    {/* <Link to = {`/product/${products.id}`}> */}
+
                 <img src={image} className='h-[100%] object-cover' id='store_product_image'  alt="product_image" />
+                        <Link to={`/Store/${data.elementId}`}>  
+                        detail
+                        </Link>
+
+                {/* </Link> */} 
+               
+
+           
+                    
+             
+
                 </div>
                 {<div>{price}$</div>}
                 {/* {quantity > 1 && <button onClick={handleDecrease}>-</button>}

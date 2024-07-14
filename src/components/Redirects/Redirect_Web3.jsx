@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import BackgroundImage from "../../assets/images/redirectWeb3mage/BlackImage.avif";
 import "../../assets/images/redirectWeb3mage/BlackImage.avif";
 import stylesWeb3 from "../../Styles/RediretWeb3.module.css";
@@ -14,10 +14,15 @@ import SecondImage from "../../assets/images/redirectVoices-images/second_slide.
 import FirstImage from "../../assets/images/redirectVoices-images/first_slide.jpg";
 
 import Redirect_Exhibitions_Footer from "./Redirect_Exhibitions_Footer";
+import {ProductContextProvider} from '../../context/Rediret_Store_Product_Context_Provider';
 
 
 
 const Redirect_Web3 = () => {
+    
+    const pr = useContext(ProductContextProvider)
+    const {artist_id} = pr;
+    console.log(artist_id)
 
     // const [ethPrice, setEthPrice] = useState([]);
     let ethPrice = [];

@@ -246,11 +246,11 @@
 
 @media screen and (max-width: 576px) {
     .wrapper_Exhibitions{
-        padding: 11rem 2rem 0rem;
+        padding: 11rem 1.5rem 0rem;
     }
     .wrapper_content_exhibitions {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        /* grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); */
         gap: 0 5rem;
         /* padding: 4rem 6rem; */
         /* padding: 4rem 6rem; */

@@ -41,11 +41,9 @@
     .swiper-scrollbar{
         margin-bottom: 10px;
     }
-}
 
-@media screen and (max-width: 530px) {
     .mySwiper .swiper-slide img {
-        height: 500px;
+        height: 380px;
         width: 400px;
     }
 }

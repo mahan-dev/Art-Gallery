@@ -1,4 +1,5 @@
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper, SwiperSlide } from "swiper/react";1
+import  "../../Styles/redirect_voices_slider.css";
 
 // importing slide images
 import image_1 from "../../assets/images/redirectVoices-images/first_slide.jpg";
@@ -29,24 +30,18 @@ const sweeper_redirect_voices_slider = () => {
       <Swiper
         style={{ height: "500px", marginTop: "2rem" }}
         {...swiperParams}
-
         spaceBetween={20}
         effect={"fade"}
         loop={true}
-
         navigation={true}
-
-
-
         slidesPerView={1}
-        // modules={[Pagination, Navigation, EffectFade]}
         className="mySwiper"
 
       >
         <SwiperSlide className='swiper-slide'>
           <section>
             <img src={image_1} alt="" />
-            <section style={{ position: "absolute", zIndex: "1", top: "70%", color: "black", fontSize: "1.5rem", textAlign: "left" }}>
+            <section  className="wrapperContents_voices_slider">      
               <p>8 February - 21 March 2024</p>
               <h2>More Than One Memory</h2>
               <h3>something for display </h3>
@@ -56,7 +51,7 @@ const sweeper_redirect_voices_slider = () => {
         <SwiperSlide className='swiper-slide'>
           <section>
             <img src={image_2} alt="" />
-            <section style={{ position: "absolute", zIndex: "1", top: "70%", color: "black", fontSize: "1.5rem", textAlign: "left" }}>
+            <section  className="wrapperContents_voices_slider">      
               <p>2 February - 1 March 2024</p>
               <h2>More Than One Memory</h2>
               <h3>something for display </h3>
@@ -68,7 +63,7 @@ const sweeper_redirect_voices_slider = () => {
         <SwiperSlide className='swiper-slide'>
           <section>
             <img src={image_3} alt="" />
-            <section style={{ position: "absolute", zIndex: "1", top: "70%", color: "black", fontSize: "1.5rem", textAlign: "left" }}>
+            <section  className="wrapperContents_voices_slider">      
               <p>8 november - 24 december 2023</p>
               <h2>More Than One Memory</h2>
               <h3>something for display </h3>

@@ -22,6 +22,7 @@ import { ProductContextProvider } from "../../context/Rediret_Store_Product_Cont
 import filterIcon from "../../assets/images/Redirect_Store/sliders.svg";
 import homeIcon from "../../assets/images/Redirect_Store/house.svg";
 import { Redirect_Store_Context_ } from "../../context/Redirect_Store_Context";
+import Redirect_Store_Product_Detail from "./Redirect_Store_Product_Detail";
 
 export const ImageGalleryStore = createContext();
 const Redirect_Store = () => {
@@ -142,11 +143,11 @@ const Redirect_Store = () => {
                 <section className="w-full">
 
 
-                    {products.length === 0 ?
+                    {productToRender.length === 0 ?
                         <Skeleton />
                         :
 
-                        products.length === 0 ?
+                        productToRender.length === 0 ?
                             <div>no art works found </div> :
 
                             <div className=" justify-center  transition-all">
@@ -156,6 +157,7 @@ const Redirect_Store = () => {
                                 </section>
                                 <div id="redirect_store" className="">
                                     {productToRender.map(item => <Redirect_Store_Product key={item.elementId} data={item} />)}
+                                    {/* {productToRender.map(item => <Redirect_Store_Product_Detail key={item.elementId} data={item} /> )} */}
                                 </div>
                             </div>
                     }

@@ -1,0 +1,14 @@
+.wrapperContents_voices_slider {
+    position: absolute;
+    z-index: 1;
+    top: 70%;
+    color: #000000;
+    font-size: 1.5rem;
+    text-align: left;
+}
+
+@media screen and (max-width: 576px) {
+    .wrapperContents_voices_slider {
+        font-size: 1.2rem;
+    }
+}

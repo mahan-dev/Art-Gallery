@@ -207,7 +207,7 @@ const Redirect_News = () => {
                         </section>
                     </div>
                 </section>
-                <p className="te"></p>
+                <p className=""></p>
             </section>
         </section>
 
