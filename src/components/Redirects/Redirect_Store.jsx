@@ -24,8 +24,10 @@ import homeIcon from "../../assets/images/Redirect_Store/house.svg";
 import { Redirect_Store_Context_ } from "../../context/Redirect_Store_Context";
 import Redirect_Store_Product_Detail from "./Redirect_Store_Product_Detail";
 
+
 export const ImageGalleryStore = createContext();
 const Redirect_Store = () => {
+    const [loading, setLoading] = useState(true);
     const { searchValue } = useContext(Redirect_Store_Context_);
     const products = useContext(ProductContextProvider);
     const asideStore = useRef();
@@ -124,10 +126,17 @@ const Redirect_Store = () => {
         document.querySelector("body").style.overflowY = "auto";
     }
 
+    const getProduct =()=>{
+        if(products) {
+            setLoading(false);
+        }
+    }
+
 
 
 
     useEffect(() => {
+        getProduct();
 
         setSortDate([...products])
     }, [products, search, filterClicked])
@@ -140,22 +149,24 @@ const Redirect_Store = () => {
             <Redirect_Store_Navbar />
 
             <section className=" flex justify-between gap-[50px] px-3">
-                <section className="w-full">
+                <section className="w-full mt-4">
 
 
                     {productToRender.length === 0 ?
-                        <Skeleton />
+                        <div>loading</div>
                         :
 
                         productToRender.length === 0 ?
                             <div>no art works found </div> :
 
-                            <div className=" justify-center  transition-all">
-                                <section className="">
+                            <div id="redirect_store_product_wrapper" className="justify-center transition-all">
+                                <section className="mx-8">
                                     <a onClick={sortByOldest} style={{ cursor: "pointer" }} className="mr-4">oldest</a>
                                     <a onClick={sortByNewest} style={{ cursor: "pointer" }}>newest</a>
                                 </section>
                                 <div id="redirect_store" className="">
+                                    {/* {loading ? <Skeleton width={"100%"} height={600} /> } */}
+                                
                                     {productToRender.map(item => <Redirect_Store_Product key={item.elementId} data={item} />)}
                                     {/* {productToRender.map(item => <Redirect_Store_Product_Detail key={item.elementId} data={item} /> )} */}
                                 </div>
@@ -228,12 +239,14 @@ const Redirect_Store = () => {
                     <section className={`${filterClicked ? "hidden" : "flex justify-evenly w-full"} `}>
                         {/* <section className="flex justify-evenly  w-full"> */}
                         <div className={`${Styles.aside_wrapper_icons}`}>
+                            <Link to="/" className={`${Styles.aside_icon_description} flex items-center flex-col`}>
                             <img src={homeIcon} alt="" width={20} />
-                            <Link to="/" className={`${Styles.aside_icon_description}`}>home</Link>
+                             <span>home</span> 
+                            </Link>
 
                         </div>
-                        <div className={`${Styles.aside_wrapper_icons}`}>
-                            <img className={Styles.aside_filterIcon} onClick={filterMenu} src={filterIcon} alt="filter" width={20} style={{ height: "20px" }} />
+                        <div className={`${Styles.aside_wrapper_icons}`} onClick={filterMenu}>
+                            <img className={Styles.aside_filterIcon}  src={filterIcon} alt="filter" width={20} style={{ height: "20px" }} />
                             <p className={`${Styles.aside_icon_description}`}>filter</p>
                         </div>
                     </section>
