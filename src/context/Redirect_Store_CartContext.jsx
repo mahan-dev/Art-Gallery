@@ -111,13 +111,6 @@ import Cookies from 'js-cookie';
 //     }
 // }
 
-const initialState = {
-    selectedItems: [],
-    itemsCounter: 0,
-    total: 0,
-    checkout: false,
-
-}
 const sumItems = item => {
     const itemsCounter = item.reduce((total, product) => total + product.quantity, 0)
     const total = item.reduce((total, product) => total + product.quantity * product.price, 0)
@@ -298,7 +291,7 @@ const Redirect_Store_CartContext = ({ children }) => {
 
 };
 export default Redirect_Store_CartContext;
-export {sumItems, initialState};
+export {sumItems};
 // const [state, dispatch] = useReducer(CartReducer, initialState);
 // // const contextValue= {state, dispatch};
 // useEffect(() => {

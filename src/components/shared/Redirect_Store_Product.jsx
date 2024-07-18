@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { CartContextProvider } from '../../context/Redirect_Store_CartContext';
 import { Link } from 'react-router-dom';
-import Redirect_Store_CartContext, {sumItems, initialState} from '../../context/Redirect_Store_CartContext';
-import { quantityCounter } from '../../helper/functions';
+import Redirect_Store_CartContext, {sumItems} from '../../context/Redirect_Store_CartContext';
+import { quantityCounter } from "../../helper/functions";
 import Styles from "../../Styles/Redirect_Store_Product.module.css";
 import Cookies from 'js-cookie';
 import { ProductContextProvider } from '../../context/Rediret_Store_Product_Context_Provider';
@@ -54,42 +54,18 @@ const Redirect_Store_Product = ({ data }) => {
         }, [state.itemsCounter, data]);
         
         const isInCart = state.selectedItems.some(item => item.elementId === data.elementId);
+     
         // const value = state.selectedItems.some(item => item.elementId === item.quantity);
         // let value = state.selectedItems.find(item => item.elementId === item.quantity)?.quantity;
         
-        const handleAddToCart = () => {
-            dispatch({ type: "AddCard", payload: data });
-            
-        };
-        
-        
-        const handleIncrease = () => {
-            dispatch({ type: "Increase", payload: data });
-            
-        };
-        
-        // const handleDecrease = () => {
-        //     dispatch({ type: "Decrease", payload: data });
-        //     // Ensure quantity doesn't go below zero
-        // };
-        
-        // const handleRemove = () => {
-        //     dispatch({ type: "Remove", payload: data });
-            
-        // };
-        
-        
         return (
             <div>
-            {/* {console.log(image)} */}
-                {/* {console.log(sortDate) } */}
+         
            {loading ? <Skeleton width={"100%"} height={400} /> : <section className={`${Styles.product_container} h-[100%]`} >
                 
                 <div>{artist_title ? artist_title : "no title"}</div>
-                {/* <div className='max-w-[200px]' >{artist_title}</div> */}
                 <div id='wrapper_product_image' style={{ minHeight: '200px' }}  >
 
-                    {/* <Link to = {`/product/${products.id}`}> */}
 
                     {loading ? (
                         <Skeleton width={"100%"} height={300} />
@@ -97,9 +73,6 @@ const Redirect_Store_Product = ({ data }) => {
                         <img src={image} className='h-[100%] object-cover my-4' id='store_product_image' alt="product_image" />
                     )}
 
-                    {/* <Skeleton width={400} /> */}
-
-                
 
                 </div>
                 {loading ? (
@@ -116,32 +89,16 @@ const Redirect_Store_Product = ({ data }) => {
                         <div className='bg-white w-fit rounded-md p-1'>{price}$</div>
                     )}
 
-                
-                {/* {quantity > 1 && <button onClick={handleDecrease}>-</button>}
-                {
-                    console.log(quantity)
-                }
-                {quantity === 1 && <button onClick={handleRemove}>trash</button>}
-                
-                {console.log(value)}
-                {quantity > 0 && <span>{value}</span>}
-                
-            {console.log(state.quantity)} */}
                 {quantityCounter(state, data.elementId) > 1 && <button style={{ cursor: "pointer" }} onClick={() => dispatch({ type: "Decrease", payload: data })}>-</button>}
-                    {quantityCounter(state, data.elementId) === 1 && <button style={{ cursor: "pointer" }} onClick={() => dispatch({ type: "Remove", payload: data })}><img src={TrashIcon} style={{display: "inline-block"}} alt="" width={13} /></button>}
-                    {quantityCounter(state, data.elementId) > 0 && <span> {quantityCounter(state, data.elementId)} </span>}
-               {/* {isInCart ?`${price}` : ""} */}
-               
-               
-               {/* {console.log(price)} */}
+                {quantityCounter(state, data.elementId) === 1 && <button style={{ cursor: "pointer" }} onClick={() => dispatch({ type: "Remove", payload: data })}><img src={TrashIcon} style={{display: "inline-block"}} alt="" width={13} /></button>}
+                {quantityCounter(state, data.elementId) > 0 && <span> {quantityCounter(state, data.elementId)} </span>}
                 
                 {isInCart ?
-                    <button onClick={handleIncrease}>+</button> :
-                    <button className='bg' style={{ cursor: "pointer" }} onClick={handleAddToCart}>Add to Cart</button>
+                    <button onClick={()=> dispatch({type: "Increase", payload: data})}>+</button> :
+                    <button className='' style={{ cursor: "pointer" }} onClick={()=> dispatch({type:"AddCard", payload:data})}>Add to Cart</button>
                 }
             </section>}
               
-            
         </div>
     );
 };

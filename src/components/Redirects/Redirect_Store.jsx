@@ -13,6 +13,8 @@ import 'react-loading-skeleton/dist/skeleton.css';
 import Styles from "../../Styles/Redirect_Store.module.css";
 import CloseIcon from "../../assets/images/Redirect_Store/xmark.svg";
 
+import Loadin_svg from "../../assets/Loading_spinner/LoadingSvg.svg";
+
 
 // import cartIcon from "../../assets/images/icon_store/cart-shopping.svg";
 // import { CartContextProvider } from "../../context/Redirect_Store_CartContext";
@@ -149,11 +151,15 @@ const Redirect_Store = () => {
             <Redirect_Store_Navbar />
 
             <section className=" flex justify-between gap-[50px] px-3">
-                <section className="w-full mt-4">
+                <section className="w-full  mt-4 flex justify-center">
 
 
                     {productToRender.length === 0 ?
-                        <div>loading</div>
+                    
+                    <div className="mt-12">
+                        <img src={Loadin_svg} />
+
+                    </div>
                         :
 
                         productToRender.length === 0 ?
@@ -233,7 +239,7 @@ const Redirect_Store = () => {
                     </section>
 
                     <div onClick={closeIconAside} className={`${filterClicked ? "flex cursor-pointer absolute right-4 top-3" : "hidden"}`}>
-                        <img src={CloseIcon} alt="" width={25} />
+                        <img src={CloseIcon} alt="" width={25} style={{color: "white", fill: "white"}} />
                     </div>
 
                     <section className={`${filterClicked ? "hidden" : "flex justify-evenly w-full"} `}>

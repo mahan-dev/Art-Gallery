@@ -71,25 +71,29 @@ const Redirect_Contact = () => {
     }, [mailTracker, emailMessage, email])
     return (
         <section className={`${Styles.wrapperContact} flex`}>
-            <section className={`${Styles.Wrapper} w-[50%] bg-white flex flex-col  pt-40 pb-28 pl-[6rem] pr-[4rem]`}>
+            <section className={`${Styles.Wrapper}  bg-white flex flex-col  `}>
                 <section className={`${Styles.Wrapper_Left} flex-col flex`}>
                     <h1 className="text-[1.8rem]">We want to hear from you </h1>
 
 
                     <form className={`${Styles.Left_form} flex flex-col mb-6`} action="">
-                        <section>
-                            <input type="text" className={Styles.Left_form_Input} placeholder="First name" />
-                            <input type="text" className={Styles.Left_form_Input} placeholder="Last name" />
+                        <section className={Styles.form_input_name}>
+                            {/* <input type="text" className={Styles.Left_form_Input} placeholder="First name" />
+                            <input type="text" className={Styles.Left_form_Input} placeholder="First name" /> */}
+                            <input type="text" placeholder="First name" />
+                            <input type="text" placeholder="Last name" />
                         </section>
-                        <input
-                            type="email"
-                            ref={email_contact}
-                            onChange={handleEmailValidation}
+                        <div>
 
-                            className={Styles.Left_form_Input} placeholder="Email" />
-                        <div className="inline-block" ref={emailMessage_Ref_Contact} >{emailMessage}</div>
-
-                        <div></div>
+                            <input
+                                type="email"
+                                ref={email_contact}
+                                onChange={handleEmailValidation}
+                                
+                                className={Styles.Left_form_Input} placeholder="Email" />
+                            <div className="inline-block" ref={emailMessage_Ref_Contact} >{emailMessage}</div>
+                        </div>
+                        
                         <input className={Styles.Left_form_Input} type="tel" placeholder="Phone" />
                         <textarea className={Styles.Left_form_Input} placeholder="message" name="" id="" ></textarea>
                         <div className="flex mb-4">
@@ -100,7 +104,7 @@ const Redirect_Contact = () => {
                     </form>
 
                 </section>
-                <section className={`${Styles.Left_Contents_Wrapper} flex flex-row gap-[20px]`}>
+                <section className={`${Styles.Left_Contents_Wrapper} flex  gap-[20px]`}>
                     <section className={`${Styles.Contents_Wrapper_Content}`}>
                         <p className={`${Styles.content_Header}  mb-4`}>Unit, Mayfair</p>
                         <p className="mb-4">3 Hanover Square, Mayfair,</p>
@@ -138,11 +142,11 @@ const Redirect_Contact = () => {
                         <p>For Our Privacy Policy, visit this page.</p>
                     </section>
 
-                    <section className="flex flex-col items-center h-fit">
-                        <img src={facebookIcon} style={{ margin: "1rem" }} alt="" width={20} />
-                        <img src={X_TwitterIcon} style={{ margin: "1rem" }} alt="" width={20} />
-                        <img src={InstagramIcon} style={{ margin: "1rem" }} alt="" width={20} />
-                        <img src={LinkedinIcon} style={{ margin: "1rem" }} alt="" width={20} />
+                    <section className={`${Styles.wrapper_content_icon} flex items-center h-fit`}>
+                        <img src={facebookIcon} style={{ margin: "1rem", height:"25px" }} alt="" width={25}  />
+                        <img src={X_TwitterIcon} style={{ margin: "1rem" }} alt="" width={25} />
+                        <img src={InstagramIcon} style={{ margin: "1rem" }} alt="" width={25} />
+                        <img src={LinkedinIcon} style={{ margin: "1rem" }} alt="" width={25} />
                     </section>
                 </section>
 

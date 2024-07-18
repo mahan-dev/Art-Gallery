@@ -1,8 +1,14 @@
+.Left_form{
+    margin-top: 2rem;
+}
+
 .Left_form>input::placeholder,
 .Left_form>section input::placeholder,
-.Left_form>textarea::placeholder {
+.Left_form>textarea::placeholder,
+.Left_form>div input::placeholder
+ {
     color: #9c9c9c;
-
+    font-size: 1.3rem;
 }
 
 .Left_form>textarea:hover {
@@ -13,38 +19,28 @@
 
 .Left_form>section {
     display: flex;
-    gap: 15px;
+    gap: 20px;
 }
 
-.Left_form>input , .Left_form > textarea ,.Left_form>section input {
+.Left_form>input , .Left_form > textarea ,.Left_form>section input, .Left_form>div input{
     width: 100%;
     outline: none;
     border-bottom: 1px solid #9c9c9c;
     padding: 0.1rem;
 }
 
+.Left_form>div input[type="checkbox"]{
+    width: auto;
+}
+
 .Left_form > textarea:hover{
     border-bottom: 1px solid #9c9c9c;
 }
 
-.Left_form>input[type="checkbox"] {
-    accent-color: red;
-    border: none;
-    outline: none;
-    offset: none;
-    border: none !important;
-    border-style: none !important;
-    /* border */
-    color: inherit;
-    outline: none !important;
-    offset: none !important;
-    width: fit-content;
-    outline-color: none;
-    outline-offset: none;
-    outline-style: none;
-}
+
 
 .Left_form_Input{
+   /* margin-bottom: 1.5rem; */
     min-width: 100px;
 }
 
@@ -60,10 +56,11 @@
 
 }
 
-.Left_form>input {
-    margin: 0.4rem 0;
 
-    /* font-size: 3; */
+
+.Wrapper{
+    padding: 10rem 5rem 7rem;
+    width: 50%;
 }
 
 .Contents_Wrapper_Content{
@@ -81,7 +78,28 @@
     font-size: 1.8rem;
 }
 
-@media screen and (min-width:999px ) {
+.wrapper_content_icon{
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.Left_Contents_Wrapper{
+    flex-direction: row;
+    
+}
+
+.form_input_name{
+    margin-bottom: 1.5rem;
+}
+
+.Left_form > div input, .Left_form > input, .Left_form_Input  {
+    margin-bottom: 1.5rem;
+}
+.Left_form > div input[type= "checkbox" ] {
+    margin: 0;
+}
+
+@media screen and (min-width: 999px ) {
     .wrapperMap{
         position: fixed;
         width: 50%;
@@ -90,12 +108,35 @@
     }
 }
 @media screen and (max-width:998px ) {
+    .Wrapper{
+        width: auto;
+    }
     .wrapperContact{
         display: flex;
         flex-direction: column;
     }
     .wrapperMap{
         position: static;
+    }
+}
 
+@media screen and (max-width:576px ) {
+    .Wrapper{
+        padding: 6rem 2rem;
+    }
+    .wrapperContact, .Left_Contents_Wrapper{
+        /* display: flex; */
+        flex-direction: column;
+    }
+    .wrapperMap{
+        position: static;
+        height: 500px;
+        margin: 2rem;
+    }
+    .wrapper_content_icon{
+        flex-direction: row;
+    }
+    .form_input_name{
+        flex-wrap: wrap;
     }
 }

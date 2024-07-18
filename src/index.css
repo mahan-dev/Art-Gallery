@@ -101,6 +101,13 @@
     }
   }
   
+  /* ? wrapper map googleMap */
+  @media screen and (max-width: 576px) {
+    
+    .mapContainer{
+      height: 100% !important;
+    }
+  }
 
   #store_product_image {
     border-radius: 2px;

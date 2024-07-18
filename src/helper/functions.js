@@ -13,9 +13,9 @@
 //     }
 // }
 const isInCart = (state, elementId) => {
-    // const result = !!state.selectedItems.find(item => item.elementId === elementId);
-    // return result;
-    return state.selectedItems.some(item => item.elementId === elementId)
+    const result = !!state.selectedItems.find(item => item.elementId === elementId);
+    return result;
+    // return state.selectedItems.some(item => item.elementId === elementId)
 }
 const quantityCounter = (state, elementId) => {
     const items = state.selectedItems.findIndex(item => item.elementId === elementId);
@@ -23,6 +23,7 @@ const quantityCounter = (state, elementId) => {
         return 0
     }
     else{
+        console.log(state.selectedItems[items].quantity)
         return state.selectedItems[items].quantity;
     }
 }
