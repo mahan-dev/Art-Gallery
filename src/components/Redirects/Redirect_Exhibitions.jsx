@@ -1,21 +1,21 @@
-import React, { useEffect, useRef, useState, } from 'react';
+import React, { useContext, useEffect, useRef, useState, useMemo } from 'react';
 import Navbar from "../Navbar";
 import image1 from "../../assets/images/artists_pics/3.jpg";
 import styleExhibitions from "../../Styles/Redirect_exhibitions.module.css";
 // 
 import minus from "../../assets/images/minus_Icon/minus.svg";
 import arrowDown from "../../assets/images/arrow_Down_Icon/chevron-down.svg";
-// import "normalize.css";
-
 
 // importing footer
 
 import Redirect_Exhibitions_Footer from './Redirect_Exhibitions_Footer';
 
-
 import styled, { keyframes } from "styled-components";
+import Skeleton from 'react-loading-skeleton';
 import AuthorsNames from './AuthorsNames';
 import { Link, animateScroll as scroll } from "react-scroll";
+import { ProductContextProvider } from "../../context/Rediret_Store_Product_Context_Provider";
+import Redirect_content_Exhibitions from './Redirect_content_Exhibitions';
 
 const translateAnimation = keyframes`
 0% {
@@ -54,8 +54,8 @@ li:nth-child(2){
 
 `
 
-const Redirect_Exhibitions = () => {
- 
+const Redirect_Exhibitions = ({data}) => {
+    const product = useContext(ProductContextProvider);
 
     const buttonRef = useRef(null);
     const buttonRef2 = useRef(null);
@@ -67,6 +67,20 @@ const Redirect_Exhibitions = () => {
     const [content, setContent] = useState("ascending");
     const [previousScrollY, setPreviousScrollY] = useState(0);
     const [scrollDown, setScrollDown] = useState(false);
+    const [image, setImage] = useState([]);
+    
+
+    
+    // let image_id = imagApi.map(item => item.image_id)
+    // console.log(data.image_id)
+    // console.log(imagApi.image_id)
+    // console.log(imagApi)
+    
+    // const {image_id} = imagApi;
+    // console.log(image_id)
+
+    // console.log(imagApi)
+ 
 
 
     const [sortDate , setSortDate] = useState("ascending");
@@ -88,152 +102,69 @@ const Redirect_Exhibitions = () => {
 
     ];
     
-    // Convert the object to an array for sorting
-    // const dateArray = Object.entries(dateLists).map(([key, value]) => {
-    //     return { key, ...value };
-    // });
-    
-    // Sort the array based on the dateStart values
-    // console.log(filtered)
-    // const sortedDateLists = dateArray.reduce((acc, { key, dateStart, dateEnd }) => {
-    //     acc[key] = { dateStart, dateEnd };
-    //     return acc;
-    // }, {});
-    
-    // console.log(sortedDateLists);
-    // console.log(icon);
-    // setTimeout(() => {
-    //     console.log(icon);
-
-    // }, 0)
     const handleScroll = () => {
         const currentScroll = window.scrollY;
         if (currentScroll > previousScrollY) {
             setScrollDown(true)
-            // console.log(scrollDown);
         } else {
             setScrollDown(false)
-            // console.log(scrollDown);
         }
         setPreviousScrollY(currentScroll);
-        // console.log(currentScroll);
 
     }
 
-    const updatingListByOrder = () =>{
+    // console.log(product);
 
-        const sortingDate = [...dateLists].sort((a,b) =>{
-            if(sortDate === "ascending"){
-                return a.dateStart - b.dateStart;
-            } else {
-                return b.dateStart - a.dateStart;
-            }
+      const [arr,setArr] = useState([]);
     
-        })
-        setSortedDateLists(sortingDate)
-    }
+    // let two_Product = product.slice(0,2);
+    // console.log(arr)
+    const sortExhibitions = (data) => {
+        return [...data].sort((a, b) => {
+            const A = a.date_start;
+            const B = b.date_start;
+            return sortDate === "ascending" ? A - B : B - A;
+        });
+    };
 
     useEffect(() => {
-        updatingListByOrder()
-
-        const addOutsideClickListener = (buttonRef, setIcon) => {
-            const handleOutsideClick = (event) => {
-                console.log(event.target)
-                if (buttonRef.current && !buttonRef.current.contains(event.target)) {
-                    setIcon(icon);
-                }
-            }
-            document.addEventListener("scroll", handleScroll);
-            document.addEventListener("click", handleOutsideClick);
-            return () => {
-                document.removeEventListener("click", handleOutsideClick);
-                document.removeEventListener("scroll", handleScroll);
+        if (product.length > 0) {
+            const sortedList = sortExhibitions(product.slice(0, 2));
+            setArr(sortedList);
+            // sortExhibitions(arr)
+        }
+    }, [sortDate, product]);
+    
+    
+    const addOutsideClickListener = (buttonRef, setIcon) => {
+        const handleOutsideClick = (event) => {
+            if (buttonRef && !buttonRef.current.contains(event.target)) {
+                setIcon(icon);
             }
         }
-        //  CLEAN CODE 
-        // this part is for the aside part of project ----------------------------------------------------------------
-        // const asidePanel = 
-
+        document.addEventListener("scroll", handleScroll);
+        document.addEventListener("click", handleOutsideClick);
+        return () => {
+            document.removeEventListener("click", handleOutsideClick);
+            document.removeEventListener("scroll", handleScroll);
+        }
+    }
+    
+    
+    
+    
+    
+    useEffect(() => {
+       
+        
+        addOutsideClickListener();
         const CleanUp1 = addOutsideClickListener(buttonRef, setIcon);
         const CleanUp2 = addOutsideClickListener(buttonRef2, setIcon2);
         return () => {
             CleanUp1();
             CleanUp2();
         }
-
-        // TRASHY CODING 
-        /*
-        const func1 = ()=>{
-            const handleOutsideClick = (event) => {
-                console.log(icon2);
-                if (buttonRef2.current && !buttonRef2.current.contains(event.target)) {
-                    // setOpen("false");
-                    console.log(icon2);
-                    console.log("is running ")
-                    setIcon2(icon2);
-                }
-                
-                else {
-                    
-                    console.log(icon2);
-                    
-                    console.log("wrong is running")
-                }
-                
-            };
-            console.log(icon2);
-            document.addEventListener("click", handleOutsideClick);
-            
-            return () => {
-                
-                console.log(icon2);
-                document.removeEventListener("click", handleOutsideClick);
-            };
-        }
-        func1();
-        
-        
-        
-        
-        const func2 = ()=>{
-            const handleOutsideClick = (event) => {
-                console.log(icon);
-                if (buttonRef.current && !buttonRef.current.contains(event.target)) {
-                    // setOpen("false");
-                    console.log(icon);
-                    console.log("is running ")
-                    setIcon(icon);
-                }
-                
-                else {
-                    console.log(icon);
-                    console.log("wrong is running")
-                }
-                
-            };
-            console.log(icon);
-            document.addEventListener("click", handleOutsideClick);
-            
-            return () => {
-                console.log(icon);
-                document.removeEventListener("click", handleOutsideClick);
-            };
-        }
-        func2();
-        */
-
-        // const contentSpan = document.querySelector(`.spanContent`);
-        // if (contentSpan) {
-        //     console.log("found element", contentSpan);
-        //     contentSpan.style.color = "tomato";
-        // }
-        // else {
-        //     console.log("Element not found");
-        // }
-        // console.log(buttonRef.current)
-        
-
-    }, [previousScrollY, sortDate]);
+    }, [previousScrollY, sortDate, product]);
 
     
 
@@ -260,17 +191,6 @@ const Redirect_Exhibitions = () => {
 
         const selectOrder = eventName.target.innerText.toLowerCase();
         toggleOrder(selectOrder);
-        
-
-        // const selectedOrder = eventName.target.innerText.toLowerCase();
-        // toggleOrder(selectedOrder);
-
-
-
- 
-
-
-        
 
         const contentLogo = document.querySelector(`.spanContent`);
         if (contentLogo) {
@@ -279,98 +199,85 @@ const Redirect_Exhibitions = () => {
         }
     }
 
-    const scrollTOTop = () => {
-        // scroll.scrollToTop()
-        // window.scrollTo
-    }
-
     return (
         <section>
-            {console.log(sortedDateLists)}
             <section className='flex flex-col min-h-screen'>
             <Navbar />
+            
                 <section className={`${styleExhibitions.wrapper_Exhibitions} w-full min-h-screen `} id={`${styleExhibitions.wrapper_Exhibitions}`}>
+ 
                     <section className="">
                         <h1 className={`${styleExhibitions.wrapper_Exhibitions_title}`}>EXHIBITIONS</h1>
+
                         <section className={`${styleExhibitions.title_contents_container}`}>
 
                             <section className={`${styleExhibitions.wrapperExhibitionTitleHeader} flex justify-between items-center`}>
 
                                 <p className ={`${styleExhibitions.wrapperExhibition_title_page}`}>Current</p>
-                                {/* <IconChanger open={open} onClick={iconEhibitionsHandler} ref={buttonRef} > */}
                                 <button className={styleExhibitions.ascDscButton} onClick={iconEhibitionsHandler} style={{ outline: "none" }} ref={buttonRef}>
-                                    {/* <section className={`${styleExhibitions.wrapper_content}`}> */}
+
                                     <section className={styleExhibitions.wrapper_content  }>
                                     <span className={`${styleExhibitions.spanContent}  spanContent`}>{content}</span>
-                                    {/* <ul className={`${icon} ? ${styleExhibitions.listDisplay} : ${styleExhibitions.listNone} `} style={{display : icon ? "none" : "block"}}> */}
                                         <ListStyledComponent open={icon}   >
                                             <li onClick={oncliTest} style={{}}>ascending</li>
                                             <li onClick={oncliTest} style={{}}>descending</li>
                                         </ListStyledComponent>
 
-                                        {/* </ul> */}
                                         <img src={arrowDown} alt="" width={50} height={60} onClick={iconEhibitionsHandler} style={{ display: icon ? "block" : 'none' }} />
                                         <img src={minus} alt="" width={50} height={60} onClick={iconEhibitionsHandler} style={{ display: icon ? "none" : 'block' }} />
                                     </section>
                                 <div className={`${styleExhibitions.borderBottom}`}></div>
                                     
                                 </button>
-                                {/* </IconChanger > */}
                             </section>
 
+                         
 
-
-                            {
+                            {arr.length === 0 ? (
+                            <Skeleton count={12} height={500} />
+                        ) : (
+                            arr.map(item => (
+                                <Redirect_content_Exhibitions data={item} key={item.elementId} />
+                            ))
+                        )}
+                        {/* {console.log(image)} */}
+                            {/* {
                                 sortedDateLists.map(({ key, dateStart }) => (
                                     <section key={key}>
                                         <section className={styleExhibitions.wrapper_content_exhibitions}>
-
-                                            {}
+                                        {image ? <img src={image} alt="" width={400} /> : "nothing"}
+                                            
+                                        
                                             <img src={image1} alt="" width={""} height='' />
                                             <section className={`${styleExhibitions.image_content}`}>
-
 
                                                 <p> {dateStart.toDateString()} </p>
                                                 <h4 className='text-base'>PRACTICE MAKES PURRFECT</h4>
                                                 <p className="text-2xl my-[1.5rem]">
                                                     During the 60th Venice Biennale, Unit presents In Praise of Black Errantry, a group exhibition that celebrates the radical Black imagination. Curated by Indie A. Choudhury (The Courtauld Institute of Art), the exhibition brings together works by 19 modern and contemporary Afro-diasporic artists.
                                                 </p>
+
                                                 <button className={styleExhibitions.button_explore}>
                                                     Explore now
                                                 </button>
+
                                             </section>
                                         </section>
-
-                                        {/* <section className={styleExhibitions.wrapper_content_exhibitions}>
-                                            <img src={image1} alt="" width={505} height='' />
-                                            <section className={`${styleExhibitions.image_content}`}>
-                                                <p>{dateStart.toDateString()}</p>
-                                                <h4 className='text-base'>PRACTICE MAKES PURRFECT</h4>
-                                                <p className="text-2xl my-[1.5rem]">
-                                                    During the 60th Venice Biennale, Unit presents In Praise of Black Errantry, a group exhibition that celebrates the radical Black imagination. Curated by Indie A. Choudhury (The Courtauld Institute of Art), the exhibition brings together works by 19 modern and contemporary Afro-diasporic artists.
-                                                </p>
-                                                <button className={styleExhibitions.button_explore}>
-                                                    Explore now
-                                                </button>
-                                            </section>
-                                        </section> */}
                                     </section>
 
 
                                 ))
-                            }
+                            } */}
 
                             
                             
                             <section className={`${styleExhibitions.wrapperExhibitionTitleHeader} flex justify-between items-center`}>
-
                                 <p>Forthcoming</p>
-                                {/* <IconChanger open={open} onClick={iconEhibitionsHandler} ref={buttonRef} > */}
                                 <button className={styleExhibitions.ascDscButton} onClick={iconEhibitionsHandler2} style={{ outline: "none" }} ref={buttonRef2}>
                                     <section className={`${styleExhibitions.wrapper_content}`}>
 
                                     <span className={`${styleExhibitions.spanContent}  spanContent `}>{content}</span>
-                                    {/* <ul className={`${icon} ? ${styleExhibitions.listDisplay} : ${styleExhibitions.listNone} `} style={{display : icon ? "none" : "block"}}> */}
+                                    
                                     <ListStyledComponent open={icon2}   >
                                         <li onClick={oncliTest} style={{}}>ascending</li>
                                         <li onClick={oncliTest} style={{}}>descending</li>
@@ -378,19 +285,14 @@ const Redirect_Exhibitions = () => {
                                     <img src={arrowDown} alt="" width={50} height={60} onClick={iconEhibitionsHandler} style={{ display: icon2 ? "block" : 'none' }} />
                                     <img src={minus} alt="" width={50} height={60} onClick={iconEhibitionsHandler} style={{ display: icon2 ? "none" : 'block' }} />
                                     </section>
-
-                                    {/* </ul> */}
                                 </button>
-                                {/* </IconChanger > */}
+                            
                             </section>
                             <section className={styleExhibitions.wrapper_content_exhibitions}>
 
 
                                 <img src={image1} alt="" width="" height='' />
                                 <section className="image_content">
-                                    {/* <a href="#"> */}
-                                    {/* </a> */}
-
                                     <p>4 January - 3 February 2024</p>
                                     <h4 className='text-base'>PRACTICE MAKES PURRFECT</h4>
                                     <p className="text-2xl my-[1.5rem]">
@@ -401,11 +303,7 @@ const Redirect_Exhibitions = () => {
                                     </button>
                                 </section>
                             </section>
-
                         </section>
-
-
-
                     </section>
 
                     <section className={styleExhibitions.wrapper_Content_Images}>
@@ -415,47 +313,11 @@ const Redirect_Exhibitions = () => {
                         <AuthorsNames /> 
                     </section>
 
-
                 </section>
-               
-                {/* <aside className={`${scrollDown ? "fixed top-[50%]" : "none"}`}>
-                    
-                </aside> */}
-                           
             <Redirect_Exhibitions_Footer />
-
             </section>
-            {/* <Redirect_Exhibitions_Footer className={"lskdklsd"} /> */}
-
         </section>
     );
 };
 
 export default Redirect_Exhibitions;
-
-
-
-
-// padding  3  6 rem  for main
-// and remove wrapper padding   just giving   flex  justify center 
-
-
-
-// </section>
-            {/* <aside className={`${scrollDown ? "fixed top-[50%]" : "none"}`}> */}
-            // <aside className={`Redirect_Exhibitions_Aside ${scrollDown ? "fade-in" : "fade-out"}`}>
-               
-
-            //     <section className='flex rotate-90 z-50'>
-            //         <a href='#' className='mr-4'>archive </a>
-            //         <a href='#'>current</a>
-            //     </section>
-            //     <Link to='wrapper_Exhibitions' smooth={true} duration={500}>
-            //         scroll
-            //     </Link>
-            //     <br />
-            //     <button onClick={scrollTOTop}>
-            //         click
-            //     </button>
-            // </aside>
-        // </section>

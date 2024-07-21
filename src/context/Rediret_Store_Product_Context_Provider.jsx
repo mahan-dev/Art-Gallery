@@ -1,6 +1,7 @@
 import React, { Children, createContext, useEffect, useState } from 'react';
 import { FetchApi , FetchApi2} from '../../services/ArtGalleryApi';
 import { CartContextProvider } from './Redirect_Store_CartContext';
+import Redirect_Exhibitions from '../components/Redirects/Redirect_Exhibitions';
 export const ProductContextProvider = createContext();
 const Rediret_Store_Product_Context_Provider = ({ children }) => {
    
@@ -19,8 +20,10 @@ const Rediret_Store_Product_Context_Provider = ({ children }) => {
         GetFetchApi();
 
     }, []);
-  
 
+    
+    
+    imageGallery.map(item=> (<Redirect_Exhibitions key={item.elementId}  data={item} />) )
     return (
         
         <div>

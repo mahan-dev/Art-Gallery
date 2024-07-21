@@ -88,7 +88,6 @@ const RedirectArtists = () => {
         const handleScrollzzz = () => {
             if (isElementAtEnd(element)) {
                 setElementEnd(true);
-                console.log("is ending component")
                 // console.log('Reached the end of the element!');
                 setScrollDown(false);
             }

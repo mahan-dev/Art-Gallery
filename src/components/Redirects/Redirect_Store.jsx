@@ -15,6 +15,8 @@ import CloseIcon from "../../assets/images/Redirect_Store/xmark.svg";
 
 import Loadin_svg from "../../assets/Loading_spinner/LoadingSvg.svg";
 
+import Redirect_Exhibitions from "./Redirect_Exhibitions";
+
 
 // import cartIcon from "../../assets/images/icon_store/cart-shopping.svg";
 // import { CartContextProvider } from "../../context/Redirect_Store_CartContext";
@@ -170,11 +172,9 @@ const Redirect_Store = () => {
                                     <a onClick={sortByOldest} style={{ cursor: "pointer" }} className="mr-4">oldest</a>
                                     <a onClick={sortByNewest} style={{ cursor: "pointer" }}>newest</a>
                                 </section>
-                                <div id="redirect_store" className="">
-                                    {/* {loading ? <Skeleton width={"100%"} height={600} /> } */}
-                                
+                                <div id="redirect_store">
+
                                     {productToRender.map(item => <Redirect_Store_Product key={item.elementId} data={item} />)}
-                                    {/* {productToRender.map(item => <Redirect_Store_Product_Detail key={item.elementId} data={item} /> )} */}
                                 </div>
                             </div>
                     }

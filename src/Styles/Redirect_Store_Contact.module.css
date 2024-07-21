@@ -92,11 +92,9 @@
     margin-bottom: 1.5rem;
 }
 
-.Left_form > div input, .Left_form > input, .Left_form_Input  {
+
+.form_input_name , .email_wrapper, .Left_form > input[type="tel"]{
     margin-bottom: 1.5rem;
-}
-.Left_form > div input[type= "checkbox" ] {
-    margin: 0;
 }
 
 @media screen and (min-width: 999px ) {

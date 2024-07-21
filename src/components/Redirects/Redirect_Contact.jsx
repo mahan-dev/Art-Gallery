@@ -78,13 +78,10 @@ const Redirect_Contact = () => {
 
                     <form className={`${Styles.Left_form} flex flex-col mb-6`} action="">
                         <section className={Styles.form_input_name}>
-                            {/* <input type="text" className={Styles.Left_form_Input} placeholder="First name" />
-                            <input type="text" className={Styles.Left_form_Input} placeholder="First name" /> */}
                             <input type="text" placeholder="First name" />
                             <input type="text" placeholder="Last name" />
                         </section>
-                        <div>
-
+                        <div className={`${Styles.email_wrapper}`}>
                             <input
                                 type="email"
                                 ref={email_contact}
