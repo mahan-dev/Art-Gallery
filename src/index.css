@@ -154,6 +154,7 @@
       position: static;
       flex-direction: column;
       grid-template-columns: repeat(1, minmax(0, 1fr));
+      padding: 2rem 2rem;
     }
 
     @media screen and (min-width: 1400px) {

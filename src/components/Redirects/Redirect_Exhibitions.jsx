@@ -150,13 +150,7 @@ const Redirect_Exhibitions = ({data}) => {
         }
     }
     
-    
-    
-    
-    
     useEffect(() => {
-       
-        
         addOutsideClickListener();
         const CleanUp1 = addOutsideClickListener(buttonRef, setIcon);
         const CleanUp2 = addOutsideClickListener(buttonRef2, setIcon2);
@@ -164,7 +158,7 @@ const Redirect_Exhibitions = ({data}) => {
             CleanUp1();
             CleanUp2();
         }
-    }, [previousScrollY, sortDate, product]);
+    }, [previousScrollY]);
 
     
 

@@ -161,7 +161,7 @@ const Redirect_Exhibitions_Footer = ({ className }) => {
 
                         </section>
                     </form>
-                    <span ref={emailMessage_Ref} className='w-[200px] inline-block text-nowrap' >{errorMessage}</span>
+                    <span ref={emailMessage_Ref} className='w-[200px]  text-nowrap' >{errorMessage}</span>
 
                 </section>
             </section>
