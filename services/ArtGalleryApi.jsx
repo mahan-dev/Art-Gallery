@@ -8,7 +8,6 @@ const BASE_COIN = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=us
 const FetchApiCoin = async () => {
   const options = {
     method: 'GET',
-    // url: '/api',
     url: 'https://api.coingecko.com/api/v3/coins/markets',
     params: {
       vs_currency: 'usd'
