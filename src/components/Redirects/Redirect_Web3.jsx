@@ -63,9 +63,9 @@ const Redirect_Web3 = () => {
             localStorage.setItem("ethPrice", JSON.stringify(...setPrice));
             let grabber = Number(localStorage.getItem("ethPrice"));
             setShowPrice(grabber)
-            // if (setPrice !== localStorage.getItem("ethPrice")) {
-            //     localStorage.setItem("ethPrice", JSON.stringify(...setPrice));
-            // }
+            if (setPrice !== localStorage.getItem("ethPrice")) {
+                localStorage.setItem("ethPrice", JSON.stringify(...setPrice));
+            }
         } else {
             console.log("is not greather that what you said ...")
         }
