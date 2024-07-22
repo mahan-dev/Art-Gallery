@@ -1,10 +1,5 @@
-
-  {
-    "rewrites": [
-      {
-         "source": "/(.*)", 
-        "destination": "https://api.coingecko.com/api/v3/:path*"
-      }
-    ]
-  }
-  
+{
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/" }
+  ]
+}
