@@ -3,12 +3,13 @@ const BASE_URL = "https://api.harvardartmuseums.org";
 const BASE_URL2 = "https://api.artic.edu/api/v1/artworks";
 const ApiKey = "60f1a814-1e04-498c-90cb-1623d9e7afdd";
 const coingeckoApiKey = "CG-fr8QSRMv6GFu6g2VTGU7nMEM";
-const BASE_COIN = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&api_key=${coingeckoApiKey}`;
+// const BASE_COIN = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&api_key=${coingeckoApiKey}`;
+const BASE_COIN = `/api/v3/coins/markets?vs_currency=usd`;
 
 const FetchApiCoin = async () => {
   const options = {
     method: 'GET',
-    url: 'https://api.coingecko.com/api/v3/coins/markets',
+    url: BASE_COIN,
     params: {
       vs_currency: 'usd'
     },

@@ -7,7 +7,14 @@ export default defineConfig({
   plugins: [react()],
   // base: "/Art-Gallery",
   base: "https://mahan-dev.github.io/Art-Gallery",
-  
+  server: {
+    proxy: {
+      '/api': {
+        target: 'https://api.coingecko.com',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, '')
+      }
+    }}
   // server: {
   //   fs: {
   //     strict: false,
