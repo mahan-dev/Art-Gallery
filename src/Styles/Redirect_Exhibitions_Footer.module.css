@@ -10,6 +10,11 @@ input , input::placeholder {
     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 
+.footer_Wrapper_Class{
+    /* max-width: 1700px;
+    margin: 0 auto; */
+}
+
 .input_email{
     outline: none;
     border: none;
@@ -61,11 +66,5 @@ input , input::placeholder {
     
 }
 
-@media screen and (max-width: 768px){
-    .footer_Wrapper_Class{
-        position: static;
-    }
 
-    
-}
 
