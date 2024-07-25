@@ -59,29 +59,8 @@ li:nth-child(2){
 `
 
 // const BASE_URL = "api.coincap.io/v2/assets/bitcoin/markets";
-const BASE_URL = "https://api.coincap.io/v2";
+
 const Redirect_Exhibitions = ({data}) => {
-    const [assets, setAssets] = useState([]);
-
-
-
-
-    useEffect(()=>{
-        const getApi = async ()=>{
-
-            try{
-                const response = await axios.get(`${BASE_URL}/assets`);
-                setAssets(response.data.data)
-            }
-            catch (error){
-                console.log(`this is the error : ${error}`)
-            }
-            
-        }
-        getApi();        
-    },[])
-
-
     const product = useContext(ProductContextProvider);
 
     const buttonRef = useRef(null);
@@ -95,40 +74,10 @@ const Redirect_Exhibitions = ({data}) => {
     const [previousScrollY, setPreviousScrollY] = useState(0);
     const [scrollDown, setScrollDown] = useState(false);
     const [image, setImage] = useState([]);
-    
-
-    
-    // let image_id = imagApi.map(item => item.image_id)
-    // console.log(data.image_id)
-    // console.log(imagApi.image_id)
-    // console.log(imagApi)
-    
-    // const {image_id} = imagApi;
-    // console.log(image_id)
-
-    // console.log(imagApi)
- 
-
 
     const [sortDate , setSortDate] = useState("ascending");
     
-    const [sortedDateLists, setSortedDateLists] = useState([]);
 
-    // !EXHIBITIONS PIC DATES
-    const dateLists = [
-
-        {
-            key: 'date1',
-            dateStart: new Date('2024-01-05')
-        },
-        {
-
-            key: 'date2',
-            dateStart: new Date('2024-01-20')
-        }
-
-    ];
-    
     const handleScroll = () => {
         const currentScroll = window.scrollY;
         if (currentScroll > previousScrollY) {
@@ -220,8 +169,6 @@ const Redirect_Exhibitions = ({data}) => {
         }
     }
 
-    const lex = assets.filter(item => item.id === "bitcoin" );
-    console.log(...lex);
 
     return (
         <section>

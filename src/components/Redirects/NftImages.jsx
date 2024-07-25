@@ -6,7 +6,7 @@ const NftImages = ({ data }) => {
     // console.log(data)
     const { price, image, title } = data;
     // console.log()
-    let ethLatestPrice = Number(localStorage.getItem("ethPrice"));
+    let ethLatestPrice = Number(localStorage.getItem("eth"));
     let totalPriceDollar = ethLatestPrice * price;
     let formattedPrice = Number(totalPriceDollar) % 1 === 0 ? Number(totalPriceDollar).toFixed(0) : Number(totalPriceDollar).toFixed(2);
     console.log(ethLatestPrice)

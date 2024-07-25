@@ -50,62 +50,33 @@ const Redirect_Web3 = () => {
     });
     console.log(finalPrice);
 
-    const settingPrice = async () => {
 
-        // fetchData Part
-        const data = await (FetchApiCoin());
-        ethPrice = data;
-        // fetchData Part
-
-        const priceGrabber = ethPrice.filter(item => item.symbol === "eth");
-        const setPrice = priceGrabber.map(item => item.current_price);
-
-        if (setPrice > 0) {
-            localStorage.setItem("ethPrice", JSON.stringify(...setPrice));
-            let grabber = Number(localStorage.getItem("ethPrice"));
-            setShowPrice(grabber)
-            if (setPrice !== localStorage.getItem("ethPrice")) {
-                localStorage.setItem("ethPrice", JSON.stringify(...setPrice));
-            }
-        } else {
-            console.log("is not greather that what you said ...")
-        }
-    }
     const [assets, setAssets] = useState([]);
-    const [price, setPrice] = useState(0);
+    const [priceEth, setPriceEth] = useState(0);
     const [display , setDisplay] = useState();
     let assetz = []
 
+    const BASE_URL = "https://api.coincap.io/v2";
     const settingPrice2 = async ()=>{
-        const BASE_URL = "https://api.coincap.io/v2";
+    
+        const response = await axios.get(`${BASE_URL}/assets`)
+        assetz = response.data.data;
 
-      
-                const response = await axios.get(`${BASE_URL}/assets`);
-                assetz = response.data.data
-                console.log(assetz)
-                
-                const priceGrabber = assetz.filter(item => item.id === "ethereum");
-                let pric = priceGrabber.map(item => item.priceUsd);
-                const priceFloat = parseFloat(pric[0]);
-                setPrice(priceFloat) 
-                if(pric > 0){
-                    localStorage.setItem("eth", JSON.stringify(priceFloat))
-                    let grabber = Number(localStorage.getItem("eth")) 
-                    setDisplay(grabber);
-                }
-                console.log(pric)
-                // let fixedPrice = [...pric].toFixed(2)
-                console.log("aaa")
-                // console.log(fixedPrice)
-                console.log(priceGrabber)
-                // if()
-         
+        const getEth = assetz.filter(item => item.id === "ethereum");
+        let price =  getEth.map(item => item.priceUsd)
+        let priceChangeToNumber = parseFloat(price); 
+        setPriceEth(priceChangeToNumber)
+        if(price.length > 0) {
+            localStorage.setItem("eth", JSON.stringify(priceChangeToNumber));
+            let grabPrice = Number(localStorage.getItem("eth"))
+            setPriceEth(priceChangeToNumber)
+            setDisplay(grabPrice)
+        }
     }
 
 
     useEffect(() => {
-        settingPrice2()
-        settingPrice();
+        settingPrice2();
 
         // const initialInterval = setInterval(() => {
         //     console.log("wfjpwjjwopifpojwf")
@@ -220,7 +191,7 @@ const Redirect_Web3 = () => {
 
                             <section className={`${stylesWeb3.wrapper_Nft_Web3}`}>
                                 <p className={`${stylesWeb3.Nft_Web3_title}`}>All NFTs</p>
-                                {display}
+                                
 
                                 <section className={`${stylesWeb3.wrapper_Grid_NFTs_Web3}`}>
 
