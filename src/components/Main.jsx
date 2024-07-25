@@ -14,7 +14,7 @@ const Main = () => {
 
             <section className={Styles_main.MainContentWrapper}>
                 <section className={Styles_main.intro_main}>
-                    <span id={Styles_main.intro_main_content}>EXHIBITIONS</span>
+                    <span className={Styles_main.intro_main_content}>EXHIBITIONS</span>
                 </section>
                 <MainStructure EXHIBITIONS={true} />
             </section>

@@ -16,6 +16,10 @@ import AuthorsNames from './AuthorsNames';
 import { Link, animateScroll as scroll } from "react-scroll";
 import { ProductContextProvider } from "../../context/Rediret_Store_Product_Context_Provider";
 import Redirect_content_Exhibitions from './Redirect_content_Exhibitions';
+import axios from 'axios';
+
+
+
 
 const translateAnimation = keyframes`
 0% {
@@ -54,7 +58,30 @@ li:nth-child(2){
 
 `
 
+// const BASE_URL = "api.coincap.io/v2/assets/bitcoin/markets";
+const BASE_URL = "https://api.coincap.io/v2";
 const Redirect_Exhibitions = ({data}) => {
+    const [assets, setAssets] = useState([]);
+
+
+
+
+    useEffect(()=>{
+        const getApi = async ()=>{
+
+            try{
+                const response = await axios.get(`${BASE_URL}/assets`);
+                setAssets(response.data.data)
+            }
+            catch (error){
+                console.log(`this is the error : ${error}`)
+            }
+            
+        }
+        getApi();        
+    },[])
+
+
     const product = useContext(ProductContextProvider);
 
     const buttonRef = useRef(null);
@@ -193,8 +220,12 @@ const Redirect_Exhibitions = ({data}) => {
         }
     }
 
+    const lex = assets.filter(item => item.id === "bitcoin" );
+    console.log(...lex);
+
     return (
         <section>
+            
             <section className='flex flex-col min-h-screen'>
             <Navbar />
             

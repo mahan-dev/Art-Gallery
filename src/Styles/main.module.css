@@ -163,6 +163,11 @@
 
 }
 
+.intro_main_content{
+    font-size: clamp(1.5rem , 3vw, 6rem);
+    font-weight: bold;
+}
+
 
 
 /* My media */

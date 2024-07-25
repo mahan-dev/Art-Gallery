@@ -14,6 +14,7 @@
     left: 0;
     right: 0;
     padding: 1rem 2rem;
+    background-color: #00000036;
     /* background-color: chocolate; */
     display: flex;
     justify-content: space-between;
@@ -85,7 +86,7 @@
     position: absolute;
     top: 0;
     left: -100%;
- 
+    cursor: pointer;
     padding-top: 20px;
     padding-bottom: 10px;
     margin-top: 25px;
@@ -165,17 +166,10 @@
 #search_signup {
     display: flex;
     align-items: center;
+    gap: 2rem;
 }
 
-.signup_search {
-    margin-right: 15px;
-    cursor: pointer;
-    color: #ffffff;
-}
 
-.signup_search img {
-    color: #ffffff;
-}
 
 .signup {
     padding: 0.3rem;

@@ -14,6 +14,7 @@ import Redirect_Store_CartContext from "./context/Redirect_Store_CartContext";
 import Redirect_Store_ShopCart from './components/shared/Redirect_Store_ShopCart';
 import Rediret_Store_Product_Context_Provider from './context/Rediret_Store_Product_Context_Provider';
 import Redirect_Store_Context from './context/Redirect_Store_Context';
+import Redirect_SignUp from './components/Redirects/Redirect_SignUp';
 
 // product Details
 
@@ -35,6 +36,8 @@ const App = () => {
                 <Route path="/Cart" element={<Redirect_Store_ShopCart />} />
                 <Route path="/Web3" element={<Redirect_Web3 />} />
                 <Route path="/Store" element={<Redirect_Store />} />
+                <Route path="/SignUp" element={<Redirect_SignUp />} />
+                {/* <Route path="/SignUp" element={<Redirect_SignUp />} /> */}
                 <Route path="/Store/:id" element={<Redirect_Store_Product_Detail />} />
                 <Route path="/Exhibitions" element={<Redirect_Exhibitions />} />
                 <Route path="/Voices" element={<Redirect_Voices />} />

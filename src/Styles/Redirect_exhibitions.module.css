@@ -164,8 +164,7 @@
 .wrapper_image{
     position: sticky;
     top: 50%;
-    margin: 0 auto;
-
+    max-width: 400px;
 
     /* margin: 50px 0; */
 }
@@ -250,6 +249,7 @@
 }
 
 @media screen and (max-width: 768px) {
+    
     .wrapper_Exhibitions{
         padding: 11rem 3rem 0rem;
     }
@@ -264,8 +264,12 @@
     #wrapper_Exhibitions{
         margin-bottom: 0;
     }
+
+    .wrapper_image{
+        display: none;
+    }
     
-}
+}[]
 
 @media screen and (max-width: 576px) {
     .wrapper_Exhibitions{

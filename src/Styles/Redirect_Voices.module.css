@@ -28,11 +28,16 @@
     gap: 0 50px;
 }
 
+.featured_title {
+    font-size: clamp(1.5rem , 4vw , 4rem);
+}
+
 /* THIS IS THE LEFT PART  */
 
 .left {}
 
 .left_image_container {
+    font-size: clamp(1.3rem, 2vw, 1.7rem);
     position: sticky;
     top: 80px;
 }
@@ -60,6 +65,7 @@
 }
 
 .right_image_container {
+    font-size: clamp(1.2rem , 2vw, 1.4rem);
     width: 100%;
     height: auto;
 
@@ -69,25 +75,6 @@
     width: 100%;
 }
 
-.wrapper_AboutContent {
-    margin-top: 2rem;
-    /* display: grid;
-    grid-template-columns: 1fr 1fr; */
-    /* display: flex;
-    justify-content: center; */
-}
-
-.wrapperImagesContent {
-
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px 0;
-}
-
-.wrapperImagesContent>img {
-    width: 100%;
-    padding: 2rem;
-}
 
 /* this is for essays part */
 
@@ -129,14 +116,23 @@
 
 }
 
+
 .lef_content_imageSticky{
-    top: 80px;
     position: sticky;
+    top: 80px; 
+}
+.left_image_container > img{
+    width: 100%;
+    object-fit: cover;
+    height: 500px ;
 }
 
-.imageStickyImg{
-    min-width: 200px;
-    max-width: 600px;
+
+.imageStickyImg {
+
+    width: 100%;
+    object-fit: cover;
+    height: 500px ;
 }
 
 
@@ -149,8 +145,29 @@
     
         grid-template-columns: auto;
     }
+
+    .essays_pic_content{
+        /* pad */
+    }
+    .left_image_container{
+        margin-bottom: 2rem;
+    }
     
 }
+
+@media screen and (max-width: 1200px) {
+
+    .left_image_container>img {
+        width: 100%;
+        object-fit: cover;
+        height: 500px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    
+}
+
 @media screen and (max-width : 768px)  {
     .h2_title {
         margin: 0 auto;
@@ -166,15 +183,15 @@
     .right, .pic_content_right{
         grid-template-columns: auto;
     }
-    .lef_content_imageSticky{
-        position:sticky;
-
-    }
-    .imageStickyImg{
+    
+    /* .imageStickyImg{
         min-width: none;
         max-width: none;
-    }
+    } */
 }
+@media screen and (min-width: 1200px) {
+  
+} 
 
 
 /* ESSAYS Section */

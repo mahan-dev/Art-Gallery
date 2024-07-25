@@ -68,7 +68,6 @@ const Navbar = () => {
             Remover.style.display = "none";
         }
 
-
     }
 
     const CloseDropDownHandler = () => {
@@ -112,7 +111,6 @@ const Navbar = () => {
         document.body.style.overflow = "visible";
     }
 
-
     const mouseii = () => {
         const dropdown = document.querySelector(`.${NavStyles.item__dropdown__wrapper}`)
         if (!isMenuClicked) {
@@ -124,8 +122,8 @@ const Navbar = () => {
                 dropdown.style.display = "none";
             }
         }
-
     }
+
     if (isMenuClicked) {
         const dropdown = document.querySelector(`.${NavStyles.item__dropdown__wrapper}`)
         if (dropdown) {
@@ -138,9 +136,7 @@ const Navbar = () => {
         if (dropdown) {
             dropdown.style.display = "none";
         }
-
     }
-
 
     useEffect(() => {
         const dropdown = document.querySelector(`.${NavStyles.item__dropdown__wrapper}`)
@@ -152,8 +148,6 @@ const Navbar = () => {
             if (dropdown) {
                 dropdown.addEventListener("mouseenter", mouseii)
                 dropdown.addEventListener("mouseleave", mouseleavii)
-
-
                 dropdown.style.animation = `${NavStyles.showUp} 0.5s 1`;
             }
         }
@@ -195,7 +189,7 @@ const Navbar = () => {
                         <li className={`${NavStyles.Exhibitions__dropper} list_item mx-2 `}>
 
                             <Link id="exeption" onMouseOver={mouseii} onMouseOut={mouseleavii} ref={listLink} style={{ cursor: "pointer" }} onClick={()=> handleItemOverflow("/Exhibitions")} className={`${NavStyles.list_item}`} to="/Exhibitions">Exhibitions</Link>
-                            <ul style={{ display: isMenuClicked ? "none" : "none" }} className={`${NavStyles.item__dropdown__wrapper}`} >
+                            <ul style={{ display: isMenuClicked ? "none" : "none", cursor: 'pointer' }} className={`${NavStyles.item__dropdown__wrapper}`} >
                                 <li className={`${NavStyles.list_item} mx-2`} ><Link to="/ExhibitionsCurrent">Current</Link></li>
                                 <li className={`${NavStyles.list_item} mx-2`} ><Link to="/ExhibitionsForthcoming">Forthcoming</Link></li>
                                 <li className={`${NavStyles.list_item} mx-2`} ><Link to="/ExhibitionsArchive">Archive</Link></li>
@@ -214,11 +208,9 @@ const Navbar = () => {
                 <section id={NavStyles.search_signup} className='elvin' >
                     <section onClick={positionHandler} id='menu_nav' className="show_hide"> Menu </section>
 
-                    <div className={`${NavStyles.signup_search} sign2`}>
-                        <img src={searchIcon} alt="searchIcon" width={20} className={showHeader ? "" : "fill-black"} />
-                    </div>
+                    
 
-                    <div className={NavStyles.signup}> <Link to="SignUp">Sign Up</Link> </div>
+                    <div className={NavStyles.signup}> <Link to="/SignUp">Sign Up</Link> </div>
                 </section>
 
             </header>

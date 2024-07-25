@@ -12,6 +12,7 @@ import ForthImage from "../../assets/images/redirectVoices-images/HeaderImageVoi
 import ThirdImage from "../../assets/images/redirectVoices-images/third_slide.jpg";
 import SecondImage from "../../assets/images/redirectVoices-images/second_slide.jpg";
 import FirstImage from "../../assets/images/redirectVoices-images/first_slide.jpg";
+import axios from 'axios';
 
 import Redirect_Exhibitions_Footer from "./Redirect_Exhibitions_Footer";
 import {ProductContextProvider} from '../../context/Rediret_Store_Product_Context_Provider';
@@ -70,7 +71,40 @@ const Redirect_Web3 = () => {
             console.log("is not greather that what you said ...")
         }
     }
+    const [assets, setAssets] = useState([]);
+    const [price, setPrice] = useState(0);
+    const [display , setDisplay] = useState();
+    let assetz = []
+
+    const settingPrice2 = async ()=>{
+        const BASE_URL = "https://api.coincap.io/v2";
+
+      
+                const response = await axios.get(`${BASE_URL}/assets`);
+                assetz = response.data.data
+                console.log(assetz)
+                
+                const priceGrabber = assetz.filter(item => item.id === "ethereum");
+                let pric = priceGrabber.map(item => item.priceUsd);
+                const priceFloat = parseFloat(pric[0]);
+                setPrice(priceFloat) 
+                if(pric > 0){
+                    localStorage.setItem("eth", JSON.stringify(priceFloat))
+                    let grabber = Number(localStorage.getItem("eth")) 
+                    setDisplay(grabber);
+                }
+                console.log(pric)
+                // let fixedPrice = [...pric].toFixed(2)
+                console.log("aaa")
+                // console.log(fixedPrice)
+                console.log(priceGrabber)
+                // if()
+         
+    }
+
+
     useEffect(() => {
+        settingPrice2()
         settingPrice();
 
         // const initialInterval = setInterval(() => {
@@ -186,6 +220,7 @@ const Redirect_Web3 = () => {
 
                             <section className={`${stylesWeb3.wrapper_Nft_Web3}`}>
                                 <p className={`${stylesWeb3.Nft_Web3_title}`}>All NFTs</p>
+                                {display}
 
                                 <section className={`${stylesWeb3.wrapper_Grid_NFTs_Web3}`}>
 

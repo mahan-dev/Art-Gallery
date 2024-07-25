@@ -50,7 +50,8 @@ const AuthorsNames = () => {
             duration: 1000,
             once: false,
             mirror: true,
-            offset: 85,
+            
+            // offset: 85,
         })
 
 

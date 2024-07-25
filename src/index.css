@@ -14,7 +14,7 @@
 
 @layer components {
   #header {
-    @apply fixed z-[100] top-0 left-0 right-0 py-[1rem] px-[2rem] flex justify-between flex-wrap items-center text-[1.3rem];
+    @apply fixed z-[100] top-0 left-0 right-0 py-[1rem] px-[2rem] flex justify-between flex-wrap items-center text-[1.3rem] bg-[#00000036];
   }
 
   .Redirect_Artists_Aside {
@@ -302,6 +302,9 @@
 
 
 
+.show_hide{
+  color: #ffffff;
+}
 @media only screen and (min-width : 1080px) {
   .show_hide {
     display: none;

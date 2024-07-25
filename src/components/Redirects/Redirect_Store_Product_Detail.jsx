@@ -29,7 +29,7 @@ const Redirect_Store_Product_Detail = () => {
     }, [products]);
 
     return (
-        <section className='bg-[#D4D4D4] w-full h-screen'>
+        <section className='bg-[#D4D4D4] w-full h-fit'>
             <section className={Styles.product_wrapper}>
                 <section className={Styles.wrapper_product}>
                     <p> {loading ? <Skeleton width={100} /> : `artist: ${artist_title}`}</p>
@@ -38,7 +38,7 @@ const Redirect_Store_Product_Detail = () => {
                         <Skeleton height={300} width={300} />
                     ) : (
                         
-                        <div className='w-[400px] h-[250px]' style={{display : loading ? 'none' : "block"}} >
+                        <div className=' h-[250px] mb-6' style={{display : loading ? 'none' : "block"}} >
                         <img src={image} style={{ borderRadius: "3px", objectFit: "cover", height: "100%" }} alt="Product" width={300} />
                         </div>
                     )}

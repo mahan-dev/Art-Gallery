@@ -90,7 +90,7 @@ const Redirect_Voices = () => {
                     <section className="relative ">
                         <div className="sticky top-[100px]  "><p className="text-[4rem]  mr-5 ">Voices</p></div>
                         <section className="flex mt-[0] flex-col justify-start  ">
-                            <div className="flex m-4 mt-[13rem]">
+                            <div className="flex m-4 mt-[6rem]">
 
                                 <p className="text-2xl w-[700px] text-wrap">Voices is an ideas-driven digital programme intended to spark critical
                                     conversations about art and culture, foreground new perspectives,
@@ -114,13 +114,13 @@ const Redirect_Voices = () => {
                 {/* this is the part for the Featured section */}
 
                 <section className={`${styleVoices.wrapper_Featured} my-8 px-8`}>
-                    <h2 className="text-5xl">Featured</h2>
+                    <h2 className={`${styleVoices.featured_title}`}>Featured</h2>
                     <section className={`${styleVoices.wrapper_Featured_content} mt-4`}>
 
                         {/* Left Side */}
                         <section className={`${styleVoices.left}`}>
-                            <section className={`${styleVoices.left_image_container}`}>
-                                <img src={TestImage} alt="" style={{ minWidth: "200px", maxWidth: "600px" }} />
+                            <section className={`${styleVoices.left_image_container} `}>
+                                <img src={TestImage} alt=""  />
                                 <h3>Sam Art</h3>
                                 <p>this is the test paragraph</p>
                                 <div>
@@ -258,16 +258,6 @@ const Redirect_Voices = () => {
 
                 {/* THIS IS THE SECTION FOR   ABOUT CONTENT PART */}
 
-                <section className={`${styleVoices.wrapper_AboutContent}`}>
-
-                    <section className={`${styleVoices.wrapperImagesContent}`}>
-
-                        <img src={TestImage} className={`${styleVoices.image_1}`} alt="" width={"300px"} />
-
-                        <img src={TestImage} alt="" width={"300px"} />
-                    </section>
-                </section>
-
                 <section className={`${styleVoices.wrapper_Web3_Exhibitions}`}>
                     <SwiperSlide />
                 </section>
@@ -278,8 +268,8 @@ const Redirect_Voices = () => {
 
                         <section className={`${styleVoices.essays_pic_content}`}>
                             <section className={`${styleVoices.pic_content_left} `}>
-                                <section className={Redirect_Voices.lef_content_imageSticky}>
-                                    <img src={TestImage} alt="" className={`${Redirect_Voices.imageStickyImg}`} />
+                                <section className={`${styleVoices.lef_content_imageSticky}`}>
+                                    <img src={TestImage} alt="image" className={`${styleVoices.imageStickyImg} mb-4`} />
                                     <h3 className="text-3xl max-w-[600px]"> Wet Round Time: Phyllida Bluemel on Nettle Grellier	</h3>
                                 </section>
 
