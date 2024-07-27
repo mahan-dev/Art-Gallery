@@ -9,7 +9,7 @@ const NftImages = ({ data }) => {
     let ethLatestPrice = Number(localStorage.getItem("eth"));
     let totalPriceDollar = ethLatestPrice * price;
     let formattedPrice = Number(totalPriceDollar) % 1 === 0 ? Number(totalPriceDollar).toFixed(0) : Number(totalPriceDollar).toFixed(2);
-    console.log(ethLatestPrice)
+    // console.log(ethLatestPrice)
     return (
         <div className={`${Styles.containerNftImages} `}>
             <div className={`${Styles.wrapperImageNft}`}>

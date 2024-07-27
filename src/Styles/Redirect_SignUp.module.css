@@ -1,5 +1,5 @@
 .inputForm{
-    font-size: medium
+    font-size: 1.1rem;
 }
 
 .wrapper_SignForm{
@@ -9,6 +9,23 @@
     width: 400px;
     margin: 0 auto;
     max-width: 500px;
+}
+
+.SignForm_input_wrapper {
+    border-bottom: 5px solid red;
+} 
+
+.SignForm_input_wrapper_deactive{
+    border-bottom: none;
+}
+
+
+@media screen and (max-width: 576px) {
+    .wrapper_SignForm{
+        max-width: 400px;
+        margin: 0 1.2rem;
+
+    }
 }
 
 

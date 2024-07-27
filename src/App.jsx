@@ -23,6 +23,7 @@ import Redirect_Store_Product_Detail from './components/Redirects/Redirect_Store
 
 import ComponentNotFound from './components/ComponentNotFound';
 import PicGrid from './components/Redirects/picGrid';
+import Redirect_SignIn from './components/Redirects/Redirect_SignIn';
 
 const App = () => {
   return (
@@ -37,7 +38,7 @@ const App = () => {
                 <Route path="/Web3" element={<Redirect_Web3 />} />
                 <Route path="/Store" element={<Redirect_Store />} />
                 <Route path="/SignUp" element={<Redirect_SignUp />} />
-                {/* <Route path="/SignUp" element={<Redirect_SignUp />} /> */}
+                <Route path="/SignIn" element={<Redirect_SignIn />} />
                 <Route path="/Store/:id" element={<Redirect_Store_Product_Detail />} />
                 <Route path="/Exhibitions" element={<Redirect_Exhibitions />} />
                 <Route path="/Voices" element={<Redirect_Voices />} />

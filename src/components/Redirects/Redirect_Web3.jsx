@@ -21,11 +21,6 @@ import {ProductContextProvider} from '../../context/Rediret_Store_Product_Contex
 
 const Redirect_Web3 = () => {
     
-    const pr = useContext(ProductContextProvider)
-    const {artist_id} = pr;
-    console.log(artist_id)
-
-    // const [ethPrice, setEthPrice] = useState([]);
     let ethPrice = [];
     const [current, setCurrent] = useState();
     const [showPrice, setShowPrice] = useState(null);
@@ -50,14 +45,34 @@ const Redirect_Web3 = () => {
     });
     console.log(finalPrice);
 
+    // const settingPrice = async () => {
 
+    //     // fetchData Part
+    //     const data = await (FetchApiCoin());
+    //     ethPrice = data;
+    //     // fetchData Part
+
+    //     const priceGrabber = ethPrice.filter(item => item.symbol === "eth");
+    //     const setPrice = priceGrabber.map(item => item.current_price);
+
+    //     if (setPrice > 0) {
+    //         localStorage.setItem("ethPrice", JSON.stringify(...setPrice));
+    //         let grabber = Number(localStorage.getItem("ethPrice"));
+    //         setShowPrice(grabber)
+    //         if (setPrice !== localStorage.getItem("ethPrice")) {
+    //             localStorage.setItem("ethPrice", JSON.stringify(...setPrice));
+    //         }
+    //     } else {
+    //         console.log("is not greather that what you said ...")
+    //     }
+    // }
     const [assets, setAssets] = useState([]);
     const [priceEth, setPriceEth] = useState(0);
     const [display , setDisplay] = useState();
     let assetz = []
 
     const BASE_URL = "https://api.coincap.io/v2";
-    const settingPrice2 = async ()=>{
+    const settingPrice = async ()=>{
     
         const response = await axios.get(`${BASE_URL}/assets`)
         assetz = response.data.data;
@@ -66,17 +81,39 @@ const Redirect_Web3 = () => {
         let price =  getEth.map(item => item.priceUsd)
         let priceChangeToNumber = parseFloat(price); 
         setPriceEth(priceChangeToNumber)
-        if(price.length > 0) {
-            localStorage.setItem("eth", JSON.stringify(priceChangeToNumber));
-            let grabPrice = Number(localStorage.getItem("eth"))
-            setPriceEth(priceChangeToNumber)
-            setDisplay(grabPrice)
+        let grabPrice ;
+        if(localStorage.getItem("eth") == null){
+            localStorage.setItem("eth", JSON.stringify(priceChangeToNumber))
+            grabPrice = Number(localStorage.getItem("eth"))
+            setPriceEth(priceChangeToNumber);
+            setDisplay(grabPrice);
+            
         }
+        if (localStorage.getItem(ethPrice) !== null || undefined) {
+            if(localStorage.getItem("eth") !== priceChangeToNumber){
+                localStorage.setItem("eth", JSON.stringify(priceChangeToNumber));
+            }
+        }
+        // if(price.length > 0) {
+        //     localStorage.setItem("eth", JSON.stringify(priceChangeToNumber));
+        //     let grabPrice = Number(localStorage.getItem("eth"))
+        //     setPriceEth(priceChangeToNumber)
+        //     setDisplay(grabPrice)
+        //     if(localStorage.getItem("eth") === null || "" || [] ){
+        //         console.log("yes it is ")
+        //     }
+            
+        // }
+        
     }
 
 
     useEffect(() => {
-        settingPrice2();
+      
+        const initialInterval = setInterval(()=>{
+            settingPrice()
+        }, 60000)
+        return ()=> clearInterval(initialInterval)
 
         // const initialInterval = setInterval(() => {
         //     console.log("wfjpwjjwopifpojwf")
@@ -100,8 +137,7 @@ const Redirect_Web3 = () => {
 
     return (
         <section className={`${stylesWeb3.wrapper_web3} relative flex flex-col`}>
-            {console.log(showPrice)}
-            {console.log(ethPrice)}
+           
             <Navbar />
 
 
