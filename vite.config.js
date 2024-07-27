@@ -7,6 +7,9 @@ export default defineConfig({
   plugins: [react()],
   // base: "/Art-Gallery",
   base: "https://mahan-dev.github.io/Art-Gallery",
+
+
+  
   // server: {
   //   fs: {
   //     strict: false,

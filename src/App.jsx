@@ -49,6 +49,7 @@ const App = () => {
                 <Route path="/picGrid" element={<PicGrid />} />
                 <Route path="/" element={<WrapperNavImageBack />} />
                 <Route path="*" element={<ComponentNotFound />} />
+                
               </Routes>
             </Redirect_Store_Context>
           </Redirect_Store_CartContext>
