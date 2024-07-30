@@ -8,6 +8,8 @@ export default defineConfig({
   // base: "/Art-Gallery",
   base: "https://mahan-dev.github.io/Art-Gallery",
 
+
+  
   // server: {
   //   fs: {
   //     strict: false,

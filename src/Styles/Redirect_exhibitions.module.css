@@ -151,7 +151,8 @@
 .author_wrapper_content{
     cursor: pointer;
     font-size: 1.2rem;
-
+    border-bottom: 1px solid #d9d3d3;
+    padding: 1rem 0;
 }
 
 .wrapper_Content_Images{
