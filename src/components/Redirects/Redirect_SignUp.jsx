@@ -77,7 +77,7 @@ const Redirect_SignUp = () => {
                     <div className='mt-6'>
                         <div className='flex items-center rounded-md bg-white gap-2 px-2 py-2'>
                             <img src={PhoneIcon} alt="" width={20} />
-                            <input placeholder='Phone number' className={`${Styles.inputForm} outline-none text-black w-full `} type="email" />
+                            <input placeholder='Phone number' className={`${Styles.inputForm} outline-none text-black w-full `} pattern='[0-9]*' type="number" />
 
                         </div>
                     </div>

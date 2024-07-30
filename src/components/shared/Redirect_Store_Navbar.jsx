@@ -28,6 +28,8 @@ import { Redirect_Store_Context_ } from '../../context/Redirect_Store_Context';
 
 import Style from '../../Styles/Redirect_Store_Navbar.module.css';
 
+import searchIcon from '../../assets/search-icon/magnifying-glass.svg';
+
 export const searchContextProvider = createContext();
 const Redirect_Store_Navbar = ({ children }) => {
     const { setSearchValue } = useContext(Redirect_Store_Context_);
@@ -40,7 +42,7 @@ const Redirect_Store_Navbar = ({ children }) => {
     const [itemsCounter, setItemsCounter] = useState();
     const [showSearch, setShowSearch] = useState(false);
     const [clickTracker, setClickTracker] = useState(false);
-    const [sTracker, setStracker ] = useState(false);
+    const [sTracker, setStracker] = useState(false);
     const [search, setSearch] = useState("");
 
     const localCounter = parseInt(localStorage.getItem('itemsCounter'));
@@ -50,75 +52,75 @@ const Redirect_Store_Navbar = ({ children }) => {
     const searchBox = useRef();
     const searchContainer = useRef();
     // useEffect(() => {
-        //     // Update items counter state whenever state.itemsCounter changes
-        //     setItemsCounter(state.itemsCounter);
-        // }, [state.itemsCounter]);
-        
-        const activeSearchBox = () => {
-            setShowSearch(true)
-            console.log("is true")
+    //     // Update items counter state whenever state.itemsCounter changes
+    //     setItemsCounter(state.itemsCounter);
+    // }, [state.itemsCounter]);
+
+    // const activeSearchBox = () => {
+    //     setShowSearch(true)
+    //     console.log("is true")
+    // }
+
+    // const deactiveSearchBox = ()=>{
+    //     if (clickTracker){
+    //         return true
+    //     } 
+
+    //     setShowSearch(false)
+
+    // }
+
+    const clickSearchBox = (event) => {
+        setClickTracker(true)
+        setStracker(false);
+        if (clickTracker && searchBox.current.contains(event.target)) {
+            console.log("Trrrr")
+            return true
         }
-        
-        const deactiveSearchBox = ()=>{
-            if (clickTracker){
-                return true
-            } 
-            
+        setShowSearch(true);
+
+    }
+
+    const searchHandler = (event) => {
+        setSearch(event.target.value);
+        setSearchValue(event.target.value);
+
+    }
+
+
+    const clickSearchInput = (event) => {
+        setClickTracker(true);
+        setStracker(true);
+        if (searchBox.current.contains(event.target)) {
+            return true;
+        }
+
+    }
+
+    const outOfSearchBox = (event) => {
+        console.log(event.target)
+        if (!searchContainer.current.contains(event.target)) {
             setShowSearch(false)
-            
+            setClickTracker(false)
+            console.log("falseessss")
         }
-        
-        const clickSearchBox = (event)=>{
-            setClickTracker(true)
-            setStracker(false);
-            if(clickTracker && searchBox.current.contains(event.target)){
-                console.log("Trrrr")
-                return true
-            }
-            // setShowSearch(true);
-            
-        }
-        
-        const searchHandler = (event) => {
-            setSearch(event.target.value);
-            setSearchValue(event.target.value);
-            
-        }
+        setStracker(false);
+    }
 
+    useEffect(() => {
 
-        const clickSearchInput =(event)=>{
-            setClickTracker(true);
-            setStracker(true);
-            if(searchBox.current.contains(event.target)){
-                return true;
-            } 
+        window.addEventListener("click", outOfSearchBox);
+        // Update local storage whenever the items counter changes
+        localStorage.setItem('itemsCounter', state.itemsCounter.toString());
+        setItemsCounter(state.itemsCounter);
+        return () => {
+            window.removeEventListener("click", outOfSearchBox);
 
         }
+    }, [state.itemsCounter, clickTracker, sTracker]);
 
-        const outOfSearchBox = (event)=>{
-            console.log(event.target)
-            if(!searchContainer.current.contains(event.target)){
-                setShowSearch(false)
-                setClickTracker(false)
-                console.log("falseessss")
-            }
-             setStracker(false);
-        }
-
-        useEffect(() => {
-            
-            window.addEventListener("click", outOfSearchBox);
-            // Update local storage whenever the items counter changes
-            localStorage.setItem('itemsCounter', state.itemsCounter.toString());
-            setItemsCounter(state.itemsCounter);
-            return()=>{
-                window.removeEventListener("click", outOfSearchBox);
-
-            }
-        }, [state.itemsCounter, clickTracker, sTracker]);
-        
-        return (
-            <>
+    return (
+        <>
             {/* { console.log(state.itemsCounter)} */}
 
             <header className={`${Style.header}`} >
@@ -132,33 +134,43 @@ const Redirect_Store_Navbar = ({ children }) => {
 
                 {/* <section className='flex'> */}
 
-                <section className={`${Style.header_search_wrapper} mb-2`} ref={searchContainer}>
+                <section className='ml-auto flex'>
+                    <section className={`${Style.header_search_wrapper} `} ref={searchContainer}>
 
-                    <div className="mx-2 relative" 
-                    onMouseOver={activeSearchBox} 
-                    onMouseLeave={deactiveSearchBox} 
-                    onClick={clickSearchBox}
-                    ref={searchBox}
-                    >search</div>
 
-                    {showSearch && (
 
-                        <input type="text"
-                            className='wrapper_search_box top-[100%] right-0 outline-none w-[200px] rad absolute '
-                            onChange={searchHandler}
-                            onClick={clickSearchInput}
-                        />
-                    )
+                        <div className="mx-2 relative cursor-pointer"
+                            style={{ display: showSearch ? "none" : 'block' }}
+                            // onMouseOver={activeSearchBox} 
+                            // onMouseLeave={deactiveSearchBox} 
+                            onClick={clickSearchBox}
+                            ref={searchBox}
 
-                    }
+                        > <img src={searchIcon} alt="searchIcon" width={20} /></div>
+
+
+                        {showSearch && (
+
+                            <input type="text"
+                                className='wrapper_search_box inline-block outline-none w-[200px] rounded-md '
+                                onChange={searchHandler}
+                                onClick={clickSearchInput}
+                            />
+                        )
+
+                        }
+                    </section>
+
+                    <div className="mx-2 relative">
+                        <Link to="/Cart">
+                            <img style={{ cursor: "pointer" }} src={cartIcon} width={25} alt="" />
+                        </Link>
+                        <span className="absolute top-[15px]">{itemsCounter}</span>
+                    </div>
+
                 </section>
 
-                <div className="mx-2 relative">
-                    <Link to="/Cart">
-                        <img style={{ cursor: "pointer" }} src={cartIcon} width={25} alt="" />
-                    </Link>
-                    <span className="absolute top-[15px]">{itemsCounter}</span>
-                </div>
+
                 {/* </section> */}
 
             </header >
@@ -167,5 +179,5 @@ const Redirect_Store_Navbar = ({ children }) => {
         </>
     );
 };
-
+// npm run dev
 export default Redirect_Store_Navbar;

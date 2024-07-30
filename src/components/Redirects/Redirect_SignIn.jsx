@@ -15,7 +15,7 @@ const Redirect_SignIn = () => {
     return (
         <section className=' h-screen flex items-center justify-center bg-slate-200 '>
             <section className={`${Styles.wrapper_SignForm} rounded-lg py-12 text-white`}>
-                <p className='text-white text-2xl text-center'>Sign Up</p>
+                <p className='text-white text-2xl text-center'>Sign In</p>
                 <div className='flex flex-col mt-5 items-center relative'>
 
                     

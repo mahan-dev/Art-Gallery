@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 // import arrow from "../fontAwesome/FontAwesome.Pro.6.2.1/svgs/regular/magnifying-glass-arrow-right.svg";
 
 // Import Start Image,Logo, Svg
-import searchIcon from "../assets/seach-icon/magnifying-glass.svg";
+import searchIcon from "../assets/search-icon/magnifying-glass.svg";
 import MenuBar from "../assets/menu/bars.svg";
 import Logo from "../assets/icon/40626.jpg";
 // Import END Image,Logo, Svg
@@ -205,8 +205,8 @@ const Navbar = () => {
                     </ul>
 
                 </section>
-                <section id={NavStyles.search_signup} className='elvin' >
-                    <section onClick={positionHandler} id='menu_nav' className="show_hide"> Menu </section>
+                <section id={NavStyles.search_signup} >
+                    <section onClick={positionHandler} className="search_signup_menu"> Menu </section>
 
                     
 

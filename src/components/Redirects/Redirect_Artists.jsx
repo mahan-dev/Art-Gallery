@@ -376,8 +376,9 @@ const RedirectArtists = () => {
                 <aside className={`Redirect_Artists_Aside ${scrollDown ? "fade-in" : ""}`}>
                     {/* fadeIn  fadeOut */}
 
-                    <section className='flex  z-50'>
-                        <a href='/' id='listView' onClick={handleListView} className={`${visibleListView ? "ListViewLists" : ""} `}>List View </a>
+                    <section className='flex gap-4  z-50'>
+                        <a href='/' id='listView' onClick={handleListView} >List View </a>
+                        {/* className={`${visibleListView ? "ListViewLists" : ""} */}
                         <a href='/' id='GridView' onClick={handleGridView} className={visibleGrid ? "GridView" : ""}>Grid View</a>
                     </section>
                     {/* <Link to='wrapper_Exhibitions' smooth={true} duration={500}>

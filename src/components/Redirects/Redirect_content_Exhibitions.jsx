@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styleExhibitions from "../../Styles/Redirect_exhibitions.module.css";
+import Skeleton from 'react-loading-skeleton';
 import { useEffect } from 'react';
 
 const Redirect_content_Exhibitions = ({ data }) => {
@@ -19,7 +20,11 @@ const Redirect_content_Exhibitions = ({ data }) => {
 
             <section className={styleExhibitions.wrapper_content_exhibitions}>
 
-                <img src={image} alt="" width={""} height='' />
+                
+            
+                   <img src={image} alt="" width={""} height='' />  
+
+              
                 <section className={`${styleExhibitions.image_content}`}>
 
                     <p> {data.date_start} </p>
@@ -29,9 +34,10 @@ const Redirect_content_Exhibitions = ({ data }) => {
                         During the 60th Venice Biennale, Unit presents In Praise of Black Errantry, a group exhibition that celebrates the radical Black imagination. Curated by Indie A. Choudhury (The Courtauld Institute of Art), the exhibition brings together works by 19 modern and contemporary Afro-diasporic artists.
                     </p>
 
-                    <button className={styleExhibitions.button_explore}>
+                    {image ? (<button className={styleExhibitions.button_explore}>
                         Explore now
-                    </button>
+                    </button>) : <Skeleton width={100} height={100} /> }
+                    
 
                 </section>
             </section>

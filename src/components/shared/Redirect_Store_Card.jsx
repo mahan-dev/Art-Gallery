@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 // import { CartContexts } from '../../context/Redirect_Store_CartContext';
+import TrashIcon from "../../assets/images/redirec_store_Image/trash.svg";
 import { CartContextProvider } from '../../context/Redirect_Store_CartContext';
 const Redirect_Store_Card = ({ data }) => {
     console.log(data);
@@ -24,26 +25,29 @@ const Redirect_Store_Card = ({ data }) => {
     },[])
 
     return (
-        <div className='bg-orange-400 h-fit'>
-            {console.log(price)}
-            {console.log(quantity)}
+        <div className=' h-fit py-4'>
+            {/* {console.log(price)}
+            {console.log(quantity)} */}
+            <section className='bg-[#f0ffff] p-[1.2rem] w-fit rounded-lg'> 
+                
             <span> {`title is :${artist_title}`} </span>
-            <img src={image} alt="" width={200} />
-            {/* <span>{`title :${technique}`}</span>HH
-             <img src={baseimageurl} alt="" width={200} />
-             <p>{quantity}</p> */}
-            {/*
-            <section>{data.elementId}</section> */}
+            <img src={image} className='rounded-md' alt="" style={{width: "300px", height: '300px', objectFit: "cover"}} />
+            </section>
+           
+            <section className='flex mt-4 gap-4'>
             {quantity > 1 ?
-                <button onClick={handleDecrease}>-</button> :
-                <button onClick={handleRemove}>Remove</button>
+                <button className='bg-white px-2 rounded-md cursor-pointer  w-[40px]' onClick={handleDecrease}>-</button> :
+                <button className='bg-white px-2 rounded-md cursor-pointer  w-[40px]' onClick={handleRemove}><img style={{margin: "0 auto"}} src={TrashIcon} width={17} alt="" /></button>
 
             }
-            <button onClick={handleIncrease}>+</button>
+            <div> {quantity }</div>
+            <button className='bg-white px-2 rounded-md cursor-pointer  w-[40px]' onClick={handleIncrease}>+</button>
             
-            <div>{`price : ${price}`}</div>
-            <div>{state.selectedItems.price}</div>
-            <div>{quantity}</div>
+            <div>{`price : ${price * quantity}`}</div>
+            {console.log(state)}
+            </section>
+            {/* {console.log(state.selectedItems.price)} */}
+            {/* <div>{state.selectedItems.price}</div> */}
 
 
             {/* <button onClick={()=> dispatch({})} className='border '>add</button>

@@ -109,7 +109,8 @@ const Redirect_Web3 = () => {
 
 
     useEffect(() => {
-      
+        
+        settingPrice()
         const initialInterval = setInterval(()=>{
             settingPrice()
         }, 60000)

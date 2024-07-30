@@ -87,8 +87,7 @@ const Redirect_Store = () => {
         setIsSorted(true)
     };
 
-
-    const filterProducts = () => {
+const filterProducts = () => {
         let filterProductsApi = products;
 
         if (priceFilter.price_100_200) {
@@ -100,20 +99,24 @@ const Redirect_Store = () => {
         } else if (priceFilter.price_400_500) {
             filterProductsApi = filterProductsApi.filter(item => item.price >= 400 && item.price <= 500)
         }
+
+  
+
         let trimming = searchValue.toLowerCase().trim();
         if (searchValue) {
-            return filterProductsApi.filter(item => item.artist_title?.toLowerCase().includes(trimming))
-        }
+            filterProductsApi = filterProductsApi.filter(item => item.artist_title?.toLowerCase().includes(trimming))
+        } 
 
+        let trim2 = search.toLowerCase().trim();
+        if (search) {
+            filterProductsApi = filterProductsApi.filter (item => item.artist_title?.toLowerCase().includes(trim2));
+        }
 
         if (isSorted) {
             return sortDate.filter(item => filterProductsApi.includes(item));
-        }
+        }   
 
-        return filterProductsApi
-
-
-
+        return filterProductsApi;
     }
 
     const filterMenu = () => {
@@ -153,13 +156,18 @@ const Redirect_Store = () => {
             <Redirect_Store_Navbar />
 
             <section className=" flex justify-between gap-[50px] px-3">
-                <section className="w-full  mt-4 flex justify-center">
+                <section className="w-full  mt-4 flex flex-col justify-center">
 
+                                <section className="mx-8">
+                                    <a onClick={sortByOldest} style={{ cursor: "pointer" }} className="mr-4">oldest</a>
+                                    <a onClick={sortByNewest} style={{ cursor: "pointer" }}>newest</a>
+                                </section>
 
                     {productToRender.length === 0 ?
                     
-                    <div className="mt-12">
+                    <div className="mt-12 flex justify-center">
                         <img src={Loadin_svg} />
+                        {/* <Skeleton width={400} height={100 } count={4}/> */}
 
                     </div>
                         :
@@ -168,10 +176,6 @@ const Redirect_Store = () => {
                             <div>no art works found </div> :
 
                             <div id="redirect_store_product_wrapper" className="justify-center transition-all">
-                                <section className="mx-8">
-                                    <a onClick={sortByOldest} style={{ cursor: "pointer" }} className="mr-4">oldest</a>
-                                    <a onClick={sortByNewest} style={{ cursor: "pointer" }}>newest</a>
-                                </section>
                                 <div id="redirect_store">
 
                                     {productToRender.map(item => <Redirect_Store_Product key={item.elementId} data={item} />)}
@@ -190,7 +194,7 @@ const Redirect_Store = () => {
                                 onChange={searchProduct}
                                 className="flex-grow outline-none w-full"
                             />
-                            <img src={searchIcon} alt="Search" width={15} className="ml-2  absolute right-[5%]" />
+                            <img src={searchIcon} alt="Search" width={20} className="ml-2  absolute right-[5%]" />
                         </div>
                     </section>
                     <section className={`${filterClicked ? Styles.priceInput_responsive : Styles.aside_wrapper_priceInput}`}>

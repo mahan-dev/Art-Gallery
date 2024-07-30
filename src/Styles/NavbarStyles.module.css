@@ -172,7 +172,7 @@
 
 
 .signup {
-    padding: 0.3rem;
+    padding: 0.2rem 0.3rem;
     cursor: pointer;
     background-color: var(--list-item-color);
 }
@@ -182,34 +182,13 @@
     text-decoration: none;
 }
 
-.menu_nav {
-    display: none;
-}
 
-
-@media screen and (max-width: 1080px) {
-
-    /* #navbar{
-        display: none;
-        font-size: 1.5rem;
-        line-height: 1.5;
-        /* pointer-events: none; 
-    } */
-    /* #navbar ul li:nth-child(2) a{
-        pointer-events: none;
-        cursor: pointer;
-        /* display: none; 
-        color: #f8e88b;
-    } */
-    /* .exception__a{
-        color: aqua;
-    } */
-    .menu_nav {
-        /* display: none; */
-        cursor: pointer;
-        margin-right: 1.5rem;
-        color: #000000;
+@media screen and (max-width: 576px) {
+    #search_signup {
+        gap: 1.2rem;
+        font-size: 1.1rem;
     }
+       
 }
 
 @media screen and (min-width: 1081px) {

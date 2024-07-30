@@ -14,7 +14,10 @@ const AuthorsNames = () => {
     
 
     const [pic, setPic] = useState(pic3);
-
+    // const [prevScrollY, setPrevScrollY] = useState(0);
+    const [scrollDirection, setScrollDirection] = useState('fade-left');
+    const [prevScrollY, setprevScrollY] = useState('fade-left');
+    // const prevScrollY = useRef(0); 
     const [hoveredElement, setHoveredElement] = useState(null);
 
 
@@ -40,8 +43,19 @@ const AuthorsNames = () => {
     //         }
     //     }
     // }
+    const aosHandler = ()=>{
+
+        let currentScroll = window.scrollY;
+        if(currentScroll > prevScrollY.current) {
+            setScrollDirection("fade-right")
+        } else {setScrollDirection("fade-left")}
+        // prevScrollY.current = currentScroll;
+        setprevScrollY(currentScroll)
+    }
+
 
     useEffect(() => {
+        aosHandler();
 
         AOS.refresh();
 
@@ -50,46 +64,20 @@ const AuthorsNames = () => {
             duration: 1000,
             once: false,
             mirror: true,
-            
+            anchorPlacement: 'fade-right',
             // offset: 85,
         })
 
+        window.addEventListener("scroll", aosHandler);
+        return ()=>{
+            window.removeEventListener("scroll",aosHandler);
+        }
 
-        // window.addEventListener("scroll", handleScrollAnimate);
-
-
-        // return () => {
-        //     window.removeEventListener("scroll", handleScrollAnimate);
-        // }
-
-        // window.addEventListener("scroll", handleSticky);
-        // return ()=>{
-        //     window.removeEventListener("scroll", handleSticky);
-        // }
-
-        // if(pic&&pic.image){
-
-        //     // setPic(require(`../../assets/images/${pic.image}`).default);
-
-
-        //     import(`../../assets/images/${handleHoverElement.image}`)
-
-        //     .then((module)=>{
-        //         setPic(module.default);
-        //     })
-        //     .catch((error)=>{
-        //         console.error(error);
-        //     })
-
-        // }
-
-    }, []);
+    }, [prevScrollY]);
 
     const handleHoverElement = (element) => {
-        // console.log("you hover the element", element);
 
         if (element && element.image) {
-
             setPic(element.image);
             setHoveredElement(element);
         }
@@ -104,25 +92,10 @@ const AuthorsNames = () => {
 
             <section className={styleExhibitions.wrapper_authors_names}>
                 <section className={styleExhibitions.leftSide}>
-                    {/* pictureData.map((data)=>{
-                    <section key={data.id} onMouseEnter={() => handleHoverElement(data)}>
-
-                        <section data-aos="fade-right" >
-                            <p>{data.data}</p>
-                            <h3>{data.name}</h3>
-                            <h4>{data.title}</h4>
-                        </section>
-
-                    </section>
-                }) */}
-
-
-
-                    {/* {Array.from={()=>handle}} */}
 
                     <div onMouseEnter={() => handleHoverElement({ image: pic3 })} className={`${styleExhibitions.author_wrapper_content} my-10`}>
                         {/* {pic && <img style={{display: pic ? "block" : "none", scrollBehavior:"smooth"}} src={pic} alt="titleImage" />} */}
-                        <section data-aos="fade-right">
+                        <section className={`${scrollDirection === 'fade-left' ? "fade-right" : "fade-left"}`} data-aos="fade-right">
                             <p>7 March - 6 April 2023</p>
                             <h3>TYLER HOBBS</h3>
                             <h4>Mechanical Hand</h4>

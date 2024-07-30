@@ -11,6 +11,13 @@
     background-color: dimgray;
 }
 
+
+/* track this one */
+/* .header_search_wrapper{
+    margin-left: auto;
+    position: relative;
+
+} */
 .header_search_wrapper{
     margin-left: auto;
     position: relative;
@@ -35,4 +42,10 @@
     }
 
 
+}
+
+@media screen and (min-width: 769px) {
+    .header_search_wrapper{
+        display: none;
+    }
 }

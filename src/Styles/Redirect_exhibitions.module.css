@@ -36,6 +36,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 0 5rem;
+    align-items: center;
     /* padding: 4rem 6rem; */
     /* padding: 4rem 6rem; */
 
