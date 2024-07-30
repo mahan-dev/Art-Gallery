@@ -244,7 +244,7 @@ const Redirect_Exhibitions = ({data}) => {
                             
                             
                             <section className={`${styleExhibitions.wrapperExhibitionTitleHeader} flex justify-between items-center`}>
-                                <p>Forthcoming</p>
+                                <p className='text-[1.4rem]'>Forthcoming</p>
                                 <button className={styleExhibitions.ascDscButton} onClick={iconEhibitionsHandler2} style={{ outline: "none" }} ref={buttonRef2}>
                                     <section className={`${styleExhibitions.wrapper_content}`}>
 
