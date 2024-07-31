@@ -292,17 +292,3 @@ const Redirect_Store_CartContext = ({ children }) => {
 };
 export default Redirect_Store_CartContext;
 export {sumItems};
-// const [state, dispatch] = useReducer(CartReducer, initialState);
-// // const contextValue= {state, dispatch};
-// useEffect(() => {
-//     // localStorage.setItem()
-//     localStorage.setItem('itemsCounter', state.itemsCounter.toString());
-// }, [state.itemsCounter]);
-// return (
-//     <div>
-//         <CartContextProvider.Provider value={{state, dispatch}}>
-//             {children}
-
-//         </CartContextProvider.Provider>
-//     </div>
-// );

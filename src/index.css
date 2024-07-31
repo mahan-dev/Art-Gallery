@@ -324,8 +324,6 @@
   font-size: clamp(2rem, 3vw, 3rem);
 }
 
-.secul_cls {}
-
 .showClose {
   position: absolute;
   z-index: 1;
