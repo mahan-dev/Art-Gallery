@@ -45,11 +45,11 @@
 }
 
 @media screen and (max-width: 400px) {
-    .header_search_wrapper{
-        .wrapper_search_box{
-            width: 150px;
-        }
+
+    .wrapper_search_box {
+        width: 150px;
     }
+
 }
 
 
