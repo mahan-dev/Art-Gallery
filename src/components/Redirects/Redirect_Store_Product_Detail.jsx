@@ -29,8 +29,8 @@ const Redirect_Store_Product_Detail = () => {
     }, [products]);
 
     return (
-        <section className='bg-[#D4D4D4] w-full h-fit'>
-            <section className={Styles.product_wrapper}>
+        <section className=''>
+            <section className={`${Styles.product_wrapper} bg-[#D4D4D4] w-full h-fit`}>
                 <section className={Styles.wrapper_product}>
                     <p> {loading ? <Skeleton width={100} /> : `artist: ${artist_title}`}</p>
 

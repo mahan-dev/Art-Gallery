@@ -36,14 +36,14 @@ const Swiper_slide = () => {
         <SwiperSlide>
           <section>
             <img src={image_1} alt="" />
-            <div className="">hi there</div>
+            <div className="">something as paragraph</div>
           </section>
         </SwiperSlide>
 
         <SwiperSlide>
           <section>
           <img src={image_1} alt="" />
-          <div>kjdsbv</div>
+          <div>something as paragraph</div>
 
           </section>
         </SwiperSlide>
@@ -51,7 +51,7 @@ const Swiper_slide = () => {
         <SwiperSlide>
           <section>
           <img src={image_2} alt="" />
-          <div>slkdjfkolsdhjfp</div> 
+          <div>something as paragraph</div> 
 
         </section>
         </SwiperSlide>
@@ -59,7 +59,7 @@ const Swiper_slide = () => {
         <SwiperSlide>
           <section className="h-[100%]">
           <img src={image_3} alt="" />
-          <div>s;dljfjpofwe</div>
+          <div>something as paragraph</div>
 
           </section>
         </SwiperSlide>

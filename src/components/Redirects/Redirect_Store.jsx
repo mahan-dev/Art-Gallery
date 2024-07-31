@@ -40,6 +40,7 @@ const Redirect_Store = () => {
     const [search, setSearch] = useState("");
     const [isSorted, setIsSorted] = useState(false);
     const [filterClicked, setFilterClicked] = useState(false);
+    const [messageNotFound, setMessageNotFound] = useState(false);
     const [closeIcon, setCloseIcon] = useState(false);
 
     const [priceFilter, setPriceFilter] = useState({
@@ -110,14 +111,16 @@ const filterProducts = () => {
         let trim2 = search.toLowerCase().trim();
         if (search) {
             filterProductsApi = filterProductsApi.filter (item => item.artist_title?.toLowerCase().includes(trim2));
-        }
-
+        } 
+        
         if (isSorted) {
             return sortDate.filter(item => filterProductsApi.includes(item));
         }   
-
+        
+        
         return filterProductsApi;
     }
+   
 
     const filterMenu = () => {
         setFilterClicked(true);
@@ -140,30 +143,44 @@ const filterProducts = () => {
     }
 
 
-
-
+    
+    
     useEffect(() => {
         getProduct();
-
+        
         setSortDate([...products])
     }, [products, search, filterClicked])
-
-    let productToRender = filterProducts();
+    
+    useEffect(() => {
+        const filtered = filterProducts();
+        // setFilteredProducts(filtered);
+        setMessageNotFound(filtered.length === 0);
+    }, [products, searchValue, search, priceFilter, isSorted]);
+    // useEffect(() => {
+        //     getProduct();
+        
+        //     setSortDate([...products])
+        // }, [products, search, filterClicked])
+        
+        let productToRender = filterProducts();
+    
 
     return (
         <section className="text-2xl">
-
+           
             <Redirect_Store_Navbar />
 
             <section className=" flex justify-between gap-[50px] px-3">
-                <section className="w-full  mt-4 flex flex-col justify-center">
+                <section className={`${loading ? "w-full  mt-4 flex flex-col justify-center" : "w-full  mt-4 flex flex-col " }`}>
+                {/*  */}
 
                                 <section className="mx-8">
                                     <a onClick={sortByOldest} style={{ cursor: "pointer" }} className="mr-4">oldest</a>
                                     <a onClick={sortByNewest} style={{ cursor: "pointer" }}>newest</a>
                                 </section>
 
-                    {productToRender.length === 0 ?
+                    {
+                        loading ?
                     
                     <div className="mt-12 flex justify-center">
                         <img src={Loadin_svg} />
@@ -173,7 +190,7 @@ const filterProducts = () => {
                         :
 
                         productToRender.length === 0 ?
-                            <div>no art works found </div> :
+                            <div className="text-center mt-8">no art works found </div> :
 
                             <div id="redirect_store_product_wrapper" className="justify-center transition-all">
                                 <div id="redirect_store">

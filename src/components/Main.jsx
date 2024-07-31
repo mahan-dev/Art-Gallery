@@ -22,14 +22,14 @@ const Main = () => {
 
             <section className={Styles_main.MainContentWrapper}>
                 <section className={Styles_main.intro_main}>
-                    <span>VOICES</span>
+                    <span className={Styles_main.intro_main_content}>VOICES</span>
                 </section>
                 <MainStructure VOICES={true} />
             </section>
 
             <section className={Styles_main.MainContentWrapper}>
                 <section className={Styles_main.intro_main}>
-                    <span>NEWS</span>
+                    <span className={Styles_main.intro_main_content}>NEWS</span>
                 </section>
                 <MainStructure NEWS={true} />
             </section>
@@ -37,7 +37,7 @@ const Main = () => {
             <section className={Styles_main.MainContentWrapper}>
 
                 <section className={Styles_main.intro_main}>
-                    <span>EDITIONS</span>
+                    <span className={Styles_main.intro_main_content}>EDITIONS</span>
                 </section>
                 <MainStructure EDITIONS={true} />
             </section>
@@ -46,7 +46,7 @@ const Main = () => {
             <section className={Styles_main.MainContentWrapper}>
 
                 <section className={Styles_main.intro_main}>
-                    <span>NFTS</span>
+                    <span className={Styles_main.intro_main_content}>NFTS</span>
                 </section>
                 <MainStructure NFTs={true} />
             </section>

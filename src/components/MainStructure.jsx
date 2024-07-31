@@ -144,11 +144,9 @@ const MainStructure = ({ EXHIBITIONS, VOICES, NEWS, EDITIONS, NFTs }) => {
                 <section id={Styles_main.main_grid}>
                     {/* Left Side */}
                     <div id={Styles_main.main__grid__left}>
-                        <section>
+                        <section className=''>
                             <img src={image_1} alt="IMAGE" width={"100%"} style={{ display: "block" }} />
-                            <p> this is our destiny </p>
-                            <section> this is the grandpa story</section>
-                            <section>this is test`</section>
+                            <p className='mt-2 text-[1.1rem]'> this is our destiny </p>
                         </section>
                         
 

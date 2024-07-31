@@ -95,7 +95,7 @@ const AuthorsNames = () => {
 
                     <div onMouseEnter={() => handleHoverElement({ image: pic3 })} className={`${styleExhibitions.author_wrapper_content} my-10`}>
                         {/* {pic && <img style={{display: pic ? "block" : "none", scrollBehavior:"smooth"}} src={pic} alt="titleImage" />} */}
-                        <section className={`${scrollDirection === 'fade-left' ? "fade-right" : "fade-left"}`} data-aos="fade-right">
+                        <section className={` ${styleExhibitions.content_aos} ${scrollDirection === 'fade-left' ? "fade-right" : "fade-left"}`} data-aos="fade-right">
                             <p>7 March - 6 April 2023</p>
                             <h3>TYLER HOBBS</h3>
                             <h4>Mechanical Hand</h4>
@@ -105,7 +105,7 @@ const AuthorsNames = () => {
 
 
                     <div onMouseEnter={() => handleHoverElement({ image: pic1 })} className={`${styleExhibitions.author_wrapper_content} my-10`}>
-                        <section data-aos="fade-right">
+                        <section  className={`${styleExhibitions.content_aos}`} data-aos="fade-right">
                             <p>7 March - 6 April 2023</p>
                             <h3>TYLER HOBBS</h3>
                             <h4>Mechanical Hand</h4>
@@ -113,7 +113,7 @@ const AuthorsNames = () => {
                     </div>
 
                     <div onMouseEnter={() => handleHoverElement({ image: pic2 })} className={`${styleExhibitions.author_wrapper_content} my-10`}>
-                        <section data-aos="fade-right">
+                        <section className={`${styleExhibitions.content_aos}`}  data-aos="fade-right">
                             <p>7 March - 6 April 2023</p>
                             <h3>TYLER HOBBS</h3>
                             <h4>Mechanical Hand</h4>

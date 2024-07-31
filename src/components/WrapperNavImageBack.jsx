@@ -1,5 +1,3 @@
-// 337
-
 import React from 'react';
 import Navbar from './Navbar';
 import Slider_image_Back from './Slider_image_Back';

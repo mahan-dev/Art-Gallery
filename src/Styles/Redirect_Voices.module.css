@@ -1,5 +1,3 @@
-
-
 .image_changing {
     transition: transform 0.5s ease;
     -webkit-transition: transform 0.5s ease;
@@ -29,7 +27,7 @@
 }
 
 .featured_title {
-    font-size: clamp(1.5rem , 4vw , 4rem);
+    font-size: clamp(1.5rem, 4vw, 4rem);
 }
 
 /* THIS IS THE LEFT PART  */
@@ -65,7 +63,7 @@
 }
 
 .right_image_container {
-    font-size: clamp(1.2rem , 2vw, 1.4rem);
+    font-size: clamp(1.2rem, 2vw, 1.4rem);
     width: 100%;
     height: auto;
 
@@ -99,7 +97,7 @@
 
 }
 
-.pic_content_right > section {
+.pic_content_right>section {
     font-size: 1.2rem;
 }
 
@@ -117,14 +115,15 @@
 }
 
 
-.lef_content_imageSticky{
+.lef_content_imageSticky {
     position: sticky;
-    top: 80px; 
+    top: 80px;
 }
-.left_image_container > img{
+
+.left_image_container>img {
     width: 100%;
     object-fit: cover;
-    height: 500px ;
+    height: 500px;
 }
 
 
@@ -132,27 +131,33 @@
 
     width: 100%;
     object-fit: cover;
-    height: 500px ;
+    height: 500px;
 }
 
+
+.h2_title {
+    font-size: clamp(2rem, 10vw, 15rem);
+}
 
 /* This is for media Queries */
 
 @media screen and (max-width: 1222px) {
 
-    .wrapper_Featured_content, .essays_pic_content{
-        
-    
+    .wrapper_Featured_content,
+    .essays_pic_content {
+
+
         grid-template-columns: auto;
     }
 
-    .essays_pic_content{
+    .essays_pic_content {
         /* pad */
     }
-    .left_image_container{
+
+    .left_image_container {
         margin-bottom: 2rem;
     }
-    
+
 }
 
 @media screen and (max-width: 1200px) {
@@ -164,34 +169,34 @@
     }
 }
 
-@media screen and (max-width: 992px) {
-    
-}
+@media screen and (max-width: 992px) {}
 
-@media screen and (max-width : 768px)  {
+@media screen and (max-width : 768px) {
     .h2_title {
         margin: 0 auto;
     }
 }
-@media screen and (min-width : 769px)  {
+
+@media screen and (min-width : 769px) {
     .h2_title {
         margin-left: 10rem;
     }
 }
 
-@media screen and (max-width : 548px)  {
-    .right, .pic_content_right{
+@media screen and (max-width : 548px) {
+
+    .right,
+    .pic_content_right {
         grid-template-columns: auto;
     }
-    
+
     /* .imageStickyImg{
         min-width: none;
         max-width: none;
     } */
 }
-@media screen and (min-width: 1200px) {
-  
-} 
+
+@media screen and (min-width: 1200px) {}
 
 
 /* ESSAYS Section */

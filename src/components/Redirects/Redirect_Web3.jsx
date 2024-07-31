@@ -220,7 +220,7 @@ const Redirect_Web3 = () => {
                                             desire to pause and reflect in order to fully embrace our present.
                                         </p>
 
-                                        <button className={`${stylesWeb3.right_button}`}>Explore Now</button>
+                                        <button className= "bg-black text-white rounded-md p-2">Explore Now</button>
                                     </section>
 
                                 </section>

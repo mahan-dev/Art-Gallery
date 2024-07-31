@@ -82,7 +82,7 @@ const Redirect_Voices = () => {
             }}>
 
 
-                <h2 style={{  fontSize: windowWidth < 1440 ? `${newFont}rem ` : `${newFont}rem ` }} className={`${styleVoices.h2_title} flex items-center  text-[18rem] text-cyan-50 `}>Voices</h2>
+                <h2 className={`${styleVoices.h2_title} flex items-center  text-cyan-50 `}>Voices</h2>
             </section>
                 <Navbar />
             <section id="fixer" className={`${styleVoices.wrapper_voices_contents}   px-8 pb-[3rem] relative z-50 bg-white flex-col justify-center mb-[100vh] w-full `}>

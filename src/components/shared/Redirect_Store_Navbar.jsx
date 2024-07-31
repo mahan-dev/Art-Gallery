@@ -134,7 +134,7 @@ const Redirect_Store_Navbar = ({ children }) => {
 
                 {/* <section className='flex'> */}
 
-                <section className='ml-auto flex'>
+               
                     <section className={`${Style.header_search_wrapper} `} ref={searchContainer}>
 
 
@@ -152,7 +152,7 @@ const Redirect_Store_Navbar = ({ children }) => {
                         {showSearch && (
 
                             <input type="text"
-                                className='wrapper_search_box inline-block outline-none w-[200px] rounded-md '
+                                className= {`${Style.wrapper_search_box} inline-block outline-none w-[200px] rounded-md`}
                                 onChange={searchHandler}
                                 onClick={clickSearchInput}
                             />
@@ -168,7 +168,7 @@ const Redirect_Store_Navbar = ({ children }) => {
                         <span className="absolute top-[15px]">{itemsCounter}</span>
                     </div>
 
-                </section>
+          
 
 
                 {/* </section> */}
